@@ -1,0 +1,7 @@
+*.min.*
+
+*.css
+*.html
+*.js
+
+readme.md
