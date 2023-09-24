@@ -1,0 +1,36 @@
+@import "../vars.scss"; 
+
+.room-tile{
+    height: 15rem;
+    width: 15rem;
+    border-radius: 0.7rem;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 0 10px rgb(120, 120, 120) ;
+}
+.tile-header{
+    padding: 0;
+    display: flex;
+    gap: 2rem;
+    background-color: rgb(224, 224, 193);
+
+    & h3{
+        padding-left: 1rem;
+        font-family: $primary-font;
+    }
+
+    & p{
+        background-color: rgb(240, 17, 17);
+        border-radius: 1.5rem;
+        color: white;
+        padding: 0.4rem;
+        margin-left: auto;
+        margin-right: 1rem;
+    }
+}
+.room-name{
+    background-color: rgb(28, 28, 200);
+    color: white;
+    padding: 0.1rem 0.3rem 0.1rem 0.3rem;
+}
+
