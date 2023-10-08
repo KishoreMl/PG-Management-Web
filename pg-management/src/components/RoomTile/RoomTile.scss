@@ -1,36 +1,73 @@
 @import "../vars.scss"; 
 
-.room-tile{
-    height: 15rem;
-    width: 15rem;
+.room-tile{ 
+    position: relative;
+    width:fit-content;
     border-radius: 0.7rem;
-    overflow: hidden;
+    // overflow: hidden;
     background-color: white;
-    box-shadow: 0 0 10px rgb(120, 120, 120) ;
+    box-shadow: 0 0 7px rgb(120, 120, 120);
+    cursor: pointer;
 }
 .tile-header{
-    padding: 0;
+    padding: 0.7rem 0 0.7rem 1.5rem;
     display: flex;
-    gap: 2rem;
-    background-color: rgb(224, 224, 193);
-
-    & h3{
-        padding-left: 1rem;
-        font-family: $primary-font;
-    }
+    align-items: center;
+    gap:1rem;
+    background-color: $grey;
 
     & p{
-        background-color: rgb(240, 17, 17);
-        border-radius: 1.5rem;
-        color: white;
-        padding: 0.4rem;
-        margin-left: auto;
-        margin-right: 1rem;
+        margin: 0;
+        font-family: $primary-font;
+        font-size: 1rem;
+        font-weight: 600;
     }
+
+    & .badge{
+        background-color: rgb(240, 17, 17);
+        border-radius: 5px;
+        color: white;
+        padding: 0.35rem;
+        font-size: 0.70rem;
+    }
+    & svg{
+        font-size: 4rem;
+        padding: 0.5rem;
+        border-radius:5px;
+        &:hover{
+            background-color: #b9bab0;     
+        }
+    }
+
+    & .tile-header-left{
+        margin-left: auto;
+        margin-right: 0.7rem;
+    }
+
+}
+.tile-container{
+    padding: 0.4rem;
 }
 .room-name{
     background-color: rgb(28, 28, 200);
     color: white;
     padding: 0.1rem 0.3rem 0.1rem 0.3rem;
 }
+.dropdown-list{
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 0 10px rgb(117, 116, 116);
+    width: max-content;
+    visibility: hidden;
+}
+.show{
+    visibility: visible;
+}
+.list-option{
+    padding: 0.5rem 1rem 0.5rem 1rem;   
+    &:hover{
+        background-color: $grey;
+    }
+}
+
 
