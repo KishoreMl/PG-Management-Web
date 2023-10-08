@@ -1,6 +1,8 @@
 import React from "react";
 import { RoomTile } from "../RoomTile/RoomTile";
 import { Header } from "../Header/Header";
+import { RightPanel } from "../RightPanel/RightPanel";
+
 import './RoomsPage.scss';
 
 export class RoomsPage extends React.Component{
@@ -32,14 +34,16 @@ export class RoomsPage extends React.Component{
                 },]
             }
         return (
-           <div>
+           <div className="container">
                 <Header />
+                <RightPanel />
                 <div className="room-container">
                     <RoomTile room={room} />
                     <RoomTile room={room} />
                     <RoomTile room={room}/>
-                    <RoomTile room={room}/>
+                    <RoomTile room={room} />  
                 </div>
+                
             </div>
         )
     }

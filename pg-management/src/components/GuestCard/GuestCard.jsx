@@ -1,6 +1,6 @@
 import React from 'react';
 import './GuestCard.scss';
-import user from '../../static/user aacount.avif';
+import user from '../../static/guest.png';
 
 export class GuestCard extends React.Component{
     constructor(props) {
