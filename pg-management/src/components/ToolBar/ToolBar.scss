@@ -1,0 +1,36 @@
+.tool-bar{
+    background-color: rgb(211, 210, 210);
+    height:max-content;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    
+}
+.tool-bar-right{
+    margin-left: auto;
+    margin-right: 4rem;
+    display: flex;
+    gap:1rem;
+    align-items: center;
+
+    & button{
+        border: none;
+        border-radius: 5px;
+        background-color: rgb(122, 85, 232);
+        color: white;
+        cursor: pointer;
+        padding: 0.7rem;
+
+        &:hover{
+            background-color: rgb(78, 46, 176);
+        }
+    }
+    & svg {
+        padding: 0.5rem;
+        border-radius: 5px;
+        &:hover {
+                cursor: pointer;
+                background-color: rgb(161, 158, 158);
+            }
+    }
+}

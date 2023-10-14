@@ -2,7 +2,7 @@ import React from "react";
 import { RoomTile } from "../RoomTile/RoomTile";
 import { Header } from "../Header/Header";
 import { RightPanel } from "../RightPanel/RightPanel";
-
+import { ToolBar } from "../ToolBar/ToolBar";
 import './RoomsPage.scss';
 
 export class RoomsPage extends React.Component{
@@ -36,6 +36,7 @@ export class RoomsPage extends React.Component{
         return (
            <div className="container">
                 <Header />
+                <ToolBar />
                 <RightPanel />
                 <div className="room-container">
                     <RoomTile room={room} />

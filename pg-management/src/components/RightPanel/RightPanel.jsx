@@ -3,8 +3,8 @@ import './RightPanel.scss';
 import guest from '../../static/guest.png';
 
 export class RightPanel extends React.Component{
-    render() {
-        const guestPanel = (<div className="right-panel">
+
+     guestPanel = (<div className="right-panel">
                                 <div className="panel-img">
                                     <img src={guest}></img>
                                 </div>
@@ -18,9 +18,11 @@ export class RightPanel extends React.Component{
                                 <div className=""><p>Contact: 1234567890</p></div>
                                 <div className=""><p>Email: abc@gmail.com</p></div>
                             </div>);
+    render() {
+        
         return (
             <div className="">
-
+               {this.guestPanel}
             </div>
         )
     }

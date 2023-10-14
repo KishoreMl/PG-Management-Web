@@ -8,6 +8,10 @@
     gap: 1rem;
     margin: 0.4rem 0 0.4rem 0;
     width:100%;
+    &:hover{
+        
+
+    }
 }
 
 .guest-img{
@@ -23,6 +27,7 @@
         width:100%;
     }
 }
+
 .guest-options{
     display: flex;
     gap: 0.6rem;
@@ -38,4 +43,5 @@
 
 .not-paid {
     background-color: $red;
+    color: white;
 }
