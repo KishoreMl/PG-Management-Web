@@ -3,6 +3,7 @@ import { RoomTile } from "../RoomTile/RoomTile";
 import { Header } from "../Header/Header";
 import { RightPanel } from "../RightPanel/RightPanel";
 import { ToolBar } from "../ToolBar/ToolBar";
+import { RoomsTable } from "../RoomsTable/RoomsTable";
 import './RoomsPage.scss';
 
 export class RoomsPage extends React.Component{
@@ -37,7 +38,7 @@ export class RoomsPage extends React.Component{
            <div className="container">
                 <Header />
                 <ToolBar />
-                <RightPanel />
+                
                 <div className="room-container">
                     <RoomTile room={room} />
                     <RoomTile room={room} />

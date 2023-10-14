@@ -1,0 +1,35 @@
+.avatar{
+    position: relative;
+    margin: 0;
+    background-color: red;
+    color: white;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    cursor: pointer;
+
+     .tooltip{
+        visibility: hidden;
+        background-color: #333;
+        width:max-content;
+        color: #fff;
+        text-align: center;
+        border-radius: 5px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        transform: translateX(-50%);
+
+        @at-root &:hover {
+            visibility: visible;
+        }
+    }
+
+    & p{
+        margin: 0;
+        padding: 0.3rem 0 0 0.4rem;
+        font-size: 0.8rem;
+    }
+}

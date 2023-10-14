@@ -1,0 +1,13 @@
+.table-container{
+    & th,td{
+        padding: 0.5rem 2rem 0.5rem 2rem;
+        background-color: rgb(183, 181, 181);
+    }
+    & td{
+        background-color: rgb(213, 211, 211);
+    }
+}
+.avatar-container{
+    display: flex;
+    gap: 0.4rem;
+}

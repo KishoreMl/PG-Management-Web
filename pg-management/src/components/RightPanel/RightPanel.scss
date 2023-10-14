@@ -3,11 +3,15 @@
 .right-panel{
     position: absolute;
     right:0;
-    height: 90vh;
+    height: 100%;
     width:18rem;
     z-index: 10;
     background-color: white;
     box-shadow: 0 0 10px rgb(156, 155, 155);
+
+    & p{
+        padding-left: 2rem;
+    }
 }
 .panel-img {
     height:9rem;
