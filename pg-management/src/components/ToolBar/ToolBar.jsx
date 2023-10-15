@@ -7,7 +7,7 @@ export class ToolBar extends React.Component{
     {
         super(props);
         this.state = {
-            currentView:"grid"
+            currentView:this.props.currentView
         }
     }
     render() {
@@ -17,7 +17,7 @@ export class ToolBar extends React.Component{
                     {this.state.currentView === "list" ? (
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            onClick={() => this.setState({currentView:"grid"})}
+                            onClick={() => { this.setState({ currentView: "grid" });this.props.onViewChange("grid") }}
                             width="22"
                             height="22"
                             fill="currentColor"
@@ -27,7 +27,7 @@ export class ToolBar extends React.Component{
                         </svg>) :
                         (<svg
                             xmlns="http://www.w3.org/2000/svg"
-                            onClick={() => this.setState({ currentView: "list" })}
+                            onClick={() => { this.setState({ currentView: "list" }); this.props.onViewChange("list") }}
                             width="24"
                             height="24"
                             fill="currentColor"
