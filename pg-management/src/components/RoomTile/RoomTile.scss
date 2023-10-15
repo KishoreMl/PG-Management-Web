@@ -5,7 +5,7 @@
     width:15rem;
     border-radius: 0.7rem;
     background-color: white;
-    box-shadow: 0 0 7px rgb(120, 120, 120);
+    box-shadow: 0 0 9px rgb(106, 106, 106);
     cursor: pointer;
 }
 .tile-header{
@@ -13,7 +13,7 @@
     display: flex;
     align-items: center;
     gap:1rem;
-    background-color: $grey;
+    background-color: rgb(211, 210, 210);
 
     & p{
         margin: 0;
@@ -34,7 +34,7 @@
         padding: 0.5rem;
         border-radius:5px;
         &:hover{
-            background-color: #b9bab0;     
+            background-color: #b7b7ba;     
         }
     }
 
