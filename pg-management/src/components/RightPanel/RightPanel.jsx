@@ -1,19 +1,12 @@
 import React from "react";
 import './RightPanel.scss';
 import guest from '../../static/guest.png';
+import IconMap from "../Icons/IconMap";
 
 export class RightPanel extends React.Component{
 
-    guestPanel = (<div className="right-panel">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="20"
-                            height="20"
-                            fill="currentColor"
-                            class="bi bi-x-lg"
-                            viewBox="0 0 16 16">
-                            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
-                        </svg>
+       guestPanel = (<div className="right-panel">
+        <IconMap icon="close" size={20} onClick={() => this.props.setPanelDisplay()} />
                         <div className="panel-img">
                             <img src={guest}></img>
                         </div>
@@ -38,10 +31,9 @@ export class RightPanel extends React.Component{
                         <div className=""><p>Contact: 1234567890</p></div>
                         <div className=""><p>Email: abc@gmail.com</p></div>
                     </div>);
-    render() {
-        
+    render() { 
         return (
-            <div className="">
+            <div className={`panel-container ${this.props.panelDisplay}`}>
                {this.guestPanel}
             </div>
         )

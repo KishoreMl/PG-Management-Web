@@ -5,9 +5,13 @@
     width:15rem;
     border-radius: 0.7rem;
     background-color: white;
-    box-shadow: 0 0 9px rgb(106, 106, 106);
     cursor: pointer;
+
+    &:hover {
+            box-shadow: 0 0 9px rgb(106, 106, 106);
+        }
 }
+
 .tile-header{
     padding: 0.7rem 0 0.7rem 1.5rem;
     display: flex;
@@ -58,6 +62,7 @@
     box-shadow: 0 0 10px rgb(117, 116, 116);
     width: max-content;
     visibility: hidden;
+    z-index: 10;
 }
 .show{
     visibility: visible;

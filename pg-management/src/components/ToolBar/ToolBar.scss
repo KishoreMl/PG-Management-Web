@@ -1,3 +1,5 @@
+@import '../vars.scss';
+
 .tool-bar{
     background-color: rgb(211, 210, 210);
     height:2.5rem;
@@ -5,6 +7,20 @@
     display: flex;
     align-items: center;
     
+}
+.tool-bar-left{
+    margin-right: auto;
+    margin-left: 4rem;
+     select{
+        cursor: pointer;
+        font-family: $primary-font;
+        font-size: 1rem;
+        padding: 0.5rem;
+        border-radius: 5px;
+     }
+     option{
+        cursor: pointer;
+     }
 }
 .tool-bar-right{
     margin-left: auto;

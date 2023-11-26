@@ -13,6 +13,14 @@ export class ToolBar extends React.Component{
     render() {
         return (
             <div className="tool-bar">
+                <div className="tool-bar-left">
+                    <select name="branches" id="branches">
+                        <option value="branch1">Branch 1</option>
+                        <option value="branch2">Branch 2</option>
+                        <option value="branch3">Branch 3</option>
+                        <option value="branch4">Branch 4</option>
+                    </select>
+                </div>
                 <div className="tool-bar-right">
                     {this.state.currentView === "list" ? (
                         <svg

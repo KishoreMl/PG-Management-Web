@@ -14,7 +14,6 @@ export class RoomTile extends Component{
             <div className="room-tile">
                 <div className="tile-header">
                     <p>{this.props.room.name}</p>
-                    {/* <p>{this.props.room.capacity} sharing</p> */}
                     {this.props.room.type === 'AC' && <p className="badge">{this.props.room.type}</p>}
                     <div className="tile-header-left">
                         <svg xmlns="http://www.w3.org/2000/svg"

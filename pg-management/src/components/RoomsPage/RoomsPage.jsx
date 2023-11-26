@@ -10,14 +10,19 @@ export class RoomsPage extends React.Component{
     {
         super(props);
         this.state = {
-            currentView:'grid'
+            currentView: 'grid',
+            panelDisplay: 'show',
         }
+    }
+     setPanelDisplay = () =>
+    {
+        this.setState({panelDisplay:""})
     }
     render()
     {
         return (
             <div className="container">
-                <RightPanel />
+                <RightPanel panelDisplay={this.state.panelDisplay} setPanelDisplay={ this.setPanelDisplay} />
                 <ToolBar currentView={this.state.currentView} onViewChange={(view)=>this.setState({currentView:view})} />
                 {this.state.currentView === 'list' ? <RoomsTable /> : <GridView room={this.room} />} 
             </div>

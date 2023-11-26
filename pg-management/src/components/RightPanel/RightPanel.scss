@@ -1,7 +1,12 @@
 @import '../vars.scss';
 
+.panel-container{
+    visibility: hidden;
+}
+
 .right-panel{
     position: absolute;
+    height: calc(100vh - 70px);
     right:0;
     width:18rem;
     z-index: 10;
@@ -15,6 +20,15 @@
         padding-left: 2.5rem;
         line-height: 24px;
         letter-spacing: 0.15px;
+    }
+    svg {
+        cursor: pointer;
+        padding: 0.4rem;
+        border-radius: 5px;
+
+        &:hover{
+            background-color: rgb(224, 221, 221);
+        }
     }
 }
 .rightpanel-toolbar{
@@ -52,4 +66,8 @@
         width:100%;
         height:100%;
     }
+}
+
+.show{
+    visibility: visible;
 }

@@ -8,6 +8,10 @@
     border-radius: 50%;
     cursor: pointer;
 
+    &:hover{
+        box-shadow: 0 0 9px rgb(127, 127, 127);
+    }
+
      .tooltip{
         visibility: hidden;
         background-color: #333;
