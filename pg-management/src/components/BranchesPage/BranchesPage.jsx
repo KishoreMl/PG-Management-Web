@@ -8,7 +8,7 @@ export class BranchesPage extends React.Component{
     {
         return (
             <div className="branch-container">
-                <BranchTile></BranchTile>
+                <BranchTile />
             </div>
         )
     }

@@ -4,7 +4,7 @@ function IconEdit(props) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            onClick={() => props.onClick()}
+            onClick={props.onClick ? () => props.onClick():null}
             width={props.size}
             height={props.size}
             fill={props.color || "curentColor"}
