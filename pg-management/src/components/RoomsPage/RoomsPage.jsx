@@ -6,6 +6,9 @@ import './RoomsPage.scss';
 import { GridView } from "../GridView/GridView";
 
 export class RoomsPage extends React.Component{
+
+    rooms = [];
+
     constructor(props)
     {
         super(props);
@@ -14,7 +17,12 @@ export class RoomsPage extends React.Component{
             panelDisplay: 'show',
         }
     }
-     setPanelDisplay = () =>
+    
+    componentDidMount()
+    {
+        this.rooms = getRooms(branchId);
+    }
+    setPanelDisplay = () =>
     {
         this.setState({panelDisplay:""})
     }
@@ -22,9 +30,18 @@ export class RoomsPage extends React.Component{
     {
         return (
             <div className="container">
-                <RightPanel panelDisplay={this.state.panelDisplay} setPanelDisplay={ this.setPanelDisplay} />
-                <ToolBar currentView={this.state.currentView} onViewChange={(view)=>this.setState({currentView:view})} />
-                {this.state.currentView === 'list' ? <RoomsTable /> : <GridView room={this.room} />} 
+                <ToolBar
+                    currentView={this.state.currentView}
+                    onViewChange={(view) => this.setState({ currentView: view })}
+                />
+                {this.state.currentView === 'list' ?
+                    <RoomsTable rooms = {this.rooms} /> :
+                    <GridView rooms = {this.room} />
+                } 
+                <RightPanel
+                    panelDisplay={this.state.panelDisplay}
+                    setPanelDisplay={this.setPanelDisplay}
+                />
             </div>
         )
     }

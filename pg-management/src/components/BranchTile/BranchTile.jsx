@@ -7,6 +7,8 @@ export class BranchTile extends React.Component{
         return (
             <div className="branch-tile">
                 <IconMap icon='more' />
+                <p>{this.props.branch.name}</p>
+                <p>{this.props.branch.location}</p>
             </div>
         )
     }

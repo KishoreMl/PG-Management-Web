@@ -1,14 +1,14 @@
 
 
-export async function createPgBranch(pg) {
+export async function createBranch(pg) {
     
 }
 
-export async function getPgBranch(pgId) {
+export async function getBranches(pgId) {
 
 }
 
-export async function updatePgBranch(pgId) {
+export async function updateBranch(pgId) {
     
 }
 
