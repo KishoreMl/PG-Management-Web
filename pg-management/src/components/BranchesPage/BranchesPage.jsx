@@ -5,23 +5,26 @@ import { getBranches } from "../../sdk/pgmanagement";
 
 export class BranchesPage extends React.Component{
 
-    branches = [];
-
-    componentDidMount()
-    {
-        branches = getBranches(pgId);
+    constructor(props) {
+        super(props);
+        this.state = {
+            branches:[]
+        }
     }
 
-    onBranchSelect(branch)
-    {
+    componentDidMount(){
+        this.state.branches = getBranches();
+    }
+
+    onBranchSelect(branch){
         console.log(branch);
     }
 
     render()
-    {
+    {    
         return (
             <div className="branch-container">
-                {this.branches.map((branch) => {
+                {this.state.branches.map((branch) => {
                     <BranchTile
                         branch={branch}
                         onBranchSelect={(branch) => this.onBranchSelect(branch)}

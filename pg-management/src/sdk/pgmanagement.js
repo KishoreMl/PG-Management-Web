@@ -1,4 +1,6 @@
-
+import axios from 'axios';
+const LOCAL_URL = "http://localhost:5000";
+const BASE_URL = LOCAL_URL;
 
 export async function createBranch(pg) {
     
@@ -38,6 +40,18 @@ export async function createRoom(room) {
 
 export async function getRoom(roomId) {
     
+}
+export async function getRooms(branchId) {
+    let data;
+    axios.get(BASE_URL+"/rooms/"+branchId)
+        .then(response => {
+            data = response.data;
+            console.log(data);
+        })
+        .catch(function (err) {
+            console.log(err);
+        })
+    return data;
 }
 
 export async function updateRoom(roomId) {

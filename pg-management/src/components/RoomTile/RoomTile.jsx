@@ -29,9 +29,9 @@ export class RoomTile extends Component{
                     </div>
                 </div>
                 <div className="tile-container">      
-                    <GuestCard type="paid" />
-                    <GuestCard type="not-paid" />
-                    <GuestCard type="available" />
+                    <GuestCard type="paid"/>
+                    <GuestCard type="not-paid"/>
+                    <GuestCard type="available"/>
                 </div>
             </div>  
         );
