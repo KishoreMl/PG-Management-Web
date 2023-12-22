@@ -17,7 +17,7 @@ export class RoomsTable extends React.Component{
                     </tr>
                     {this.props.rooms.map((room) => {
                         <tr>
-                            <td>{room.roomNo}</td>
+                            <td>{room.number}</td>
                             <td>{room.type}</td>
                             <td>{room.rent}</td>
                         </tr>

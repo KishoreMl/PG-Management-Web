@@ -6,8 +6,17 @@ export async function createBranch(pg) {
     
 }
 
-export async function getBranches(pgId) {
-
+export async function getBranches(ownerId) {
+    let data;
+    axios.get(BASE_URL+"/branches/"+ownerId)
+        .then(response => {
+            data = response.data;
+            console.log(data);
+        })
+        .catch(function (err) {
+            console.log(err);
+        })
+    return data;
 }
 
 export async function updateBranch(pgId) {
@@ -22,8 +31,18 @@ export async function createGuest(guest) {
     
 }
 
+// get guest details
 export async function getGuest(guestId) {
-    
+    let data;
+    axios.get(BASE_URL+"/guest/"+guestId)
+        .then(response => {
+            data = response.data;
+            console.log(data);
+        })
+        .catch(function (err) {
+            console.log(err);
+        })
+    return data;
 }
 
 export async function updateGuest(guestId) {
@@ -39,6 +58,16 @@ export async function createRoom(room) {
 }
 
 export async function getRoom(roomId) {
+    let data;
+    axios.get(BASE_URL+"/rooms/"+roomId)
+        .then(response => {
+            data = response.data;
+            console.log(data);
+        })
+        .catch(function (err) {
+            console.log(err);
+        })
+    return data;
     
 }
 export async function getRooms(branchId) {

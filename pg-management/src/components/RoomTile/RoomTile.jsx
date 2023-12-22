@@ -12,9 +12,9 @@ export class RoomTile extends Component{
     }
     render() {
         return (
-            <div className="room-tile">
+            <div className="room-tile" onClick={() => this.props.onRoomSelect(this.props.room.roomId)}>
                 <div className="tile-header">
-                    <p>{this.props.room.name}</p>
+                    <p>{this.props.room.number}</p>
                     {this.props.room.type === 'AC' && <p className="badge">{this.props.room.type}</p>}
                     <div className="tile-header-left">
                         <IconMap
@@ -28,10 +28,13 @@ export class RoomTile extends Component{
                         </div>
                     </div>
                 </div>
-                <div className="tile-container">      
-                    <GuestCard type="paid"/>
-                    <GuestCard type="not-paid"/>
-                    <GuestCard type="available"/>
+                <div className="tile-container">   
+                    {this.props.room.guests.map((guest) => 
+                        <GuestCard
+                            guest={guest}
+                            onClick={() => this.props.onGuestSelect(guest.guestId)} 
+                        />
+                    )} 
                 </div>
             </div>  
         );
