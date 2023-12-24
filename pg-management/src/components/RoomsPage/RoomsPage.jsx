@@ -44,7 +44,19 @@ export class RoomsPage extends React.Component{
                         roomId:"roomId3",
                         number:"103",
                         type:"AC",
-                        capacity:2,
+                        capacity:3,
+                        rent:6500,
+                        guests:[
+                            {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
+                            {guestId:"guestId2",name:"Akhilesh",rentPaid:false,ebPaid:false}
+                        ]
+                    },
+                    {
+                        branchId:"branchId1",
+                        roomId:"roomId4",
+                        number:"104",
+                        type:"AC",
+                        capacity:3,
                         rent:6500,
                         guests:[
                             {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
@@ -53,7 +65,9 @@ export class RoomsPage extends React.Component{
                     }
                 ],
             currentView:'grid',
-            panelDisplay:true,
+            showRightPanel: true,
+            selectedGuest: '',
+            selectedRoom:'',
         }
     }
     
@@ -64,17 +78,15 @@ export class RoomsPage extends React.Component{
 //     }
 
     setPanelDisplay = (display) => {
-        this.setState({panelDisplay:display})
+        this.setState({showRightPanel:display})
     }
     onRoomSelect(roomId)
     {
-        console.log(roomId);
-        this.setState({ panelDisplay: true })
+        this.setState({ showRightPanel: true })
     }
     onGuestSelect(guestId)
     {
-        console.log(guestId);
-        this.setState({ panelDisplay: true })
+        this.setState({ showRightPanel: true })
     }
     render()
     {
@@ -96,10 +108,15 @@ export class RoomsPage extends React.Component{
                             onGuestSelect={(guestId) => this.onGuestSelect(guestId)} 
                         />
                     } 
-                    <RightPanel
-                        panelDisplay={this.state.panelDisplay}
-                        setPanelDisplay={(display) => this.setPanelDisplay(display)}
-                    />
+                    <div className={`rightpanel-container ${this.state.showRightPanel? 'open':''}`}>
+                        {this.state.showRightPanel && (
+                            <RightPanel
+                                guest={this.state.selectedGuest}
+                                room={this.state.selectedRoom}
+                                setPanelDisplay={(display) => this.setPanelDisplay(display)}
+                            />
+                        )}
+                    </div>    
                 </div>
             </div>    
         )

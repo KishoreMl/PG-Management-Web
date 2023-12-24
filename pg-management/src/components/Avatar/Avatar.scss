@@ -1,7 +1,6 @@
 .avatar{
     position: relative;
     margin: 0;
-    background-color: red;
     color: white;
     width: 1.8rem;
     height: 1.8rem;
@@ -36,4 +35,10 @@
         padding: 0.3rem 0 0 0.4rem;
         font-size: 0.8rem;
     }
+}
+.green{
+    background-color: rgb(150, 231, 30);
+}
+.red{
+    background-color: red;
 }

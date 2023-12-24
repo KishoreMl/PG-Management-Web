@@ -7,7 +7,6 @@ export class RightPanel extends React.Component{
 
     render() { 
         return (
-            <div className={`panel-container ${this.props.panelDisplay?'show':''}`}>
                <div className="right-panel">
                     <IconMap icon="close" size={20} onClick={() => this.props.setPanelDisplay(false)} />
                     <div className="panel-img">
@@ -26,15 +25,11 @@ export class RightPanel extends React.Component{
                         </svg>
                         <button>Mark as Paid</button>
                     </div>
-                    <p>Guest Name</p>
-                    <p>Room No: 106</p>
-                    <div className="">
-                        <p>Rent: 6500</p>
-                    </div>
-                    <div className=""><p>Contact: 1234567890</p></div>
-                    <div className=""><p>Email: abc@gmail.com</p></div>
+                    <div><b>Guest Name</b>{this.props.guest.name}</div>
+                    <div><b>Room No</b>106</div>
+                    <div><b>Rent</b>6500</div>
+                    <div><b>Contact</b>{this.props.guest.contact}</div>
                 </div>
-            </div>
         )
     }
 }

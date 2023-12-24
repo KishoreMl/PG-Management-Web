@@ -1,12 +1,9 @@
 @import '../vars.scss';
 
-.panel-container{
-    visibility: hidden;
-}
 
 .right-panel{
     position: absolute;
-    height: calc(100vh - 70px);
+    height: calc(100vh - 127px);
     right:0;
     width:18rem;
     z-index: 10;

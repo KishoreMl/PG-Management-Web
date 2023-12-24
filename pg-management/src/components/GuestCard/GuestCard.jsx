@@ -8,12 +8,12 @@ export class GuestCard extends React.Component{
     }
     render(){
         return (
-            <div className={`guest-card ${this.props.guest.rentPaid?'paid':'not-paid'}`}>
+            <div className={`guest-card ${this.props.guest?this.props.guest.rentPaid?'paid':'not-paid':''}`}>
                 <div className='guest-img'>
                     <img src={user}></img>
                 </div>
                 <div className='guest-details'>
-                    <p>{this.props.guest.name}</p>
+                    <p>{this.props.guest?this.props.guest.name:'Available'}</p>
                 </div>   
             </div>
         )

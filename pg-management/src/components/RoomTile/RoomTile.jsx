@@ -35,6 +35,10 @@ export class RoomTile extends Component{
                             onClick={() => this.props.onGuestSelect(guest.guestId)} 
                         />
                     )} 
+                    {(this.props.room.capacity-this.props.room.guests.length>0)?
+                        <GuestCard guest={null} />
+                        :null
+                    }
                 </div>
             </div>  
         );

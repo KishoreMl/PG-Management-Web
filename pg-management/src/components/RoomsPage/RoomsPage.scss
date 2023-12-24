@@ -2,4 +2,12 @@
     position: relative;
     display: flex;
 }
+.rightpanel-container{
+    transition: 0.5s all ease-in-out;
+    width:0;
+
+    &.open{
+        width:18rem;
+    }
+}
 
