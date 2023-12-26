@@ -1,7 +1,8 @@
 import React from "react";
 import { BranchTile } from "../BranchTile/BranchTile";
-import './BranchesPage.scss';
 import { getBranches } from "../../sdk/pgmanagement";
+import './BranchesPage.scss';
+
 
 export class BranchesPage extends React.Component{
 

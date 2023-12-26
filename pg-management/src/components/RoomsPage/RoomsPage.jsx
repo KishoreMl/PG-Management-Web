@@ -5,6 +5,7 @@ import { RoomsTable } from "../RoomsTable/RoomsTable";
 import { GridView } from "../GridView/GridView";
 import { getRooms } from "../../sdk/pgmanagement";
 import './RoomsPage.scss';
+import CreateRoom from "../CreateRoom/CreateRoom";
 
 export class RoomsPage extends React.Component{
 
@@ -62,12 +63,67 @@ export class RoomsPage extends React.Component{
                             {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
                             {guestId:"guestId2",name:"Akhilesh",rentPaid:false,ebPaid:false}
                         ]
+                },
+                    {
+                        branchId:"branchId1",
+                        roomId:"roomId4",
+                        number:"104",
+                        type:"AC",
+                        capacity:3,
+                        rent:6500,
+                        guests:[
+                            {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
+                            {guestId:"guestId2",name:"Akhilesh",rentPaid:false,ebPaid:false}
+                        ]
+                },
+                    {
+                        branchId:"branchId1",
+                        roomId:"roomId4",
+                        number:"104",
+                        type:"AC",
+                        capacity:3,
+                        rent:6500,
+                        guests:[
+                            {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
+                            {guestId:"guestId2",name:"Akhilesh",rentPaid:false,ebPaid:false}
+                        ]
+                },
+                    {
+                        branchId:"branchId1",
+                        roomId:"roomId4",
+                        number:"104",
+                        type:"AC",
+                        capacity:3,
+                        rent:6500,
+                        guests:[
+                            {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
+                            {guestId:"guestId2",name:"Akhilesh",rentPaid:false,ebPaid:false}
+                        ]
+                },
+                    {
+                        branchId:"branchId1",
+                        roomId:"roomId4",
+                        number:"104",
+                        type:"AC",
+                        capacity:3,
+                        rent:6500,
+                        guests:[
+                            {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
+                            {guestId:"guestId2",name:"Akhilesh",rentPaid:false,ebPaid:false}
+                        ]
                     }
-                ],
+            ],
+            branches: [{ name: 'Branch 1', id: 'branchId1' },
+                       { name: 'Branch 2', id: 'branchId2' },
+                       { name: 'Branch 3', id: 'branchId3' },
+                       { name: 'Branch 4', id: 'branchId4' },
+                    ],
+            currentBranchId:'',
             currentView:'grid',
-            showRightPanel: true,
+            showRightPanel: false,
             selectedGuest: '',
-            selectedRoom:'',
+            selectedRoom: '',
+            isLoading: false
         }
     }
     
@@ -80,45 +136,62 @@ export class RoomsPage extends React.Component{
     setPanelDisplay = (display) => {
         this.setState({showRightPanel:display})
     }
-    onRoomSelect(roomId)
-    {
+
+    onRoomSelect(roomId){
         this.setState({ showRightPanel: true })
     }
-    onGuestSelect(guestId)
-    {
-        this.setState({ showRightPanel: true })
+
+    onGuestSelect(guest) {
+        this.setState({selectedGuest:guest,showRightPanel: true})
     }
+    
+    onBranchSelect(branchId){
+        this.setState({currentBranchId:branchId})
+    }
+
+    onCreateRoom(){
+
+    }
+
     render()
     {
         return (
             <div>
-                <ToolBar
-                    currentView={this.state.currentView}
-                    onViewChange={(view) => this.setState({ currentView: view })}
-                />
-                <div className="container">
-                    {this.state.currentView === 'list' ?
-                        <RoomsTable
-                            rooms={this.state.rooms}
-                            onGuestSelect={(guestId) => this.onGuestSelect(guestId)}
-                        /> :
-                        <GridView
-                            rooms={this.state.rooms}
-                            onRoomSelect={(roomId) => this.onRoomSelect(roomId)}
-                            onGuestSelect={(guestId) => this.onGuestSelect(guestId)} 
-                        />
-                    } 
-                    <div className={`rightpanel-container ${this.state.showRightPanel? 'open':''}`}>
-                        {this.state.showRightPanel && (
-                            <RightPanel
-                                guest={this.state.selectedGuest}
-                                room={this.state.selectedRoom}
-                                setPanelDisplay={(display) => this.setPanelDisplay(display)}
-                            />
-                        )}
-                    </div>    
-                </div>
-            </div>    
+                <CreateRoom />
+                    <ToolBar
+                        branches={this.state.branches}
+                        currentView={this.state.currentView}
+                        onViewChange={(view) => this.setState({ currentView: view })}
+                        onCreateRoom={() => this.onCreateRoom()}
+                    />
+                    {this.state.isLoading ? 
+                        <div className="spinner">
+                            <span class="loader"></span>
+                        </div> :
+                        <div className="container">
+                            {this.state.currentView === 'list' ?
+                                <RoomsTable
+                                    rooms={this.state.rooms}
+                                    onGuestSelect={(guestId) => this.onGuestSelect(guestId)}
+                                /> :
+                                <GridView
+                                    rooms={this.state.rooms}
+                                    onRoomSelect={(roomId) => this.onRoomSelect(roomId)}
+                                    onGuestSelect={(guestId) => this.onGuestSelect(guestId)} 
+                                />
+                            } 
+                            <div className={`rightpanel-container ${this.state.showRightPanel? 'open':''}`}>
+                                {this.state.showRightPanel && (
+                                    <RightPanel
+                                        guest={this.state.selectedGuest}
+                                        room={this.state.selectedRoom}
+                                        setPanelDisplay={(display) => this.setPanelDisplay(display)}
+                                    />
+                                )}
+                            </div>    
+                        </div>
+                    }
+                </div>    
         )
     }
 }

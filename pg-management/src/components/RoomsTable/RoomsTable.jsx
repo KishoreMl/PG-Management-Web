@@ -27,6 +27,7 @@ export class RoomsTable extends React.Component{
                                             onGuestSelect={(guestId) => this.props.onGuestSelect(guestId)}  
                                         />
                                     )}  
+                                    {room.capacity-room.guests.length>0?<Avatar />:null}
                                 </div>
                             </td>
                             <td>{room.rent}</td>

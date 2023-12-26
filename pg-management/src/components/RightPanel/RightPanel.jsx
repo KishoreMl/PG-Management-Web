@@ -7,28 +7,69 @@ export class RightPanel extends React.Component{
 
     render() { 
         return (
-               <div className="right-panel">
-                    <IconMap icon="close" size={20} onClick={() => this.props.setPanelDisplay(false)} />
-                    <div className="panel-img">
-                        <img src={guest}></img>
-                    </div>
-                    <div className="rightpanel-toolbar">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="20"
-                            height="20"
-                            fill="#252A2E"
-                            className="bi bi-pencil-square"
-                            viewBox="0 0 16 16">
-                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                            <path fillRule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                        </svg>
-                        <button>Mark as Paid</button>
-                    </div>
-                    <div><b>Guest Name</b>{this.props.guest.name}</div>
-                    <div><b>Room No</b>106</div>
-                    <div><b>Rent</b>6500</div>
-                    <div><b>Contact</b>{this.props.guest.contact}</div>
+            <div className="right-panel">
+                {this.props.guest === '' ?
+                    <>
+                        <IconMap icon="close" size={20} onClick={() => this.props.setPanelDisplay(false)} />
+                        <div className="panel-img">
+                            <img src={guest}></img>
+                        </div>
+                        <div className="rightpanel-toolbar">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="20"
+                                height="20"
+                                fill="#252A2E"
+                                className="bi bi-pencil-square"
+                                viewBox="0 0 16 16">
+                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                <path fillRule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                            </svg>
+                            <button>Mark as Paid</button>
+                        </div>
+                        <div className="panel-text">
+                            <div className="panel-sub-text"><b>Name</b></div>
+                            <div className="panel-sub-text">Sample name</div>
+                        </div>
+                        <div className="panel-text">
+                            <div className="panel-sub-text"><b>Room No</b></div>
+                            <div className="panel-sub-text">106</div>
+                        </div>
+                        <div className="panel-text">
+                            <div className="panel-sub-text"><b>Rent</b></div>
+                            <div className="panel-sub-text">
+                                6500
+                                {this.props.guest.rentPaid ?
+                                <div className="badge">Paid</div> :
+                                <div className="badge success">Paid</div>}
+                            </div>
+                        </div>
+                        <div className="panel-text">
+                            <div className="panel-sub-text"><b>EB bill</b></div>
+                            <div className="panel-sub-text">
+                                400
+                                {this.props.guest.rentPaid ?
+                                <div className="badge">Paid</div> :
+                                <div className="badge">Not Paid</div>}
+                            </div>
+                        </div>
+                        <div className="panel-text">
+                            <div className="panel-sub-text"><b>Contact</b></div>
+                            <div className="panel-sub-text">1234567890</div>
+                        </div>
+                        <div className="panel-text">
+                            <div className="panel-sub-text"><b>Work/College</b></div>
+                            <div className="panel-sub-text">Company name</div>
+                        </div>
+                        <div className="panel-text">
+                            <div className="panel-sub-text"><b>Address</b></div>
+                            <div className="panel-sub-text">sample address</div>  
+                        </div>
+                    </> :
+                    <div>
+                        <h1>Room details</h1>
+                    </div>    
+                }
                 </div>
         )
     }

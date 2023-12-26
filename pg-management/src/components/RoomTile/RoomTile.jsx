@@ -8,18 +8,28 @@ export class RoomTile extends Component{
         super(props);
         this.state = {
             dropdown: "",
+            selected:false,
         }
     }
     render() {
         return (
-            <div className="room-tile" onClick={() => this.props.onRoomSelect(this.props.room.roomId)}>
+            <div
+                className={`room-tile ${this.state.selected ? 'selected' : ''}`}
+                onClick={() => {
+                    this.setState({ selected: this.state.selected ? false : true });
+                    this.props.onRoomSelect(this.props.room.roomId)
+                }}>
                 <div className="tile-header">
                     <p>{this.props.room.number}</p>
                     {this.props.room.type === 'AC' && <p className="badge">{this.props.room.type}</p>}
                     <div className="tile-header-left">
                         <IconMap
                             icon="more"
-                            onClick={() => { this.state.dropdown === "" ? this.setState({ dropdown: "show" }) : this.setState({ dropdown: "" }) }}
+                            onClick={() => {
+                                this.state.dropdown === "" ?
+                                this.setState({ dropdown: "show" }) :
+                                this.setState({ dropdown: "" })
+                            }}
                         /> 
                         <div className={`dropdown-list ${this.state.dropdown}`}>
                             <div className="list-option">Add Guest</div>

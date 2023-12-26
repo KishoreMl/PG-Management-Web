@@ -6,11 +6,6 @@ export class GridView extends React.Component{
     constructor(props){
         super(props);
     }
-    componentDidMount()
-    {
-        console.log(this.props.rooms);
-    }
-
     render()
     {
         return (
