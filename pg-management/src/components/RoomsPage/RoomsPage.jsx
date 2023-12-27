@@ -4,8 +4,9 @@ import { ToolBar } from "../ToolBar/ToolBar";
 import { RoomsTable } from "../RoomsTable/RoomsTable";
 import { GridView } from "../GridView/GridView";
 import { getRooms } from "../../sdk/pgmanagement";
-import './RoomsPage.scss';
 import CreateRoom from "../CreateRoom/CreateRoom";
+import CreateGuest from "../CreateGuest/CreateGuest";
+import './RoomsPage.scss';
 
 export class RoomsPage extends React.Component{
 
@@ -121,6 +122,8 @@ export class RoomsPage extends React.Component{
             currentBranchId:'',
             currentView:'grid',
             showRightPanel: false,
+            showCreateRoomModal: false,
+            showCreateGuestModal: false,
             selectedGuest: '',
             selectedRoom: '',
             isLoading: false
@@ -149,20 +152,39 @@ export class RoomsPage extends React.Component{
         this.setState({currentBranchId:branchId})
     }
 
-    onCreateRoom(){
+    onCreateRoom(display) {    
+        this.setState({showCreateRoomModal:display})
+    }
 
+    onViewChange(view) {
+        this.setState({ currentView: view })
+    }
+    
+    onTileOptionSelect(option) {
+        switch (option) {
+            case 'Add Guest':
+                this.setState({ showCreateGuestModal: true });
+                break;
+            case 'Remove Guest':
+                console.log('Remove Guest');
+                break;
+            case 'Edit Room':
+                console.log('Edit Room');
+                break;
+        }
     }
 
     render()
     {
         return (
             <div>
-                <CreateRoom />
+                {this.state.showCreateRoomModal ? <CreateRoom onCloseModal={() => this.onCreateRoom(false)} /> : null}
+                {this.state.showCreateGuestModal ? <CreateGuest onCloseModal={() => this.onCreateRoom(false)} /> : null}
                     <ToolBar
                         branches={this.state.branches}
                         currentView={this.state.currentView}
-                        onViewChange={(view) => this.setState({ currentView: view })}
-                        onCreateRoom={() => this.onCreateRoom()}
+                        onViewChange={(view) => this.onViewChange(view)}
+                        onCreateRoom={() => this.onCreateRoom(true)}
                     />
                     {this.state.isLoading ? 
                         <div className="spinner">
@@ -178,6 +200,7 @@ export class RoomsPage extends React.Component{
                                     rooms={this.state.rooms}
                                     onRoomSelect={(roomId) => this.onRoomSelect(roomId)}
                                     onGuestSelect={(guestId) => this.onGuestSelect(guestId)} 
+                                    onTileOptionSelect={(option) => this.onTileOptionSelect(option)}
                                 />
                             } 
                             <div className={`rightpanel-container ${this.state.showRightPanel? 'open':''}`}>

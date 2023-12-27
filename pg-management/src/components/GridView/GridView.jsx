@@ -15,6 +15,7 @@ export class GridView extends React.Component{
                         room={room}
                         onRoomSelect={(roomId) => this.props.onRoomSelect(roomId)}
                         onGuestSelect={(guestId) => this.props.onGuestSelect(guestId)} 
+                        onTileOptionSelect={(option) => this.props.onTileOptionSelect(option)}
                     />
                 )}
             </div> 

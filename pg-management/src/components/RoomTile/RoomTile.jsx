@@ -32,9 +32,9 @@ export class RoomTile extends Component{
                             }}
                         /> 
                         <div className={`dropdown-list ${this.state.dropdown}`}>
-                            <div className="list-option">Add Guest</div>
-                            <div className="list-option">Remove Guest</div>
-                            <div className="list-option">Edit Room</div>
+                            <div className="list-option" onClick={() => this.props.onTileOptionSelect('Add Guest')}>Add Guest</div>
+                            <div className="list-option" onClick={() => this.props.onTileOptionSelect('Remove Guest')}>Remove Guest</div>
+                            <div className="list-option" onClick={() => this.props.onTileOptionSelect('Edit Room')}>Edit Room</div>
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 import React from "react";
-import './CreateRoom.scss';
+import './CreateGuest.scss';
 
-class CreateRoom extends React.Component{
+class CreateGuest extends React.Component{
 
     constructor(props) {
         super(props);
@@ -21,12 +21,9 @@ class CreateRoom extends React.Component{
                 <div id="myModal" className={`modal ${this.state.display?'show':''}`}>
                     <div className="modal-content">
                         <span onClick={() => this.props.onCloseModal()} className="close">&times;</span>
-                        <h2>Create Room</h2>
+                        <h2>Create Guest</h2>
                         <input type="text"></input>
-                        <select>
-                            <option>Non-AC</option>
-                            <option>AC</option>
-                        </select>
+                        <input type='text'></input>
                         <input type="number"></input>
                         <div className="modal-footer">
                             <button>Cancel</button>
@@ -40,4 +37,4 @@ class CreateRoom extends React.Component{
     }
 }
 
-export default CreateRoom;
+export default CreateGuest;
