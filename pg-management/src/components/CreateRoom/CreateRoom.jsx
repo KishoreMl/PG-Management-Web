@@ -1,5 +1,6 @@
 import React from "react";
 import './CreateRoom.scss';
+import IconMap from "../Icons/IconMap";
 
 class CreateRoom extends React.Component{
 
@@ -20,7 +21,7 @@ class CreateRoom extends React.Component{
                 <div id="overlay" className={`overlay ${this.state.display?'show':''}`}></div>
                 <div id="myModal" className={`modal ${this.state.display?'show':''}`}>
                     <div className="modal-content">
-                        <span onClick={() => this.props.onCloseModal()} className="close">&times;</span>
+                        <IconMap icon="close" size={18}  onClick={() => this.props.onCloseModal()} />
                         <h2>Create Room</h2>
                         <input type="text"></input>
                         <select>
@@ -29,7 +30,7 @@ class CreateRoom extends React.Component{
                         </select>
                         <input type="number"></input>
                         <div className="modal-footer">
-                            <button>Cancel</button>
+                            <button onClick={() => this.props.onCloseModal()}>Cancel</button>
                             <button>Save</button>
                         </div>        
                     </div>

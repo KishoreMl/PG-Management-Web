@@ -16,7 +16,7 @@ export class ToolBar extends React.Component{
         this.setState({ currentView: view})
         this.props.onViewChange(view)
     }
-    
+
     render() {
         return (
             <div className="tool-bar">
@@ -27,9 +27,7 @@ export class ToolBar extends React.Component{
                                 <option value={branch.id}>{branch.name}</option>
                             )}
                         </select> :
-                        <div>
-                            {this.props.branches[0]}
-                        </div>
+                        <div> {this.props.branches[0]} </div> 
                     }   
                 </div>
                 <div className="tool-bar-right">

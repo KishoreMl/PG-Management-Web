@@ -8,6 +8,11 @@
     align-items: center;
     
 }
+
+select{
+    font-family: $primary-font;
+}
+
 .tool-bar-left{
     margin-right: auto;
     margin-left: 4rem;
@@ -22,6 +27,7 @@
         cursor: pointer;
      }
 }
+
 .tool-bar-right{
     margin-left: auto;
     margin-right: 4rem;

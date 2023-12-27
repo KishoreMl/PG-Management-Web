@@ -20,6 +20,31 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 3;
 }
+
+svg {
+    padding: 0.4rem;
+    border-radius: 5px;
+
+    &:hover {
+        cursor: pointer;
+        background-color: rgb(190, 188, 188);
+    }
+}
+.modal-footer{
+    & button{
+        border: none;
+        border-radius: 5px;
+        background-color: rgb(78, 46, 176);
+        color: white;
+        cursor: pointer;
+        padding: 0.7rem;
+    
+        &:hover {
+            background-color: rgb(122, 85, 232);
+        }
+    }
+}
+
 .show{
     display: block;
 }
