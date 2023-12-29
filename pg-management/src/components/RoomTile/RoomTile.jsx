@@ -42,7 +42,7 @@ export class RoomTile extends Component{
                     {this.props.room.guests.map((guest) => 
                         <GuestCard
                             guest={guest}
-                            onClick={() => this.props.onGuestSelect(guest.guestId)} 
+                            onClick={(e) => this.props.onGuestSelect(guest,e)} 
                         />
                     )} 
                     {(this.props.room.capacity-this.props.room.guests.length>0)?

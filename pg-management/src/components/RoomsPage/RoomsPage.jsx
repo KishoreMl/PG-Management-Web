@@ -140,11 +140,15 @@ export class RoomsPage extends React.Component{
         this.setState({showRightPanel:display})
     }
 
-    onRoomSelect(roomId){
-        this.setState({ showRightPanel: true })
+    onRoomSelect(roomId) {
+        console.log(roomId);
+        let room = this.state.rooms.filter((room) => room.roomId === roomId);
+        this.setState({ showRightPanel: true, selectedRoom: room }) 
     }
 
-    onGuestSelect(guest) {
+    onGuestSelect(guest, e) {
+        e.stopPropgation();
+        console.log(guest);
         this.setState({selectedGuest:guest,showRightPanel: true})
     }
     
@@ -199,7 +203,7 @@ export class RoomsPage extends React.Component{
                                 <GridView
                                     rooms={this.state.rooms}
                                     onRoomSelect={(roomId) => this.onRoomSelect(roomId)}
-                                    onGuestSelect={(guestId) => this.onGuestSelect(guestId)} 
+                                    onGuestSelect={(guest,e) => this.onGuestSelect(guest,e)} 
                                     onTileOptionSelect={(option) => this.onTileOptionSelect(option)}
                                 />
                             } 

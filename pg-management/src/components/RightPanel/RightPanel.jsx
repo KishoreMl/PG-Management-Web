@@ -1,16 +1,18 @@
 import React from "react";
-import './RightPanel.scss';
 import guest from '../../static/guest.png';
 import IconMap from "../Icons/IconMap";
+import './RightPanel.scss';
 
 export class RightPanel extends React.Component{
 
     render() { 
         return (
             <div className="right-panel">
-                {this.props.guest === '' ?
-                    <>
-                        <IconMap icon="close" size={20} onClick={() => this.props.setPanelDisplay(false)} />
+                {this.props.guest ?
+                    <div>
+                        <div className="close-icon">
+                            <IconMap icon="close" size={20} onClick={() => this.props.setPanelDisplay(false)} />
+                        </div>
                         <div className="panel-img">
                             <img src={guest}></img>
                         </div>
@@ -20,7 +22,7 @@ export class RightPanel extends React.Component{
                         </div>
                         <div className="panel-text">
                             <div className="panel-sub-text"><b>Name</b></div>
-                            <div className="panel-sub-text">Sample name</div>
+                            <div className="panel-sub-text">{this.props.guest.name}</div>
                         </div>
                         <div className="panel-text">
                             <div className="panel-sub-text"><b>Room No</b></div>
@@ -56,9 +58,16 @@ export class RightPanel extends React.Component{
                             <div className="panel-sub-text"><b>Address</b></div>
                             <div className="panel-sub-text">sample address</div>  
                         </div>
-                    </> :
+                    </div> :
                     <div>
-                        <h1>Room details</h1>
+                        <IconMap icon="close" size={20} onClick={() => this.props.setPanelDisplay(false)} />
+                        <div>Room no: {this.props.room.number}</div>
+                        <div className="rightpanel-toolbar">
+                            <IconMap icon="edit" size={20} onClick={() => console.log('edit')} />
+                            <IconMap icon="delete" />
+                        </div>
+                        <div> Guests </div>
+                        
                     </div>    
                 }
                 </div>
