@@ -9,14 +9,17 @@
     cursor: pointer;
 
     &:hover {
-            box-shadow: 0 0 9px rgb(106, 106, 106);
-        }
+        box-shadow: 0 0 9px rgb(106, 106, 106);
+    }
 }
+
 .selected{
-    box-shadow: 2px 2px 11px rgb(78, 77, 77);
+    box-shadow: 2px 2px 11px rgb(57, 124, 248);
 }
+
 .tile-header{
     padding: 0.7rem 0 0.7rem 1.5rem;
+    border-radius: 0.7rem 0.7rem 0 0 ;
     display: flex;
     align-items: center;
     gap:1rem;

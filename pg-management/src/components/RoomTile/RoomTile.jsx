@@ -18,9 +18,9 @@ export class RoomTile extends Component{
     }
 
     handleClickOutside = (event) => {
-        if (this.dropdownRef && !this.dropdownRef.current.contains(event.target)) {
-            this.setState({ showDropdown: false });
-        }
+        // if (this.dropdownRef.current && !this.dropdownRef.current.contains(event.target)) {
+        //     this.setState({ showDropdown: false });
+        // }
     }
 
     handleShowDropdown() {
@@ -43,8 +43,7 @@ export class RoomTile extends Component{
                     <div className="tile-header-left" ref={this.dropdownRef}>
                         <IconMap
                             icon="more"
-                            onClick={() => this.handleShowDropdown()}
-                            
+                            onClick={() => this.handleShowDropdown()} 
                         /> 
                         <div className={`dropdown-list ${this.state.showDropdown?'show':''}`}>
                             <div className="list-option" onClick={() => this.props.onTileOptionSelect('Add Guest')}>Add Guest</div>

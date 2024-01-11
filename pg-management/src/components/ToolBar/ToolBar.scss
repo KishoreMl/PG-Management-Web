@@ -26,7 +26,26 @@ select{
      option{
         cursor: pointer;
      }
+
+     .dropdown-button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: $primary-font;
+        padding: 0 1rem;
+        cursor: pointer;
+    
+        &:hover{
+            background-color: rgb(183, 184, 185);
+        }
+    }
+
+    svg:hover{
+        background: transparent;
+    }
 }
+
+
 
 .tool-bar-right{
     margin-left: auto;
@@ -38,7 +57,7 @@ select{
     & button{
         border: none;
         border-radius: 5px;
-        background-color: rgb(122, 85, 232);
+        background-color: $primary-color;
         color: white;
         cursor: pointer;
         padding: 0.7rem;
@@ -51,8 +70,8 @@ select{
         padding: 0.5rem;
         border-radius: 5px;
         &:hover {
-                cursor: pointer;
-                background-color: rgb(161, 158, 158);
-            }
+            cursor: pointer;
+            background-color: rgb(161, 158, 158);
+        }
     }
 }
