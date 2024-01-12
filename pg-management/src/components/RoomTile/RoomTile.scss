@@ -7,7 +7,6 @@
     background-color: white;
     margin-top: 2rem;
     cursor: pointer;
-
     &:hover {
         box-shadow: 0 0 9px rgb(106, 106, 106);
     }
@@ -55,7 +54,8 @@
 }
 .tile-container{
     padding: 0.4rem;
-
+    max-height: 15.5rem;
+    overflow-y: auto;
 }
 .room-name{
     background-color: rgb(28, 28, 200);

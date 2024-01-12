@@ -8,7 +8,7 @@ export class RightPanel extends React.Component{
     render() { 
         return (
             <div className="right-panel">
-                {this.props.guest ?
+                {!this.props.guest ?
                     <div>
                         <div className="close-icon">
                             <IconMap icon="close" size={20} onClick={() => this.props.setPanelDisplay(false)} />

@@ -25,6 +25,8 @@ export class RoomsPage extends React.Component{
                         guests:[
                             {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
                             {guestId:"guestId2",name:"Akhilesh",rentPaid:true,ebPaid:false},
+                            {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
+                            {guestId:"guestId2",name:"Akhilesh",rentPaid:true,ebPaid:false},
                             {guestId:"guestId3",name:"Siva",rentPaid:false,ebPaid:false}
                         ]
                     },
@@ -112,7 +114,44 @@ export class RoomsPage extends React.Component{
                             {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
                             {guestId:"guestId2",name:"Akhilesh",rentPaid:false,ebPaid:false}
                         ]
+                },
+                    {
+                        branchId:"branchId1",
+                        roomId:"roomId4",
+                        number:"104",
+                        type:"AC",
+                        capacity:3,
+                        rent:6500,
+                        guests:[
+                            {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
+                            {guestId:"guestId2",name:"Akhilesh",rentPaid:false,ebPaid:false}
+                        ]
+                },
+                    {
+                        branchId:"branchId1",
+                        roomId:"roomId4",
+                        number:"104",
+                        type:"AC",
+                        capacity:3,
+                        rent:6500,
+                        guests:[
+                            {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
+                            {guestId:"guestId2",name:"Akhilesh",rentPaid:false,ebPaid:false}
+                        ]
+                },
+                    {
+                        branchId:"branchId1",
+                        roomId:"roomId4",
+                        number:"104",
+                        type:"AC",
+                        capacity:3,
+                        rent:6500,
+                        guests:[
+                            {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
+                            {guestId:"guestId2",name:"Akhilesh",rentPaid:false,ebPaid:false}
+                        ]
                     }
+
             ],
             branches: [{ name: 'Branch 1', id: 'branchId1' },
                        { name: 'Branch 2', id: 'branchId2' },
@@ -174,6 +213,8 @@ export class RoomsPage extends React.Component{
                 break;
             case 'Edit Room':
                 console.log('Edit Room');
+                break;
+            default:
                 break;
         }
     }

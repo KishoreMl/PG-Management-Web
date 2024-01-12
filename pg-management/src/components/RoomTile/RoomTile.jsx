@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import './RoomTile.scss';
 import { GuestCard } from "../GuestCard/GuestCard";
 import IconMap from "../Icons/IconMap";
+import './RoomTile.scss';
 
 export class RoomTile extends Component{
     constructor(props) {
@@ -17,10 +17,14 @@ export class RoomTile extends Component{
         document.addEventListener('click', this.handleClickOutside);
     }
 
+    componentWillUnmount() {
+        document.removeEventListener('click', this.handleClickOutside);
+    }
+
     handleClickOutside = (event) => {
-        // if (this.dropdownRef.current && !this.dropdownRef.current.contains(event.target)) {
-        //     this.setState({ showDropdown: false });
-        // }
+        if (this.dropdownRef.current && !this.dropdownRef.current.contains(event.target)) {
+            this.setState({ showDropdown: false });
+        }
     }
 
     handleShowDropdown() {
@@ -31,7 +35,6 @@ export class RoomTile extends Component{
         this.setState({ selected: this.state.selected ? false : true });
         this.props.onRoomSelect(this.props.room.roomId)
     }
-
     render() {
         return (
             <div
@@ -43,7 +46,7 @@ export class RoomTile extends Component{
                     <div className="tile-header-left" ref={this.dropdownRef}>
                         <IconMap
                             icon="more"
-                            onClick={() => this.handleShowDropdown()} 
+                            onClick={() => this.handleShowDropdown()}     
                         /> 
                         <div className={`dropdown-list ${this.state.showDropdown?'show':''}`}>
                             <div className="list-option" onClick={() => this.props.onTileOptionSelect('Add Guest')}>Add Guest</div>
