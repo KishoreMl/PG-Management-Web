@@ -203,7 +203,8 @@ export class RoomsPage extends React.Component{
         this.setState({ currentView: view })
     }
     
-    onTileOptionSelect(option) {
+    onTileOptionSelect(event,option) {
+        event.stopPropgation();
         switch (option) {
             case 'Add Guest':
                 this.setState({ showCreateGuestModal: true });
@@ -245,7 +246,7 @@ export class RoomsPage extends React.Component{
                                     rooms={this.state.rooms}
                                     onRoomSelect={(roomId) => this.onRoomSelect(roomId)}
                                     onGuestSelect={(guest,e) => this.onGuestSelect(guest,e)} 
-                                    onTileOptionSelect={(option) => this.onTileOptionSelect(option)}
+                                    onTileOptionSelect={(e,option) => this.onTileOptionSelect(e,option)}
                                 />
                             } 
                             <div className={`rightpanel-container ${this.state.showRightPanel? 'open':''}`}>

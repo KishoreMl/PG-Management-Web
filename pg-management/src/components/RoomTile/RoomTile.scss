@@ -74,7 +74,9 @@
     visibility: visible;
 }
 .list-option{
-    padding: 0.5rem 1rem 0.5rem 1rem;   
+    padding: 0 1rem 0 0.2rem;   
+    display: flex;
+    align-items: center;
     &:hover{
         background-color: $grey;
     }

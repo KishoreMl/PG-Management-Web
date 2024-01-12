@@ -1,12 +1,12 @@
 @import '../vars.scss';
 
 .tool-bar{
+    position: relative;
     background-color: rgb(211, 210, 210);
     height:2.5rem;
     padding: 0.5rem;
     display: flex;
-    align-items: center;
-    
+    align-items: center;  
 }
 
 select{
@@ -14,20 +14,21 @@ select{
 }
 
 .tool-bar-left{
+    position: relative;
     margin-right: auto;
     margin-left: 4rem;
-     select{
+    select{
         cursor: pointer;
         font-family: $primary-font;
         font-size: 1rem;
         padding: 0.5rem;
         border-radius: 5px;
-     }
-     option{
+    }
+    option{
         cursor: pointer;
-     }
+    }
 
-     .dropdown-button{
+    .dropdown-button{
         display: flex;
         align-items: center;
         justify-content: center;
@@ -39,6 +40,22 @@ select{
             background-color: rgb(183, 184, 185);
         }
     }
+
+    .branches-dropdown-list{
+        position: absolute;
+        z-index: 10;
+    }
+
+    .listitem{
+        cursor: pointer;
+        padding: 0.4rem 1.9rem;
+        background-color: white;
+
+        &:hover{
+            background-color: rgb(231, 228, 228);
+        }
+    }
+
 
     svg:hover{
         background: transparent;

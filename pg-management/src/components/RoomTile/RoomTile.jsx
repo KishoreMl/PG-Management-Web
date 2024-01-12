@@ -49,9 +49,18 @@ export class RoomTile extends Component{
                             onClick={() => this.handleShowDropdown()}     
                         /> 
                         <div className={`dropdown-list ${this.state.showDropdown?'show':''}`}>
-                            <div className="list-option" onClick={() => this.props.onTileOptionSelect('Add Guest')}>Add Guest</div>
-                            <div className="list-option" onClick={() => this.props.onTileOptionSelect('Remove Guest')}>Remove Guest</div>
-                            <div className="list-option" onClick={() => this.props.onTileOptionSelect('Edit Room')}>Edit Room</div>
+                            <div className="list-option" onClick={(e) => this.props.onTileOptionSelect(e,'Add Guest')}>
+                                <IconMap icon='person-add' size='20' />
+                                Add Guest
+                            </div>
+                            <div className="list-option" onClick={(e) => this.props.onTileOptionSelect(e,'Remove Guest')}>
+                                <IconMap icon='person-remove' size='20'  />
+                                Remove Guest
+                            </div>
+                            <div className="list-option" onClick={(e) => this.props.onTileOptionSelect(e,'Edit Room')}>
+                                <IconMap icon='edit' size='20'  />
+                                Edit Room
+                            </div>
                         </div>
                     </div>
                 </div>
