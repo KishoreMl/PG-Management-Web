@@ -43,11 +43,6 @@ select{
         }
     }
 
-    .branches-dropdown-list{
-        position: absolute;
-        z-index: 10;
-    }
-
     .listitem{
         padding: 0.5rem 1.5rem;
         display: flex;
@@ -70,7 +65,15 @@ select{
     }
 }
 
+.branches-dropdown-list {
+    visibility: hidden;
+    position: absolute;
+    z-index: 10;
+}
 
+.show {
+    visibility: visible;
+}
 
 .tool-bar-right{
     margin-left: auto;

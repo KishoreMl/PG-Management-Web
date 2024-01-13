@@ -7,10 +7,10 @@ export class RoomTile extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            showDropdown: "",
+            showDropdown: false,
             selected:false,
         }
-         this.dropdownRef = React.createRef();
+        this.dropdownRef = React.createRef();
     }
 
     componentDidMount() {

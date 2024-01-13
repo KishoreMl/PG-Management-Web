@@ -57,11 +57,13 @@
     max-height: 15.5rem;
     overflow-y: auto;
 }
+
 .room-name{
     background-color: rgb(28, 28, 200);
     color: white;
     padding: 0.1rem 0.3rem 0.1rem 0.3rem;
 }
+
 .dropdown-list{
     position: absolute;
     background-color: white;
@@ -70,9 +72,11 @@
     visibility: hidden;
     z-index: 10;
 }
+
 .show{
     visibility: visible;
 }
+
 .list-option{
     padding: 0 1rem 0 0.2rem;   
     display: flex;
