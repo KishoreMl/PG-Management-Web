@@ -8,6 +8,9 @@ import IconDelete from "./IconDelete";
 import IconPersonAdd from "./IconPersonAdd";
 import IconPersonRemove from "./IconPersonRemove";
 import IconCaretDown from "./IconCaretDown";
+import IconCheck from "./IconCheck";
+import IconCheckCircle from "./IconCheckCircle";
+import IconCrossCircle from "./IconCrossCircle";
 
 function IconMap(props) {
     switch (props.icon)
@@ -30,8 +33,14 @@ function IconMap(props) {
             return <IconPersonRemove size={props.size} color={props.color} onClick={() => props.onClick()} />; 
         case 'delete':
             return <IconDelete size={props.size} color={props.color} onClick={() => props.onClick()} />; 
+        case 'check':
+            return <IconCheck size={props.size} color={props.color} onClick={() => props.onClick()} />;
+        case 'check-circle':
+            return <IconCheckCircle size={props.size} color={props.color} onClick={() => props.onClick()} />;
+        case 'cross-circle':
+            return <IconCrossCircle size={props.size} color={props.color} onClick={() => props.onClick()} />;
         default:
-            return "<div> </div>";
+            return "<*>";
     }
 }
 

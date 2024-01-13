@@ -27,7 +27,11 @@
         }
     }
     .close-icon {
-        margin-left: 0;
+        margin-left:auto;
+
+        & svg{
+            border-radius: 2rem;
+        }
     }
 }
 
@@ -92,15 +96,32 @@
     }
 }
 
-.badge{
+.chip{
     background-color: $red;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
     color: white;
-    border-radius: 5px;
-    padding: 0.2rem;
+    padding: 0.3rem 0.7rem 0.3rem 0.3rem;
     font-size: 0.7rem;
+    font-family: $primary-font;
     margin-left: 1.5rem;
+    font-size: 0.8rem;
+    & svg{
+        padding: 0;
+        margin-right: 0.4rem;
+        &:hover {
+            background: transparent;
+        }
+    }
+    
 }
 .success{
-    background-color:$green;
-    color: black;
+    background-color:rgb(123, 239, 123);
+    color: rgb(21, 121, 21);
+}
+
+.danger{
+    background-color: rgb(250, 175, 175);
+    color: red;
 }

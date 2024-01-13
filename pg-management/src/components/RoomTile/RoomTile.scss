@@ -77,8 +77,13 @@
     padding: 0 1rem 0 0.2rem;   
     display: flex;
     align-items: center;
+    font-size: 0.85rem;
+    border-bottom: solid 1px rgb(212, 208, 208);
+    & svg:hover{
+        background: transparent;
+    }
     &:hover{
-        background-color: $grey;
+        background-color: rgb(212, 208, 208);
     }
 }
 

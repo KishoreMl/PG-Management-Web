@@ -33,8 +33,13 @@ export class RightPanel extends React.Component{
                             <div className="panel-sub-text">
                                 6500
                                 {this.props.guest.rentPaid ?
-                                <div className="badge">Paid</div> :
-                                <div className="badge success">Paid</div>}
+                                    <div className="chip success">
+                                        Paid
+                                    </div> :
+                                    <div className="chip success">
+                                        <IconMap icon='check-circle'  size="20" /> Paid
+                                    </div>
+                                }
                             </div>
                         </div>
                         <div className="panel-text">
@@ -42,8 +47,12 @@ export class RightPanel extends React.Component{
                             <div className="panel-sub-text">
                                 400
                                 {this.props.guest.rentPaid ?
-                                <div className="badge">Paid</div> :
-                                <div className="badge">Not Paid</div>}
+                                <div className="chip success">
+                                    <IconMap icon='check-circle' size="20" color='rgb(21, 121, 21)'/> Paid
+                                </div> :
+                                <div className="chip danger">
+                                    <IconMap icon='cross-circle' size="20" color='red'/> Not Paid
+                                </div>}
                             </div>
                         </div>
                         <div className="panel-text">

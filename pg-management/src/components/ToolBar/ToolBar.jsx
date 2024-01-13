@@ -35,9 +35,15 @@ export class ToolBar extends React.Component{
                             </svg>
                         </div>
                         <div className="branches-dropdown-list">
-                            <div className="listitem">Branch name 2</div>
-                            <div className="listitem">Branch name 3</div>
-                            <div className="listitem">Branch name 4</div>
+                            <div className="listitem">
+                                Branch name 2 <IconMap icon='check' />
+                            </div>
+                            <div className="listitem">
+                                Branch name 3 
+                            </div>
+                            <div className="listitem">
+                                Branch name 4 
+                            </div>
                         </div>
                     </div> 
                 </div>
