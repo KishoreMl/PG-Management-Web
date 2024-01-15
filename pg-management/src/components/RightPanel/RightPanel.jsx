@@ -10,15 +10,17 @@ export class RightPanel extends React.Component{
             <div className="right-panel">
                 {!this.props.guest ?
                     <div>
-                        <div className="close-icon">
-                            <IconMap icon="close" size={20} onClick={() => this.props.setPanelDisplay(false)} />
+                        <div className="panel-header">
+                            <div className="header-left">
+                                <IconMap icon="close" size={20} onClick={() => this.props.setPanelDisplay(false)} />
+                            </div>    
                         </div>
                         <div className="panel-img">
                             <img src={guest}></img>
                         </div>
                         <div className="rightpanel-toolbar">
-                            <IconMap icon="edit" size={20} onClick={() => console.log('edit')} />
-                            <button>Mark as Paid</button>
+                            <IconMap icon="edit" size={20}  />
+                            <IconMap icon="delete" size={21} />
                         </div>
                         <div className="panel-text">
                             <div className="panel-sub-text"><b>Name</b></div>

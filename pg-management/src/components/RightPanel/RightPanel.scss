@@ -26,9 +26,12 @@
             background-color: rgb(224, 221, 221);
         }
     }
-    .close-icon {
+    .panel-header{
+        display: flex;
+        padding: 0.5rem 0.8rem;
+    }
+    .header-left {
         margin-left:auto;
-
         & svg{
             border-radius: 2rem;
         }
@@ -39,7 +42,6 @@
     display: flex;
     gap:1rem;
     align-items: center;
-    justify-content:space-around;
     padding: 0.4rem;
 
     & button{

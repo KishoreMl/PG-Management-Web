@@ -7,13 +7,10 @@
     background-color: white;
     margin-top: 2rem;
     cursor: pointer;
+    box-shadow: 0 0 6px rgb(106, 106, 106) ;
     &:hover {
         box-shadow: 0 0 9px rgb(106, 106, 106);
     }
-}
-
-.selected{
-    box-shadow: 2px 2px 11px rgb(57, 124, 248);
 }
 
 .tile-header{
@@ -37,6 +34,7 @@
         padding: 0.35rem;
         font-size: 0.70rem;
     }
+
     & svg{
         font-size: 4rem;
         padding: 0.5rem;
@@ -54,7 +52,7 @@
 }
 .tile-container{
     padding: 0.4rem;
-    max-height: 15.5rem;
+    max-height: 15.4rem;
     overflow-y: auto;
 }
 

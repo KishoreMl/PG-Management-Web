@@ -1,41 +1,24 @@
-import React from "react"
+import React from "react";
 import IconMap from "../Icons/IconMap";
-import './CreateRoom.scss';
 
 class CreateRoom extends React.Component{
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            display: true,
-        }
-    }
-    
-    onSubmit() {
-        
-    }
-
-    render()
-    {
+    render() {
         return (
             <>
                 <div id="overlay" className={`overlay ${this.state.display?'show':''}`}></div>
                 <div id="myModal" className={`modal ${this.state.display?'show':''}`}>
                     <div className="modal-container">
                         <div className="modal-header">
-                            <h2>Create Room</h2>
+                            <h2>New Guest</h2>
                             <IconMap icon="close" size={18}  onClick={() => this.props.onCloseModal()} />
                         </div>
                         <div className="modal-content">
-                            <label for="room-no">Room no</label><br />
-                            <input className="textbox" type="text" id="room-no"></input> <br />
-                             <label for="room-type">Type</label><br />
-                            <select id="room-type">
-                                <option>Non-AC</option>
-                                <option>AC</option>
-                            </select><br />
-                             <label for="room-capacity">Sharing</label><br />
-                            <input className="textbox" type="text"id="room-capacity"></input><br/>
+                            <label for="name">Name</label><br />
+                            <input className="textbox" type="text" id="name"></input> <br />
+
+                            <label for="contact">Contact</label><br />
+                            <input className="textbox" type="text" id="contact"></input><br />
+                            
                         </div>  
                         <div className="modal-footer">
                             <div className="footer-right">
@@ -46,7 +29,6 @@ class CreateRoom extends React.Component{
                     </div>
                 </div>
             </>
-            
         )
     }
 }

@@ -91,7 +91,7 @@ select{
         padding: 0.7rem;
 
         &:hover{
-            background-color: rgb(78, 46, 176);
+            background-color: $primary-hover-color;
         }
     }
     & svg {

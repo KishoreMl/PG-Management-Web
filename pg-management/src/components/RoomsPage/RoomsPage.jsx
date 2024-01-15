@@ -5,7 +5,7 @@ import { RoomsTable } from "../RoomsTable/RoomsTable";
 import { GridView } from "../GridView/GridView";
 import { getRooms } from "../../sdk/pgmanagement";
 import CreateRoom from "../CreateRoom/CreateRoom";
-import CreateGuest from "../CreateGuest/CreateGuest";
+import NewGuest from "../NewGuest/NewGuest";
 import './RoomsPage.scss';
 
 export class RoomsPage extends React.Component{
@@ -162,7 +162,7 @@ export class RoomsPage extends React.Component{
             currentView:'grid',
             showRightPanel: false,
             showCreateRoomModal: false,
-            showCreateGuestModal: false,
+            showNewGuestModal: false,
             selectedGuest: '',
             selectedRoom: '',
             isLoading: false
@@ -180,7 +180,7 @@ export class RoomsPage extends React.Component{
     }
 
     onRoomSelect(roomId) {
-        console.log(roomId);
+        console.log("on room select: "+roomId);
         let room = this.state.rooms.filter((room) => room.roomId === roomId);
         this.setState({ showRightPanel: true, selectedRoom: room }) 
     }
@@ -203,11 +203,11 @@ export class RoomsPage extends React.Component{
         this.setState({ currentView: view })
     }
     
-    onTileOptionSelect(event,option) {
+    onTileOptionSelect(event, option) {
         event.stopPropgation();
         switch (option) {
             case 'Add Guest':
-                this.setState({ showCreateGuestModal: true });
+                this.setState({ showNewGuestModal: true });
                 break;
             case 'Remove Guest':
                 console.log('Remove Guest');
@@ -225,7 +225,7 @@ export class RoomsPage extends React.Component{
         return (
             <div>
                 {this.state.showCreateRoomModal ? <CreateRoom onCloseModal={() => this.onCreateRoom(false)} /> : null}
-                {this.state.showCreateGuestModal ? <CreateGuest onCloseModal={() => this.onCreateRoom(false)} /> : null}
+                {this.state.showNewGuestModal ? <NewGuest onCloseModal={() => this.onCreateRoom(false)} /> : null}
                     <ToolBar
                         branches={this.state.branches}
                         currentView={this.state.currentView}
