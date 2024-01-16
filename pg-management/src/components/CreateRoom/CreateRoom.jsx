@@ -1,5 +1,5 @@
 import React from "react"
-import IconMap from "../Icons/IconMap";
+import IconClose from "../Icons/IconClose";
 import './CreateRoom.scss';
 
 class CreateRoom extends React.Component{
@@ -24,7 +24,7 @@ class CreateRoom extends React.Component{
                     <div className="modal-container">
                         <div className="modal-header">
                             <h2>Create Room</h2>
-                            <IconMap icon="close" size={18}  onClick={() => this.props.onCloseModal()} />
+                            <IconClose size='18' onClick={() => this.props.onCloseModal()} />
                         </div>
                         <div className="modal-content">
                             <label for="room-no">Room no</label><br />

@@ -1,6 +1,10 @@
 import React from "react";
 import guest from '../../static/guest.png';
-import IconMap from "../Icons/IconMap";
+import IconClose from "../Icons/IconClose";
+import IconEdit from "../Icons/IconEdit";
+import IconDelete from "../Icons/IconDelete";
+import IconCheckCircle from "../Icons/IconCheckCircle";
+import IconCrossCircle from "../Icons/IconCrossCircle";
 import './RightPanel.scss';
 
 export class RightPanel extends React.Component{
@@ -12,15 +16,15 @@ export class RightPanel extends React.Component{
                     <div>
                         <div className="panel-header">
                             <div className="header-left">
-                                <IconMap icon="close" size={20} onClick={() => this.props.setPanelDisplay(false)} />
+                                <IconClose size='20' onClick={() => this.props.setPanelDisplay(false)} />
                             </div>    
                         </div>
                         <div className="panel-img">
                             <img src={guest}></img>
                         </div>
                         <div className="rightpanel-toolbar">
-                            <IconMap icon="edit" size={20}  />
-                            <IconMap icon="delete" size={21} />
+                            <IconEdit size='20' />
+                            <IconDelete size='21' />
                         </div>
                         <div className="panel-text">
                             <div className="panel-sub-text"><b>Name</b></div>
@@ -39,7 +43,7 @@ export class RightPanel extends React.Component{
                                         Paid
                                     </div> :
                                     <div className="chip success">
-                                        <IconMap icon='check-circle'  size="20" /> Paid
+                                        <IconCheckCircle size='20' /> Paid
                                     </div>
                                 }
                             </div>
@@ -49,12 +53,13 @@ export class RightPanel extends React.Component{
                             <div className="panel-sub-text">
                                 400
                                 {this.props.guest.rentPaid ?
-                                <div className="chip success">
-                                    <IconMap icon='check-circle' size="20" color='rgb(21, 121, 21)'/> Paid
-                                </div> :
-                                <div className="chip danger">
-                                    <IconMap icon='cross-circle' size="20" color='red'/> Not Paid
-                                </div>}
+                                    <div className="chip success">
+                                        <IconCheckCircle size='20' color='rgb(21, 121, 21)' /> Paid
+                                    </div> :
+                                    <div className="chip danger">
+                                        <IconCrossCircle size="20" color='red'/> Not Paid
+                                    </div>
+                                }
                             </div>
                         </div>
                         <div className="panel-text">
@@ -71,11 +76,11 @@ export class RightPanel extends React.Component{
                         </div>
                     </div> :
                     <div>
-                        <IconMap icon="close" size={20} onClick={() => this.props.setPanelDisplay(false)} />
+                        <IconClose size={20} onClick={() => this.props.setPanelDisplay(false)} />
                         <div>Room no: {this.props.room.number}</div>
                         <div className="rightpanel-toolbar">
-                            <IconMap icon="edit" size={20} onClick={() => console.log('edit')} />
-                            <IconMap icon="delete" />
+                            <IconEdit size={20} onClick={() => console.log('edit')} />
+                            <IconDelete />
                         </div>
                         <div> Guests </div>
                         

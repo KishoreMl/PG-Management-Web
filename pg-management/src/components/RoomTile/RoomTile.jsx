@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import { GuestCard } from "../GuestCard/GuestCard";
-import IconMap from "../Icons/IconMap";
+import IconPersonAdd from "../Icons/IconPersonAdd";
+import IconPersonRemove from "../Icons/IconPersonRemove";
+import IconDelete from "../Icons/IconDelete";
+import IconEdit from "../Icons/IconEdit";
+import IconMore from "../Icons/IconMore";
+
 import './RoomTile.scss';
 
 export class RoomTile extends Component{
@@ -44,25 +49,22 @@ export class RoomTile extends Component{
                     <p>{this.props.room.number}</p>
                     {this.props.room.type === 'AC' && <p className="badge">{this.props.room.type}</p>}
                     <div className="tile-header-left" ref={this.dropdownRef}>
-                        <IconMap
-                            icon="more"
-                            onClick={() => this.handleShowDropdown()}     
-                        /> 
+                        <IconMore  onClick={() => this.handleShowDropdown()}  />
                         <div className={`dropdown-list ${this.state.showDropdown?'show':''}`}>
-                            <div className="list-option" onClick={(e) => this.props.onTileOptionSelect(e,'Add Guest')}>
-                                <IconMap icon='person-add' size='19' />
+                            <div className="list-option" onClick={(e) => this.props.onTileOptionSelect(e, 'Add Guest')}>
+                                <IconPersonAdd size='19' />
                                 Add Guest
                             </div>
-                            <div className="list-option" onClick={(e) => this.props.onTileOptionSelect(e,'Remove Guest')}>
-                                <IconMap icon='person-remove' size='19'  />
+                            <div className="list-option" onClick={(e) => this.props.onTileOptionSelect(e, 'Remove Guest')}>
+                                <IconPersonRemove size='19' />
                                 Remove Guest
                             </div>
-                            <div className="list-option" onClick={(e) => this.props.onTileOptionSelect(e,'Edit Room')}>
-                                <IconMap icon='edit' size='19'  />
+                            <div className="list-option" onClick={(e) => this.props.onTileOptionSelect(e, 'Edit Room')}>
+                                <IconEdit size='19' />
                                 Edit Room
                             </div>
                             <div className="list-option" onClick={(e) => this.props.onTileOptionSelect(e,'Edit Room')}>
-                                <IconMap icon='delete' size='19'  />
+                                <IconDelete size='19' />
                                 Delete Room
                             </div>
                         </div>
