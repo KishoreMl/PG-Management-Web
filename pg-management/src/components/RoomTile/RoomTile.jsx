@@ -40,6 +40,15 @@ export class RoomTile extends Component{
         this.setState({ selected: this.state.selected ? false : true });
         this.props.onRoomSelect(this.props.room.roomId)
     }
+
+    getAvailableBeds(difference) {
+        let availableBeds = [];
+        for (let i = 0; i < difference; i++)
+        {
+            availableBeds.push('Available');
+        }
+        return availableBeds;
+    }
     render() {
         return (
             <div
@@ -78,10 +87,10 @@ export class RoomTile extends Component{
                             onClick={(e) => this.props.onGuestSelect(guest,e)} 
                         />
                     )} 
-                    {(this.props.room.capacity-this.props.room.guests.length>0)?
-                        <GuestCard guest={null} />
-                        :null
-                    }
+                    {this.getAvailableBeds(this.props.room.capacity - this.props.room.guests.length).map((bed) =>
+                         <GuestCard guest={null} />
+                    )}
+                    
                 </div>
             </div>  
         );

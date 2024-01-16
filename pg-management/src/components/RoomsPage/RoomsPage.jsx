@@ -20,7 +20,7 @@ export class RoomsPage extends React.Component{
                         roomId:"roomId1",
                         number:"101",
                         type:"AC",
-                        capacity:3,
+                        capacity:5,
                         rent:6500,
                         guests:[
                             {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
@@ -60,7 +60,7 @@ export class RoomsPage extends React.Component{
                         roomId:"roomId4",
                         number:"104",
                         type:"AC",
-                        capacity:3,
+                        capacity:4,
                         rent:6500,
                         guests:[
                             {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
@@ -84,7 +84,7 @@ export class RoomsPage extends React.Component{
                         roomId:"roomId5",
                         number:"104",
                         type:"AC",
-                        capacity:3,
+                        capacity:4,
                         rent:6500,
                         guests:[
                             {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
@@ -108,11 +108,10 @@ export class RoomsPage extends React.Component{
                         roomId:"roomId7",
                         number:"104",
                         type:"AC",
-                        capacity:3,
+                        capacity:4,
                         rent:6500,
                         guests:[
                             {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
-                            {guestId:"guestId2",name:"Akhilesh",rentPaid:false,ebPaid:false}
                         ]
                 },
                     {

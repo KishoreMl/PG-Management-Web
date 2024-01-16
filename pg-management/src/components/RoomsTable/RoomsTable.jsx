@@ -3,6 +3,14 @@ import { Avatar } from "../Avatar/Avatar";
 import './RoomsTable.scss';
 
 export class RoomsTable extends React.Component{
+    getAvailableBeds(difference) {
+        let availableBeds = [];
+        for (let i = 0; i < difference; i++)
+        {
+            availableBeds.push('Available');
+        }
+        return availableBeds;
+    }
     render()
     {
         return (
@@ -28,8 +36,11 @@ export class RoomsTable extends React.Component{
                                                 guest={guest}
                                                 onGuestSelect={(guestId) => this.props.onGuestSelect(guestId)}  
                                             />
-                                        )}  
-                                        {room.capacity-room.guests.length>0?<Avatar />:null}
+                                    )}  
+                                    {this.getAvailableBeds(room.capacity - room.guests.length).map(() =>
+                                        <Avatar />
+                                    )}
+                                        
                                     </div>
                                 </td>
                                 <td>{room.rent}</td>

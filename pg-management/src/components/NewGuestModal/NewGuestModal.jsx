@@ -4,7 +4,7 @@ import IconClose from "../Icons/IconClose";
 class CreateRoom extends React.Component{
     render() {
         return (
-            <>
+            <React.Fragment>
                 <div id="overlay" className={`overlay ${this.state.display?'show':''}`}></div>
                 <div id="myModal" className={`modal ${this.state.display?'show':''}`}>
                     <div className="modal-container">
@@ -28,7 +28,7 @@ class CreateRoom extends React.Component{
                         </div>        
                     </div>
                 </div>
-            </>
+            </ React.Fragment>
         )
     }
 }
