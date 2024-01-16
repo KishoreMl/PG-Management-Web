@@ -4,8 +4,8 @@ import { ToolBar } from "../ToolBar/ToolBar";
 import { RoomsTable } from "../RoomsTable/RoomsTable";
 import { GridView } from "../GridView/GridView";
 import { getRooms } from "../../sdk/pgmanagement";
-import CreateRoom from "../CreateRoom/CreateRoom";
-import NewGuest from "../NewGuest/NewGuest";
+import CreateRoom from "../CreateRoomModal/CreateRoomModal";
+import NewGuest from "../NewGuestModal/NewGuestModal";
 import './RoomsPage.scss';
 
 export class RoomsPage extends React.Component{
@@ -25,9 +25,9 @@ export class RoomsPage extends React.Component{
                         guests:[
                             {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
                             {guestId:"guestId2",name:"Akhilesh",rentPaid:true,ebPaid:false},
-                            {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
-                            {guestId:"guestId2",name:"Akhilesh",rentPaid:true,ebPaid:false},
-                            {guestId:"guestId3",name:"Siva",rentPaid:false,ebPaid:false}
+                            {guestId:"guestId3",name:"Ashwin",rentPaid:true,ebPaid:false},
+                            {guestId:"guestId4",name:"Akhilesh",rentPaid:true,ebPaid:false},
+                            {guestId:"guestId5",name:"Siva",rentPaid:false,ebPaid:false}
                         ]
                     },
                     {
@@ -69,7 +69,7 @@ export class RoomsPage extends React.Component{
                 },
                     {
                         branchId:"branchId1",
-                        roomId:"roomId4",
+                        roomId:"roomId11",
                         number:"104",
                         type:"AC",
                         capacity:3,
@@ -81,7 +81,7 @@ export class RoomsPage extends React.Component{
                 },
                     {
                         branchId:"branchId1",
-                        roomId:"roomId4",
+                        roomId:"roomId5",
                         number:"104",
                         type:"AC",
                         capacity:3,
@@ -93,7 +93,7 @@ export class RoomsPage extends React.Component{
                 },
                     {
                         branchId:"branchId1",
-                        roomId:"roomId4",
+                        roomId:"roomId6",
                         number:"104",
                         type:"AC",
                         capacity:3,
@@ -105,7 +105,7 @@ export class RoomsPage extends React.Component{
                 },
                     {
                         branchId:"branchId1",
-                        roomId:"roomId4",
+                        roomId:"roomId7",
                         number:"104",
                         type:"AC",
                         capacity:3,
@@ -117,7 +117,7 @@ export class RoomsPage extends React.Component{
                 },
                     {
                         branchId:"branchId1",
-                        roomId:"roomId4",
+                        roomId:"roomId8",
                         number:"104",
                         type:"AC",
                         capacity:3,
@@ -129,7 +129,7 @@ export class RoomsPage extends React.Component{
                 },
                     {
                         branchId:"branchId1",
-                        roomId:"roomId4",
+                        roomId:"roomId9",
                         number:"104",
                         type:"AC",
                         capacity:3,
@@ -141,7 +141,7 @@ export class RoomsPage extends React.Component{
                 },
                     {
                         branchId:"branchId1",
-                        roomId:"roomId4",
+                        roomId:"roomId10",
                         number:"104",
                         type:"AC",
                         capacity:3,

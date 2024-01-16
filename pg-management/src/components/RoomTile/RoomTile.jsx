@@ -74,6 +74,7 @@ export class RoomTile extends Component{
                     {this.props.room.guests.map((guest) => 
                         <GuestCard
                             guest={guest}
+                            key={guest.guestId}
                             onClick={(e) => this.props.onGuestSelect(guest,e)} 
                         />
                     )} 

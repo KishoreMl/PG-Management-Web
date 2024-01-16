@@ -60,7 +60,7 @@ export class ToolBar extends React.Component{
                         </div>
                         <div className={`branches-dropdown-list ${this.state.showDropdown?'show':''}`}>
                             {this.state.branches.map((branch) =>
-                                <div className="listitem" onClick={() => this.onBranchSelect(branch)}>
+                                <div className="listitem" key={branch} onClick={() => this.onBranchSelect(branch)}>
                                     {branch} {this.state.selectedBranch? (this.state.selectedBranch === branch? <IconCheck />:null): <IconCheck />}
                                 </div>
                             )}

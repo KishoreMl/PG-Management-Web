@@ -40,10 +40,10 @@ export class RightPanel extends React.Component{
                                 6500
                                 {this.props.guest.rentPaid ?
                                     <div className="chip success">
-                                        Paid
+                                       <IconCheckCircle size='20' /> Paid
                                     </div> :
-                                    <div className="chip success">
-                                        <IconCheckCircle size='20' /> Paid
+                                    <div className="chip danger">
+                                        <IconCrossCircle size="20" color='red'/> Not Paid
                                     </div>
                                 }
                             </div>

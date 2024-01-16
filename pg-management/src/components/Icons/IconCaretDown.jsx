@@ -9,7 +9,7 @@ function IconCaretDown(props)
             width={props.size || 20}
             height={props.size || 20}
             fill={props.color || "curentColor"}
-            class="mi-outline mi-caret-down" 
+            className="mi-outline mi-caret-down" 
             viewBox="0 0 24 24">
             <path d="m12.6 14.74 4.22-4.58c.43-.46.06-1.16-.6-1.16H7.78c-.66 0-1.03.7-.6 1.16l4.22 4.58c.31.34.89.34 1.2 0"/>
         </svg>
