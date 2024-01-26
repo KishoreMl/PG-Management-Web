@@ -1,0 +1,32 @@
+Rough DB desgin
+
+Owner:                                
+    - id:string
+    - name:string
+    - liscense:string
+
+Branch:
+    - id:string
+    - name:string
+    - ownerId:string
+    - location:string
+
+Guest:
+    - id:string
+    - name:string
+    - roomId:string
+    - branchId:string
+    - phNo:string
+    - dateOfjoining:date
+    - dateOfVacating:date
+    - rentPaid:boolean
+    - ebPaid:boolean
+
+Room:
+    - id:string
+    - roomNo:string
+    - branchId:string
+    - capacity:number
+    - type:string
+    - rent:number 
+    - ebReading:number    
