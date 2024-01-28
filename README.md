@@ -8,7 +8,7 @@ Language: JavaScript
 
 # Pre-requisites
 
-Install Vs code(IDE) and node.js
+Install Visual Studio Code (IDE) and node.js
 
 # Getting Started 
 
