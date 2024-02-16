@@ -1,0 +1,44 @@
+Table Owner {
+  id varchar pk
+  name varchar
+  license varchar
+}
+
+Table Branch{
+  id varchar pk
+  ownerId varchar 
+  type varchar
+  name varchar
+  location varchar
+  priceperunit integer
+}
+ 
+Table Room {
+  id varchar pk
+  brachId varchar
+  number varchar
+  capacity integer
+  type varchar
+  rent integer
+  ebReading integer
+  ebUnits integer
+  guests Array[]
+
+}
+
+Table Guest{
+  id varchar pk
+  roomId varchar
+  branchId varchar
+  name varchar
+  phNo integer
+  doj date
+  dov date
+  rentPaid bool
+  ebPaid bool
+}
+
+Ref: Owner.id > Branch.ownerId
+Ref: Branch.id > Room.brachId
+Ref: Room.id > Guest.roomId
+
