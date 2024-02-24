@@ -1,12 +1,22 @@
 @import '../vars.scss';
 
+.create-button{
+    display: none;
+    & svg{
+        &:hover{
+            background: transparent;
+        }
+    }
+}
+
 .tool-bar{
     position: relative;
     background-color: rgb(211, 210, 210);
     height:2.5rem;
     padding: 0.5rem;
     display: flex;
-    align-items: center;  
+    align-items: center; 
+    // box-shadow: 0 1px 10px rgb(113, 113, 113); 
 }
 
 select{
@@ -77,7 +87,7 @@ select{
 
 .tool-bar-right{
     margin-left: auto;
-    margin-right: 4rem;
+    margin-right: 3rem;
     display: flex;
     gap:1rem;
     align-items: center;
@@ -101,5 +111,17 @@ select{
             cursor: pointer;
             background-color: rgb(161, 158, 158);
         }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .toolbar .tool-bar-right {
+        margin-right: 0.5rem;
+    }
+    .tool-bar-left{
+        margin-left: 1rem;
+    }
+    .create-button {
+        display: block;
     }
 }

@@ -72,7 +72,7 @@ export class ToolBar extends React.Component{
                         <IconGrid size={20} onClick={() => this.handleView('grid')} /> :
                         <IconList size={20} onClick={() => this.handleView('list')} />
                     }
-                    <button onClick={() => this.props.onCreateRoom()}>
+                    <button onClick={() => this.props.onCreateRoom()} className="create-button">
                         Create Room
                     </button>
                 </div>

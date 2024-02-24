@@ -1,7 +1,6 @@
 @import '../vars.scss';
 
 .container{
-    position: relative;
     display: flex;
 }
 
@@ -54,5 +53,26 @@
 
     100% {
         transform: rotate(360deg);
+    }
+}
+
+.add-button{
+    position: absolute;
+    display: none;
+    bottom: 1rem;
+    right:1.5rem;
+    width:3.3rem;
+    height:3.3rem;
+    background-color: $primary-color;
+    border:none;
+    border-radius: 50%;
+    padding-top: 0.2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 768px) {
+    .add-button {
+        display: block;
     }
 }

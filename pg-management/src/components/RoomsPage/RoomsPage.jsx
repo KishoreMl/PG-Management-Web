@@ -6,6 +6,7 @@ import { GridView } from "../GridView/GridView";
 import { getRooms } from "../../sdk/pgmanagement";
 import CreateRoom from "../CreateRoomModal/CreateRoomModal";
 import NewGuest from "../NewGuestModal/NewGuestModal";
+import IconPlusCircle from "../Icons/IconPlusCircle";
 import './RoomsPage.scss';
 
 export class RoomsPage extends React.Component{
@@ -256,10 +257,14 @@ export class RoomsPage extends React.Component{
                                         setPanelDisplay={(display) => this.setPanelDisplay(display)}
                                     />
                                 )}
-                            </div>    
-                        </div>
-                    }
-                </div>    
+                        </div>  
+                        <button className="add-button" onClick={()=> this.onCreateRoom(true)}>
+                            <IconPlusCircle color="white"/>
+                        </button>
+                    </div>
+                }
+                
+            </div>    
         )
     }
 }

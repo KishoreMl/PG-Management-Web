@@ -69,12 +69,10 @@ svg {
             background-color: white;
         }
     }
-
     & .footer-right{
         margin-left: auto;
     }
 }
-
 
 .show{
     display: block;
@@ -93,4 +91,10 @@ svg {
 
 select{
     margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 400px) {
+    .modal {
+        height:100%;
+    }
 }
