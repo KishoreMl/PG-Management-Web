@@ -1,0 +1,93 @@
+APIs
+------
+
+Owner Deatils API [GET] (profile Page):
+---------------------------------------
+    {
+      ownerName,
+      PgName,
+      license,
+      pricePerUnit,
+      GuestFields:[]
+      RoomFields:[]
+    }
+
+Branches List API [GET] (Branches Page):
+----------------------------------------
+    Branches:[{
+        branchId, 
+        branchName, 
+        location,
+    }]
+
+Rooms List API [GET] (Rooms Page):
+----------------------------------
+     Rooms:[{
+         branchId,
+         roomId,
+         roomNumber, 
+         type,
+         capacity, 
+         rent, 
+         guests:[{
+             guestId
+             name
+             rentPaid
+             ebPaid
+        }]
+    }]
+    
+Guest Details API [GET] (Guest Right Panel):
+--------------------------------------------
+     Guest:{
+            guestId
+            name,
+            roomNumber,
+            rentpaid,
+            ebPaid,
+            phoneNo,
+            address,
+            dues:[{
+                month,
+                isRent,
+                isEb,
+            }],
+            other details based on owner settings...
+     }
+
+Room Details API [GET] (Room Right Panel):
+------------------------------------------
+    Room:{
+        roomId
+        number,
+        type,
+        capacity,
+        rent,
+        ebReading,
+        guests:[{
+             guestId
+             name
+             rentPaid
+             ebPaid
+        }],
+        other details based on owner settings...
+    }
+
+
+Create owner API [POST]
+Update owner API [PATCH]
+Delete owner API [DELETE]
+
+Create Branch API [POST]
+Update Branch API [PATCH]
+Delete Branch API [DELETE]
+
+Create Guest API [POST]
+Update Guest API [PATCH]
+Delete Guest API [DELETE]
+
+Create Room API [POST]
+Update Room API [PATCH]
+Delete Room API [DELETE]
+
+
