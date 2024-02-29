@@ -2,13 +2,17 @@
 
 .container{
     display: flex;
+    flex-flow:  row nowrap;
+    width:100%;
+    max-height: 79vh;
 }
 
 .rightpanel-container{
     transition: 0.5s all ease-in-out;
+    margin-left:auto ;
     width:0;
     &.open{
-        width:18rem;
+        width:300px;
     }
 }
 

@@ -1,11 +1,8 @@
 @import '../vars.scss';
-
-
 .right-panel{
-    position: absolute;
-    height: calc(100vh - 127px);
-    right:0;
-    width:18rem;
+    height: calc(100vh - 126px);
+    margin-left:auto ;
+    width:300px;
     z-index: 10;
     background-color: white;
 
@@ -29,6 +26,14 @@
     .panel-header{
         display: flex;
         padding: 0.5rem 0.8rem;
+        align-items: center;
+        border-bottom: solid 1px rgb(180, 180, 180);
+
+        h3{
+            padding: 0;
+            margin: 0;
+            font-family: $primary-font;
+        }
     }
     .header-left {
         margin-left:auto;
@@ -38,7 +43,11 @@
     }
 }
 
-.rightpanel-toolbar{
+.panel-content{
+    overflow-y: auto;
+}
+
+.panel-toolbar{
     display: flex;
     gap:1rem;
     align-items: center;

@@ -1,9 +1,6 @@
 .grid-container {
-    width: 100%;
-    position: relative;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(296px, 1fr));
-    padding: 1.5rem;
-    max-height: 69vh;
+    width:100%;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
     overflow-y: auto;
 }

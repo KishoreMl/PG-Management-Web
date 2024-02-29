@@ -160,7 +160,7 @@ export class RoomsPage extends React.Component{
                     ],
             currentBranchId:'',
             currentView:'grid',
-            showRightPanel: false,
+            showRightPanel: true,
             showCreateRoomModal: false,
             showNewGuestModal: false,
             selectedGuest: '',
@@ -249,7 +249,7 @@ export class RoomsPage extends React.Component{
                                     onTileOptionSelect={(e,option) => this.onTileOptionSelect(e,option)}
                                 />
                             } 
-                            <div className={`rightpanel-container ${this.state.showRightPanel? 'open':''}`}>
+                            <div className={`rightpanel-container ${this.state.showRightPanel?'open':''}`}>
                                 {this.state.showRightPanel && (
                                     <RightPanel
                                         guest={this.state.selectedGuest}
@@ -257,13 +257,12 @@ export class RoomsPage extends React.Component{
                                         setPanelDisplay={(display) => this.setPanelDisplay(display)}
                                     />
                                 )}
-                        </div>  
+                            </div>  
                         <button className="add-button" onClick={()=> this.onCreateRoom(true)}>
                             <IconPlusCircle color="white"/>
                         </button>
                     </div>
-                }
-                
+                }       
             </div>    
         )
     }

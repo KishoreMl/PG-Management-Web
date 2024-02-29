@@ -1,5 +1,5 @@
 APIs
-------
+-----
 
 Owner Deatils API [GET] (profile Page):
 ---------------------------------------
@@ -29,6 +29,7 @@ Rooms List API [GET] (Rooms Page):
          type,
          capacity, 
          rent, 
+         perDayRent,
          guests:[{
              guestId
              name
@@ -45,6 +46,8 @@ Guest Details API [GET] (Guest Right Panel):
             roomNumber,
             rentpaid,
             ebPaid,
+            doj,
+            dov,
             phoneNo,
             address,
             dues:[{
@@ -55,6 +58,26 @@ Guest Details API [GET] (Guest Right Panel):
             other details based on owner settings...
      }
 
+Guests List API [GET] (Get all guests in a room in a certain period of time)
+----------------------------------------------------------------------------
+    Guests:[{
+            guestId
+            name,
+            roomNumber,
+            rentpaid,
+            ebPaid,
+            doj,
+            dov,
+            phoneNo,
+            address,
+            dues:[{
+                month,
+                isRent,
+                isEb,
+            }],
+            other details based on owner settings...
+        }]
+
 Room Details API [GET] (Room Right Panel):
 ------------------------------------------
     Room:{
@@ -63,6 +86,7 @@ Room Details API [GET] (Room Right Panel):
         type,
         capacity,
         rent,
+        perDayRent,
         ebReading,
         guests:[{
              guestId
@@ -89,5 +113,43 @@ Delete Guest API [DELETE]
 Create Room API [POST]
 Update Room API [PATCH]
 Delete Room API [DELETE]
+
+
+Future Scope:
+
+Create Ticket [POST]
+---------------------
+    Ticket: {
+            ticketId,
+            branchId,
+            roomId,
+            roomNumber,
+            issue,
+            status,
+            comments,
+            cAt,
+            cBy,
+            mAt,
+            mBy,
+        }
+
+List all Tickets For a branch [GET]
+-------------------------------------
+    Tickets:[{
+            ticketId,
+            branchId,
+            roomId,
+            roomNumber,
+            issue,
+            status,
+            comments,
+            cAt,
+            cBy,
+            mAt,
+            mBy,
+    }]
+
+Update Ticket [PATCH]
+DELETE Ticket [DELETE]
 
 
