@@ -4,7 +4,7 @@ import { ToolBar } from "../ToolBar/ToolBar";
 import { RoomsTable } from "../RoomsTable/RoomsTable";
 import { GridView } from "../GridView/GridView";
 import { getRooms } from "../../sdk/pgmanagement";
-import CreateRoom from "../CreateRoomModal/CreateRoomModal";
+import CreateModal from "../CreateModal/CreateModal";
 import NewGuest from "../NewGuestModal/NewGuestModal";
 import IconPlusCircle from "../Icons/IconPlusCircle";
 import './RoomsPage.scss';
@@ -224,13 +224,23 @@ export class RoomsPage extends React.Component{
     {
         return (
             <div>
-                {this.state.showCreateRoomModal ? <CreateRoom onCloseModal={() => this.onCreateRoom(false)} /> : null}
-                {this.state.showNewGuestModal ? <NewGuest onCloseModal={() => this.onCreateRoom(false)} /> : null}
+                {this.state.showCreateRoomModal ? 
+                    <CreateModal 
+                        title="Create Room"  
+                        onCloseModal={() => this.onCreateRoom(false)} 
+                    />
+                 : null}
+                {this.state.showNewGuestModal ? 
+                    <NewGuest onCloseModal={() => this.onCreateRoom(false)} /> 
+                : null}
                     <ToolBar
-                        branches={this.state.branches}
+                        dropdownListItems={this.state.branches}
+                        showDropdown={true}
+                        showViewButton={true}
                         currentView={this.state.currentView}
+                        createButtonText="Create Room"
                         onViewChange={(view) => this.onViewChange(view)}
-                        onCreateRoom={() => this.onCreateRoom(true)}
+                        onCreate={() => this.onCreateRoom(true)}
                     />
                     {this.state.isLoading ? 
                         <div className="spinner">
@@ -262,7 +272,7 @@ export class RoomsPage extends React.Component{
                             <IconPlusCircle color="white"/>
                         </button>
                     </div>
-                }       
+                    }       
             </div>    
         )
     }

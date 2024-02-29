@@ -13,15 +13,14 @@ export class ToolBar extends React.Component{
         this.state = {
             currentView: this.props.currentView,
             showDropdown: false,
-            branches: ['branch name 1', 'branch name 2', 'branch name 3', 'branch name 4'],
-            selectedBranch: '',
+            selectedBranch: this.props.dropdownListItems[0].name,
         }
         this.dropdownRef = React.createRef();
     }
 
     componentDidMount() {
         document.addEventListener('click', this.handleClickOutside);
-        this.setState({selectedBranch:this.state.branches[0]})
+        // this.setState({selectedBranch:this.state.branches[0]})
     }
 
     componentWillUnmount() {
@@ -51,29 +50,34 @@ export class ToolBar extends React.Component{
         return (
             <div className="tool-bar">
                 <div className="tool-bar-left">
-                    <div
-                        className="dropdown-container" 
-                        ref={this.dropdownRef}>
-                        <div className="dropdown-button" onClick={() => this.handleToggleDropdown()}>
-                            {this.state.selectedBranch}
-                             <IconCaretDown />
+                    {this.props.showDropdown?
+                        <div
+                            className="dropdown-container" 
+                            ref={this.dropdownRef}>
+                            <div className="dropdown-button" onClick={() => this.handleToggleDropdown()}>
+                                {this.state.selectedBranch}
+                                {this.props.showDropdown?<IconCaretDown />:null}
+                            </div>
+                            <div className={`branches-dropdown-list ${this.state.showDropdown?'show':''}`}>
+                                {this.props.dropdownListItems?.map((item) =>
+                                    <div className="listitem" key={item.id} onClick={() => this.onBranchSelect(item.name)}>
+                                       {item.name}   {this.state.selectedBranch === item.name? <IconCheck />:null}
+                                    </div>
+                                )}
+                            </div>
                         </div>
-                        <div className={`branches-dropdown-list ${this.state.showDropdown?'show':''}`}>
-                            {this.state.branches.map((branch) =>
-                                <div className="listitem" key={branch} onClick={() => this.onBranchSelect(branch)}>
-                                    {branch} {this.state.selectedBranch? (this.state.selectedBranch === branch? <IconCheck />:null): <IconCheck />}
-                                </div>
-                            )}
-                        </div>
-                    </div> 
+                    :null} 
                 </div>
                 <div className="tool-bar-right">
-                    {this.state.currentView === "list" ? 
-                        <IconGrid size={20} onClick={() => this.handleView('grid')} /> :
-                        <IconList size={20} onClick={() => this.handleView('list')} />
+                    {this.props.showViewButton?
+                        (this.state.currentView === "list" ? 
+                            <IconGrid size={20} onClick={() => this.handleView('grid')} /> :
+                            <IconList size={20} onClick={() => this.handleView('list')} />
+                        )
+                        :null
                     }
-                    <button onClick={() => this.props.onCreateRoom()} className="create-button">
-                        Create Room
+                    <button onClick={() => this.props.onCreate()} className="create-button">
+                        {this.props.createButtonText?this.props.createButtonText:'Create'}
                     </button>
                 </div>
             </div>

@@ -1,6 +1,33 @@
+@import '../vars.scss';
+
 .branch-tile{
     width:15rem;
     height:15rem;
     border-radius: 0.7rem;
     border: solid black 1px;
+    margin-top: 1rem;
+    cursor: pointer;
+
+    p{
+        margin: 0;
+    }
+
+    svg{
+        border-radius: 0;
+        &:hover{ 
+            background: transparent;
+        }
+    }
+
+    .content{
+        display: flex;
+        justify-content: center;
+    }
+
+    .footer{
+        display: flex;
+        justify-content: space-between;
+        background-color: $grey;
+        padding: 0.5rem;
+    }
 }

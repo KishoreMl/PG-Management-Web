@@ -1,8 +1,8 @@
 import React from "react"
 import IconClose from "../Icons/IconClose";
-import './CreateRoomModal.scss';
+import './CreateModal.scss';
 
-class CreateRoom extends React.Component{
+class CreateModal extends React.Component{
 
     constructor(props) {
         super(props);
@@ -45,7 +45,7 @@ class CreateRoom extends React.Component{
                 <div id="myModal" className={`modal ${this.state.display?'show':''}`}>
                     <div className="modal-container">
                         <div className="modal-header">
-                            <h2>Create Room</h2>
+                            <h2>{this.props.title}</h2>
                             <IconClose size='18' onClick={() => this.props.onCloseModal()} />
                         </div>
                         <div className="modal-content">
@@ -90,4 +90,4 @@ class CreateRoom extends React.Component{
     }
 }
 
-export default CreateRoom;
+export default CreateModal;
