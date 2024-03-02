@@ -31,17 +31,18 @@ Rooms List API [GET] (Rooms Page):
          rent, 
          perDayRent,
          guests:[{
-             guestId
-             name
-             rentPaid
-             ebPaid
+             guestId,
+             name,
+             rentPaid,
+             ebPaid,
         }]
     }]
     
 Guest Details API [GET] (Guest Right Panel):
 --------------------------------------------
      Guest:{
-            guestId
+            guestId,
+            type,
             name,
             roomNumber,
             rentpaid,
@@ -50,6 +51,9 @@ Guest Details API [GET] (Guest Right Panel):
             dov,
             phoneNo,
             address,
+            advance,
+            advancePaid,
+            advanceReturned,
             dues:[{
                 month,
                 isRent,
@@ -61,8 +65,9 @@ Guest Details API [GET] (Guest Right Panel):
 Guests List API [GET] (Get all guests in a room in a certain period of time)
 ----------------------------------------------------------------------------
     Guests:[{
-            guestId
+            guestId,
             name,
+            type,
             roomNumber,
             rentpaid,
             ebPaid,

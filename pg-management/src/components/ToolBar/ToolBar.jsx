@@ -3,6 +3,7 @@ import IconGrid from "../Icons/IconGrid";
 import IconList from "../Icons/IconList";
 import IconCheck from "../Icons/IconCheck";
 import IconCaretDown from "../Icons/IconCaretDown";
+import IconFilter from "../Icons/IconFilter";
 import './ToolBar.scss';
 
 export class ToolBar extends React.Component{
@@ -13,7 +14,7 @@ export class ToolBar extends React.Component{
         this.state = {
             currentView: this.props.currentView,
             showDropdown: false,
-            selectedBranch: this.props.dropdownListItems[0].name,
+            selectedBranch: this.props.dropdownListItems?this.props.dropdownListItems[0].name:'',
         }
         this.dropdownRef = React.createRef();
     }
@@ -69,6 +70,7 @@ export class ToolBar extends React.Component{
                     :null} 
                 </div>
                 <div className="tool-bar-right">
+                    <IconFilter size={20} />
                     {this.props.showViewButton?
                         (this.state.currentView === "list" ? 
                             <IconGrid size={20} onClick={() => this.handleView('grid')} /> :
