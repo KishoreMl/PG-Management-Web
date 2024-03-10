@@ -24,6 +24,40 @@
     } 
 }
 
+.header-dropdown-list{
+    position: absolute;
+    right:3rem;
+    background-color: white;
+    box-shadow: 0 0 10px rgb(117, 116, 116);
+    width: max-content;
+    visibility: hidden;
+    z-index: 10;
+
+    .list-item{
+        padding: 0.3rem 2rem 0.3rem 0.2rem;
+        cursor: pointer;
+        color: black;
+        display: flex;
+        align-items:center;
+        justify-content: space-around;
+        font-size: 0.85rem;
+        border-bottom: solid 1px rgb(212, 208, 208);
+    
+        & svg:hover {
+            background: transparent;
+        }
+    
+        &:hover {
+            background-color: rgb(212, 208, 208);
+        }
+    }
+    
+}
+
+.show {
+    visibility: visible;
+}
+
 .header-left{
     margin-left: auto;
 }
