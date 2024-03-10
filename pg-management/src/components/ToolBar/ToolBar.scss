@@ -16,7 +16,6 @@
     padding: 0.5rem;
     display: flex;
     align-items: center; 
-    // box-shadow: 0 1px 10px rgb(113, 113, 113); 
 }
 
 select{
@@ -85,9 +84,11 @@ select{
     visibility: visible;
 }
 
+
 .tool-bar-right{
     margin-left: auto;
     margin-right: 3rem;
+    position: relative;
     display: flex;
     gap:1rem;
     align-items: center;
@@ -112,7 +113,66 @@ select{
             background-color: rgb(161, 158, 158);
         }
     }
+    .filter-button-container{
+        position: relative;
+    }
+    .filter-dropdown{
+        visibility: hidden;
+        position: absolute;
+        display: flex;
+        box-shadow: 0 0 5px rgb(106, 106, 106);
+        border-radius: 5px;
+        z-index:4;
+        background-color: white;
+        top:3rem;
+        right:-2rem;
+        width:15rem;
+    }
+    .filter-category-container{
+        width:50%;
+    }
+    .filter-category{
+        padding: 0.1rem 1rem;
+        cursor: pointer;
+    }
+    .filter-option{
+        padding: 0.2rem 1rem;
+    }
+    .selected{
+        background-color: rgb(186, 185, 185);
+    }
+    .show{
+        visibility: visible;
+    }
+    .dot{
+        background-color: $primary-color;
+        position: absolute;
+        width:0.4rem;
+        height:0.4rem;
+        top:0.1rem;
+        right:0.1rem;
+        border-radius: 50%;
+    }
 }
+
+.search{
+    display: flex;
+    border: solid 2px grey;
+    border-radius: 2rem ;
+    width:18rem;
+    input{
+        background: transparent;
+        padding: 0.5rem 1rem;
+        border-radius: 2rem 0 0 2rem;
+        border: none;
+        width:80%;
+    }
+    svg{
+        background-color: rgb(175, 173, 173);
+        border-radius: 0 2rem 2rem 0;
+    }
+}
+
 
 @media only screen and (min-width: 768px) {
     .toolbar .tool-bar-right {

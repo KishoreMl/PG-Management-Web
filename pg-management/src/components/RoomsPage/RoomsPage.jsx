@@ -5,6 +5,7 @@ import { RoomsTable } from "../RoomsTable/RoomsTable";
 import { GridView } from "../GridView/GridView";
 import { getRooms } from "../../sdk/pgmanagement";
 import CreateModal from "../CreateModal/CreateModal";
+import ConsentModal from "../ConsentModal/ConsentModal";
 import NewGuest from "../NewGuestModal/NewGuestModal";
 import IconPlusCircle from "../Icons/IconPlusCircle";
 import './RoomsPage.scss';
@@ -157,11 +158,13 @@ export class RoomsPage extends React.Component{
                        { name: 'Branch 2', id: 'branchId2' },
                        { name: 'Branch 3', id: 'branchId3' },
                        { name: 'Branch 4', id: 'branchId4' },
-                    ],
+            ],
+            roomsToBeDisplayed: [],
             currentBranchId:'',
             currentView:'grid',
-            showRightPanel: true,
+            showRightPanel: false,
             showCreateRoomModal: false,
+            showConsentModal:false,
             showNewGuestModal: false,
             selectedGuest: '',
             selectedRoom: '',
@@ -169,11 +172,9 @@ export class RoomsPage extends React.Component{
         }
     }
     
-//    async componentDidMount() {
-//         const response = await getRooms('branchId1');   
-//         this.setState({ rooms: [response] }); 
-//         console.log(this.state.rooms);
-//     }
+   async componentDidMount() {
+        this.setState({roomsToBeDisplayed:this.state.rooms})
+    }
 
     setPanelDisplay = (display) => {
         this.setState({showRightPanel:display})
@@ -220,6 +221,16 @@ export class RoomsPage extends React.Component{
         }
     }
 
+    handleFilters(filters) {
+        let filteredRooms = this.state.rooms.filter((room) => room.capacity === filters.value)
+        this.setState({roomsToBeDisplayed:filteredRooms})
+    }
+
+    handleSearch(searchText)
+    {
+        console.log(searchText);
+    }
+
     render()
     {
         return (
@@ -229,50 +240,59 @@ export class RoomsPage extends React.Component{
                         title="Create Room"  
                         onCloseModal={() => this.onCreateRoom(false)} 
                     />
-                 : null}
+                : null}
+                {this.state.showConsentModal ?
+                    <ConsentModal
+                        title="Delete Room"
+                        modalMessage="Are you sure you want to Delete this Room?"
+                    />
+                :null}
                 {this.state.showNewGuestModal ? 
                     <NewGuest onCloseModal={() => this.onCreateRoom(false)} /> 
                 : null}
-                    <ToolBar
-                        dropdownListItems={this.state.branches}
-                        showDropdown={true}
-                        showViewButton={true}
-                        currentView={this.state.currentView}
-                        createButtonText="Create Room"
-                        onViewChange={(view) => this.onViewChange(view)}
-                        onCreate={() => this.onCreateRoom(true)}
-                    />
-                    {this.state.isLoading ? 
-                        <div className="spinner">
-                            <span class="loader"></span>
-                        </div> :
-                        <div className="container">
-                            {this.state.currentView === 'list' ?
-                                <RoomsTable
-                                    rooms={this.state.rooms}
-                                    onGuestSelect={(guestId) => this.onGuestSelect(guestId)}
-                                /> :
-                                <GridView
-                                    rooms={this.state.rooms}
-                                    onRoomSelect={(roomId) => this.onRoomSelect(roomId)}
-                                    onGuestSelect={(guest,e) => this.onGuestSelect(guest,e)} 
-                                    onTileOptionSelect={(e,option) => this.onTileOptionSelect(e,option)}
+                <ToolBar
+                    dropdownListItems={this.state.branches}
+                    showDropdown={true}
+                    showViewButton={true}
+                    enableSearch={true}
+                    currentView={this.state.currentView}
+                    createButtonText="Create Room"
+                    onViewChange={(view) => this.onViewChange(view)}
+                    onCreate={() => this.onCreateRoom(true)}
+                    onFilterSelected={(filters) => this.handleFilters(filters)}
+                    onSearch={(searchText)=>this.handleSearch(searchText)}
+                />
+                {this.state.isLoading ? 
+                    <div className="spinner">
+                        <span class="loader"></span>
+                    </div> :
+                    <div className="container">
+                        {this.state.currentView === 'list' ?
+                            <RoomsTable
+                                rooms={this.state.roomsToBeDisplayed}
+                                onGuestSelect={(guestId) => this.onGuestSelect(guestId)}
+                            /> :
+                            <GridView
+                                rooms={this.state.roomsToBeDisplayed}
+                                onRoomSelect={(roomId) => this.onRoomSelect(roomId)}
+                                onGuestSelect={(guest,e) => this.onGuestSelect(guest,e)} 
+                                onTileOptionSelect={(e,option) => this.onTileOptionSelect(e,option)}
+                            />
+                        } 
+                        <div className={`rightpanel-container ${this.state.showRightPanel?'open':''}`}>
+                            {this.state.showRightPanel && (
+                                <RightPanel
+                                    guest={this.state.selectedGuest}
+                                    room={this.state.selectedRoom}
+                                    setPanelDisplay={(display) => this.setPanelDisplay(display)}
                                 />
-                            } 
-                            <div className={`rightpanel-container ${this.state.showRightPanel?'open':''}`}>
-                                {this.state.showRightPanel && (
-                                    <RightPanel
-                                        guest={this.state.selectedGuest}
-                                        room={this.state.selectedRoom}
-                                        setPanelDisplay={(display) => this.setPanelDisplay(display)}
-                                    />
-                                )}
-                            </div>  
-                        <button className="add-button" onClick={()=> this.onCreateRoom(true)}>
-                            <IconPlusCircle color="white"/>
-                        </button>
-                    </div>
-                    }       
+                            )}
+                        </div>  
+                    <button className="add-button" onClick={()=> this.onCreateRoom(true)}>
+                        <IconPlusCircle color="white"/>
+                    </button>
+                </div>
+                }       
             </div>    
         )
     }

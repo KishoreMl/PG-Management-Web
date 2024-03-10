@@ -4,6 +4,7 @@ import IconList from "../Icons/IconList";
 import IconCheck from "../Icons/IconCheck";
 import IconCaretDown from "../Icons/IconCaretDown";
 import IconFilter from "../Icons/IconFilter";
+import IconSearch from "../Icons/IconSearch";
 import './ToolBar.scss';
 
 export class ToolBar extends React.Component{
@@ -14,14 +15,39 @@ export class ToolBar extends React.Component{
         this.state = {
             currentView: this.props.currentView,
             showDropdown: false,
-            selectedBranch: this.props.dropdownListItems?this.props.dropdownListItems[0].name:'',
+            showFilterOptions: false,
+            isFilterApplied:true,
+            selectedBranch: this.props.dropdownListItems ? this.props.dropdownListItems[0].name : '',
+            selectedFilters: [],
+            filterCategories: 
+                {
+                    availabilty: {
+                        options: [
+                            { name: 'Available', value:'available', isSelected:false}
+                        ]
+                    },
+                    sharing: {
+                        options: [
+                            { name: '1 Sharing', value: 1, isSelected:false },
+                            { name: '2 Sharing', value: 2, isSelected:false },
+                            { name: '3 Sharing', value: 3, isSelected:false },
+                            { name: '4 Sharing', value: 4, isSelected:false },
+                        ]
+                    },
+                    type: {
+                        options: [
+                            { name: 'AC', value: 'AC', isSelected: false },
+                            { name: 'Non-AC', value: 'Non-AC', isSelected: false }
+                        ]
+                    }
+                },
         }
         this.dropdownRef = React.createRef();
+        this.searchRef = React.createRef();
     }
 
     componentDidMount() {
         document.addEventListener('click', this.handleClickOutside);
-        // this.setState({selectedBranch:this.state.branches[0]})
     }
 
     componentWillUnmount() {
@@ -29,7 +55,7 @@ export class ToolBar extends React.Component{
     }
     handleClickOutside = (event) => {
         if (this.dropdownRef.current && !this.dropdownRef.current.contains(event.target)) {
-            this.setState({ showDropdown: false });
+            this.setState({ showDropdown: false});
         }
     }
 
@@ -42,6 +68,25 @@ export class ToolBar extends React.Component{
         this.state.showDropdown ? this.setState({ showDropdown: false }) : this.setState({ showDropdown: true });
     }
 
+    handleFilterButtonClick() {
+        this.state.showFilterOptions ? this.setState({ showFilterOptions: false }) : this.setState({ showFilterOptions: true });
+    }
+
+    onFilterSelect(filter) {
+        console.log(filter)
+        if (filter.isSelected === 'on')
+        {
+            let filters = [filter, ...this.state.selectedFilters];
+            this.setState({ selectedFilters: filters });
+            console.log(this.state.selectedFilters);
+            this.props.onFilterSelected(filters[0]);
+        }
+        else {
+            console.log(this.state.selectedFilters);
+        }
+         
+    }
+
     onBranchSelect(branch) {
         this.setState({ selectedBranch: branch });
         this.handleToggleDropdown();
@@ -50,7 +95,7 @@ export class ToolBar extends React.Component{
     render() {
         return (
             <div className="tool-bar">
-                <div className="tool-bar-left">
+                <div className="tool-bar-left">       
                     {this.props.showDropdown?
                         <div
                             className="dropdown-container" 
@@ -69,8 +114,35 @@ export class ToolBar extends React.Component{
                         </div>
                     :null} 
                 </div>
+                {this.props.enableSearch && 
+                    <div className="search"> 
+                        <input type="text" placeholder="Search" ref={this.searchRef} />
+                        <IconSearch size="24" onClick={()=>this.props.onSearch(this.searchRef.current.value)} />
+                    </div>
+                } 
                 <div className="tool-bar-right">
-                    <IconFilter size={20} />
+                    <div className="filter-button-container">
+                        <IconFilter size={20} onClick={() => this.handleFilterButtonClick()} />
+                        {this.state.selectedFilters.length>0 && <div className="dot"></div>}
+                        <div className={`filter-dropdown ${this.state.showFilterOptions?'show':''}`}>
+                            <div className="filter-category-container">
+                                <div className="filter-category">Rooms</div>
+                                <div className="filter-category selected">Sharing</div>
+                                <div className="filter-category">Type</div>
+                                <div className="filter-category">Guests</div>
+                                <div className="filter-category">Rent</div>
+                                <div className="filter-category">Eb</div>
+                            </div>
+                            <div className="filter-options-container"> 
+                                {this.state.filterCategories.sharing.options.map((option) =>
+                                    <div className="filter-option">
+                                        {option.name} 
+                                        <input type="checkbox"  onChange={(e) => this.onFilterSelect({category:'sharing',value:option.value,isSelected:e.target.value})}></input>
+                                    </div>
+                                )}
+                            </div>
+                       </div>
+                    </div>
                     {this.props.showViewButton?
                         (this.state.currentView === "list" ? 
                             <IconGrid size={20} onClick={() => this.handleView('grid')} /> :

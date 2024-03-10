@@ -60,19 +60,19 @@ export class RoomTile extends Component{
                     <div className="tile-header-left" ref={this.dropdownRef}>
                         <IconMore  onClick={() => this.handleShowDropdown()}  />
                         <div className={`dropdown-list ${this.state.showDropdown?'show':''}`}>
-                            <div className="list-option" onClick={(e) => this.props.onTileOptionSelect(e, 'Add Guest')}>
+                            <div className="list-item" onClick={(e) => this.props.onTileOptionSelect(e, 'Add Guest')}>
                                 <IconPersonAdd size='19' />
                                 Add Guest
                             </div>
-                            <div className="list-option" onClick={(e) => this.props.onTileOptionSelect(e, 'Remove Guest')}>
+                            <div className="list-item" onClick={(e) => this.props.onTileOptionSelect(e, 'Remove Guest')}>
                                 <IconPersonRemove size='19' />
                                 Remove Guest
                             </div>
-                            <div className="list-option" onClick={(e) => this.props.onTileOptionSelect(e, 'Edit Room')}>
+                            <div className="list-item" onClick={(e) => this.props.onTileOptionSelect(e, 'Edit Room')}>
                                 <IconEdit size='19' />
                                 Edit Room
                             </div>
-                            <div className="list-option" onClick={(e) => this.props.onTileOptionSelect(e,'Edit Room')}>
+                            <div className="list-item" onClick={(e) => this.props.onTileOptionSelect(e,'Edit Room')}>
                                 <IconDelete size='19' />
                                 Delete Room
                             </div>
@@ -80,7 +80,7 @@ export class RoomTile extends Component{
                     </div>
                 </div>
                 <div className="tile-container">   
-                    {this.props.room.guests.map((guest) => 
+                    {this.props.room.guests.map((guest) =>   
                         <GuestCard
                             guest={guest}
                             key={guest.guestId}
