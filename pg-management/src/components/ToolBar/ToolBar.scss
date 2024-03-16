@@ -105,6 +105,7 @@ select{
             background-color: $primary-hover-color;
         }
     }
+    
     & svg {
         padding: 0.5rem;
         border-radius: 5px;
@@ -113,9 +114,11 @@ select{
             background-color: rgb(161, 158, 158);
         }
     }
+
     .filter-button-container{
         position: relative;
     }
+
     .filter-dropdown{
         visibility: hidden;
         position: absolute;
@@ -128,22 +131,28 @@ select{
         right:-2rem;
         width:15rem;
     }
+    
     .filter-category-container{
         width:50%;
     }
+
     .filter-category{
         padding: 0.1rem 1rem;
         cursor: pointer;
     }
+
     .filter-option{
         padding: 0.2rem 1rem;
     }
+
     .selected{
         background-color: rgb(186, 185, 185);
     }
+
     .show{
         visibility: visible;
     }
+
     .dot{
         background-color: $primary-color;
         position: absolute;

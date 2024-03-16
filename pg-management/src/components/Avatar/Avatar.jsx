@@ -20,7 +20,7 @@ export class Avatar extends React.Component{
         return (
             <div
                 className={`avatar ${this.props.guest?this.props.guest.rentPaid?'green':'red':''}`}
-                onClick={this.props.guest?() => this.props.onGuestSelect(this.props.guest.guestId):null}
+                onClick={this.props.guest ? () => this.props.onGuestSelect(this.props.guest.guestId) : null}
             >
                 <p>{this.convertToInitials(this.props.guest?this.props.guest.name:'Available')}</p> 
                 <span className="tooltip">{this.props.guest?this.props.guest.name:'Available'}</span>

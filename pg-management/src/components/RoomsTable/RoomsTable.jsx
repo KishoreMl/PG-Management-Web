@@ -1,5 +1,6 @@
 import React from "react";
 import { Avatar } from "../Avatar/Avatar";
+import IconMore from "../Icons/IconMore";
 import './RoomsTable.scss';
 
 export class RoomsTable extends React.Component{
@@ -16,16 +17,20 @@ export class RoomsTable extends React.Component{
         return (
             <div className="table-container">
                 <table>
-                    <tr className="fixed">
-                        <th>Room No</th>
-                        <th>Type</th>
-                        <th>Guests</th>
-                        <th>Rent</th>
-                        <th>EB Reading Past </th>
-                        <th>EB Reading Current </th>
-                        <th>Eb Bill</th>
-                    </tr>
-                    {this.props.rooms.map((room) => 
+                    <thead>
+                        <tr className="fixed">
+                            <th>Room No</th>
+                            <th>Type</th>
+                            <th>Guests</th>
+                            <th>Rent</th>
+                            <th>EB Reading Past </th>
+                            <th>EB Reading Current </th>
+                            <th>Eb Bill</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.props.rooms.map((room) => 
                             <tr>
                                 <td>{room.number}</td>
                                 <td>{room.type}</td>
@@ -36,19 +41,22 @@ export class RoomsTable extends React.Component{
                                                 guest={guest}
                                                 onGuestSelect={(guestId) => this.props.onGuestSelect(guestId)}  
                                             />
-                                    )}  
-                                    {this.getAvailableBeds(room.capacity - room.guests.length).map(() =>
-                                        <Avatar />
-                                    )}
-                                        
+                                        )}  
+                                        {this.getAvailableBeds(room.capacity - room.guests.length).map(() =>
+                                            <Avatar />
+                                        )}        
                                     </div>
                                 </td>
                                 <td>{room.rent}</td>
                                 <td>6410</td>
                                 <td>6600</td>
                                 <td>500</td>
+                                <td className="more">
+                                    <IconMore />
+                                </td>
                             </tr>
-                    )}
+                        )}
+                    </tbody>
                 </table>
             </div>
         )

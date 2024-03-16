@@ -15,20 +15,51 @@
     border-radius: 4px;
 }
 
+table{
+    border-collapse: collapse;
+}
 .table-container{
     margin-top: 2rem;
     margin-left:4rem;
     margin-right: auto;
     max-height: 28rem;
     overflow-y: auto;
-    & th,td{
-        padding: 0.5rem 2rem 0.5rem 2rem;
+
+    th,td{
+        padding: 0.7rem 1.3rem; 
+    }
+
+    th{
         background-color: $primary-color;
         color: white;
+        position: sticky;
+        top:0;
+        z-index: 1;
     }
-    & td{
-        background-color: rgb(213, 211, 211);
+
+    td{
+        background-color: transparent;
         color:black;
+
+        svg{
+            border-radius: 0;
+            &:hover{
+                background-color:rgb(152, 149, 149); ;
+            }
+        }
+
+        &.more{
+            padding: 0.5rem 0.9rem;
+        }
+    }
+
+    tr{
+        cursor: pointer;
+        background-color: rgb(213, 211, 211);
+        transition: ease-in-out;
+        &:hover{
+            background-color: rgb(193, 193, 192);
+        }
     }
 }
 
