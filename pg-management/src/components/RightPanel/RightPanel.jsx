@@ -25,9 +25,7 @@ export class RightPanel extends React.Component{
                     </div>    
                 </div>
                 <div className="panel-content"> 
-                    <div className="panel-img">
-                        <img src={guest}></img>
-                    </div>
+
                     <div className="panel-toolbar">
                         <IconEdit size='20' />
                         <IconDelete size='21' />

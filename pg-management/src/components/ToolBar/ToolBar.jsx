@@ -72,19 +72,26 @@ export class ToolBar extends React.Component{
         this.state.showFilterOptions ? this.setState({ showFilterOptions: false }) : this.setState({ showFilterOptions: true });
     }
 
-    onFilterSelect(filter) {
-        console.log(filter)
-        if (filter.isSelected === 'on')
+    onFilterSelect(currentFilter) {
+        
+        const index = this.state.selectedFilters.findIndex((filter) => filter.value === currentFilter.value);
+
+        if (index !== -1)
         {
-            let filters = [filter, ...this.state.selectedFilters];
-            this.setState({ selectedFilters: filters });
-            console.log(this.state.selectedFilters);
-            this.props.onFilterSelected(filters[0]);
+            console.log('exist');
+            console.log(currentFilter);
+            const updatedFilters = this.state.selectedFilters.filter((filter) => currentFilter.value !== filter.value);
+            this.setState({ selectedFilters: updatedFilters });
         }
         else {
-            console.log(this.state.selectedFilters);
+            console.log('not exist');
+            console.log(currentFilter);
+            const updatedFilters = [...this.state.selectedFilters, currentFilter];
+            this.setState({ selectedFilters: updatedFilters });
+            
         }
-         
+        console.log(this.state.selectedFilters);
+        // this.props.onFilterSelected(this.state.selectedFilters[0]);        
     }
 
     onBranchSelect(branch) {
@@ -137,7 +144,7 @@ export class ToolBar extends React.Component{
                                 {this.state.filterCategories.sharing.options.map((option) =>
                                     <div className="filter-option">
                                         {option.name} 
-                                        <input type="checkbox"  onChange={(e) => this.onFilterSelect({category:'sharing',value:option.value,isSelected:e.target.value})}></input>
+                                        <input type="checkbox"  onChange={(e) => this.onFilterSelect({category:'sharing',value:option.value})}></input>
                                     </div>
                                 )}
                             </div>

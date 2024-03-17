@@ -105,7 +105,7 @@ select{
             background-color: $primary-hover-color;
         }
     }
-    
+
     & svg {
         padding: 0.5rem;
         border-radius: 5px;
@@ -142,6 +142,7 @@ select{
     }
 
     .filter-option{
+        cursor: pointer;
         padding: 0.2rem 1rem;
     }
 

@@ -8,18 +8,36 @@ import IconBookings from "../Icons/IconBooking";
 import './Header.scss';
 
 export class Header extends React.Component{
+
     constructor(props) {
         super(props);
         this.state = {
             showDropdown:false,
         }
+        this.dropdownRef = React.createRef();
     }
+
+    componentDidMount() {
+        document.addEventListener('click', this.handleClickOutside);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('click', this.handleClickOutside);
+    }
+
+    handleClickOutside = (event) => {
+        if (this.dropdownRef.current && !this.dropdownRef.current.contains(event.target)) {
+            this.setState({ showDropdown: false });
+        }
+    }
+
     handleProfileClick()
     {
         this.state.showDropdown ?
             this.setState({ showDropdown: false }):
             this.setState({ showDropdown: true });
     }
+
     handleItemSelect(selectedItem)
     {
         console.log(selectedItem);
@@ -29,7 +47,7 @@ export class Header extends React.Component{
             <div className="header">
                 <IconLogo color="white" size="26"/>
                 <h1>PG Management</h1>
-                <div className="header-left">
+                <div className="header-right" ref={this.dropdownRef}>
                     <IconApps color="white" size="32" onClick={() => this.handleProfileClick()} />
                     <div className={`header-dropdown-list ${this.state.showDropdown?'show':''}`}>
                         <div className="list-item" onClick={()=>this.handleItemSelect('Profile')}>

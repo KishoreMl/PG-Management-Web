@@ -13,7 +13,8 @@ export class RoomTile extends Component{
         super(props);
         this.state = {
             showDropdown: false,
-            selected:false,
+            selected: false,
+            dropdownList:['Add Guest','Remove Guest','Edit Room', 'Delete Room'],
         }
         this.dropdownRef = React.createRef();
     }
@@ -59,23 +60,13 @@ export class RoomTile extends Component{
                     {this.props.room.type === 'AC' && <p className="badge">{this.props.room.type}</p>}
                     <div className="tile-header-left" ref={this.dropdownRef}>
                         <IconMore  onClick={() => this.handleShowDropdown()}  />
-                        <div className={`dropdown-list ${this.state.showDropdown?'show':''}`}>
-                            <div className="list-item" onClick={(e) => this.props.onTileOptionSelect(e, 'Add Guest')}>
-                                <IconPersonAdd size='19' />
-                                Add Guest
-                            </div>
-                            <div className="list-item" onClick={(e) => this.props.onTileOptionSelect(e, 'Remove Guest')}>
-                                <IconPersonRemove size='19' />
-                                Remove Guest
-                            </div>
-                            <div className="list-item" onClick={(e) => this.props.onTileOptionSelect(e, 'Edit Room')}>
-                                <IconEdit size='19' />
-                                Edit Room
-                            </div>
-                            <div className="list-item" onClick={(e) => this.props.onTileOptionSelect(e,'Edit Room')}>
-                                <IconDelete size='19' />
-                                Delete Room
-                            </div>
+                        <div className={`dropdown-list ${this.state.showDropdown ? 'show' : ''}`}>
+                            {this.state.dropdownList.map((listitem) => 
+                                <div className="list-item" onClick={(e) => this.props.onTileOptionSelect(e, 'Add Guest')}>
+                                    <IconPersonAdd size='19' />
+                                    {listitem}
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>

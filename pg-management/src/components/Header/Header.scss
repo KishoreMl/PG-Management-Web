@@ -58,8 +58,15 @@
     visibility: visible;
 }
 
-.header-left{
+.header-right{
     margin-left: auto;
+
+    svg{
+        &:hover{
+            background-color: rgb(91, 149, 215);
+            border-radius: 5px;
+        }
+    }
 }
 
 @media only screen and (max-width: 380px) {
