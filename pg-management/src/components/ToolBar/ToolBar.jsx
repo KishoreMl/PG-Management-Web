@@ -77,21 +77,19 @@ export class ToolBar extends React.Component{
         const index = this.state.selectedFilters.findIndex((filter) => filter.value === currentFilter.value);
 
         if (index !== -1)
-        {
-            console.log('exist');
-            console.log(currentFilter);
+        {  
             const updatedFilters = this.state.selectedFilters.filter((filter) => currentFilter.value !== filter.value);
-            this.setState({ selectedFilters: updatedFilters });
+            this.setState({ selectedFilters: updatedFilters }, () => {
+                this.props.onFilterSelected(this.state.selectedFilters); 
+            });
         }
         else {
-            console.log('not exist');
-            console.log(currentFilter);
             const updatedFilters = [...this.state.selectedFilters, currentFilter];
-            this.setState({ selectedFilters: updatedFilters });
-            
+            this.setState({ selectedFilters: updatedFilters }, () => {
+                this.props.onFilterSelected(this.state.selectedFilters); 
+            });  
         }
-        console.log(this.state.selectedFilters);
-        // this.props.onFilterSelected(this.state.selectedFilters[0]);        
+               
     }
 
     onBranchSelect(branch) {

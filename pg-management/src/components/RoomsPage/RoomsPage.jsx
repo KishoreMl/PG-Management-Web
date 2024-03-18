@@ -50,7 +50,7 @@ export class RoomsPage extends React.Component{
                         roomId:"roomId3",
                         number:"103",
                         type:"AC",
-                        capacity:3,
+                        capacity:2,
                         rent:6500,
                         guests:[
                             {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
@@ -62,11 +62,11 @@ export class RoomsPage extends React.Component{
                         roomId:"roomId4",
                         number:"104",
                         type:"AC",
-                        capacity:4,
+                        capacity:1,
                         rent:6500,
                         guests:[
                             {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
-                            {guestId:"guestId2",name:"Akhilesh",rentPaid:false,ebPaid:false}
+                           
                         ]
                 },
                     {
@@ -222,8 +222,20 @@ export class RoomsPage extends React.Component{
     }
 
     handleFilters(filters) {
-        let filteredRooms = this.state.rooms.filter((room) => room.capacity === filters.value)
-        this.setState({roomsToBeDisplayed:filteredRooms})
+
+        if (filters.length>0) {
+            console.log(filters);
+            let filteredRooms = [];
+            filters.map((filter) => {
+                let currentFilteredRooms = this.state.rooms.filter((room) => room.capacity === filter.value)
+                filteredRooms = [...filteredRooms,...currentFilteredRooms];
+            })
+            this.setState({ roomsToBeDisplayed: filteredRooms })
+        }
+        else {
+            this.setState({roomsToBeDisplayed:this.state.rooms})
+        }
+        
     }
 
     handleSearch(searchText)
