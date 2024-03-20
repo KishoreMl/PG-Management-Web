@@ -11,11 +11,13 @@
 
 .tool-bar{
     position: relative;
-    background-color: rgb(211, 210, 210);
+    background-color:white;
+    box-shadow: 0 3px 4px 1px rgba(0, 0, 0, 0.2);
     height:2.5rem;
     padding: 0.5rem;
     display: flex;
     align-items: center; 
+    z-index:2;
 }
 
 select{
@@ -100,7 +102,7 @@ select{
         color: white;
         cursor: pointer;
         padding: 0.7rem;
-
+        box-shadow:  0 3px 1px -1px rgba(0, 0, 0, 0.2);
         &:hover{
             background-color: $primary-hover-color;
         }
@@ -111,7 +113,7 @@ select{
         border-radius: 5px;
         &:hover {
             cursor: pointer;
-            background-color: rgb(161, 158, 158);
+            background-color: rgb(198, 197, 197);
         }
     }
 
@@ -167,7 +169,7 @@ select{
 
 .search{
     display: flex;
-    border: solid 2px grey;
+    border: solid 1px grey;
     border-radius: 2rem ;
     width:18rem;
     input{
@@ -178,7 +180,7 @@ select{
         width:80%;
     }
     svg{
-        background-color: rgb(175, 173, 173);
+        background-color: rgb(207, 206, 206);
         border-radius: 0 2rem 2rem 0;
     }
 }

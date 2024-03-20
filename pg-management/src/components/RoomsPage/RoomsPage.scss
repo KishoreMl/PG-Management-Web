@@ -5,10 +5,12 @@
     flex-flow:  row nowrap;
     width:100%;
     max-height: 79vh;
+    background-color: white;
 }
 
 .rightpanel-container{
     transition: 0.5s all ease-in-out;
+    box-shadow: 3px 0 5px 6px rgba(0, 0, 0, 0.2);
     margin-left:auto ;
     width:0;
     &.open{
