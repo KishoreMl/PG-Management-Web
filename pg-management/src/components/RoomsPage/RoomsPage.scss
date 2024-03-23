@@ -3,13 +3,15 @@
 .container{
     display: flex;
     flex-flow:  row nowrap;
-    width:100vw;
-    height: 79vh;
+    width:100%;
+    height: calc(100vh - 120px);
+    background-color: white;
 }
 
 .rightpanel-container{
     transition: 0.5s all ease-in-out;
-    margin-left:auto ;
+    box-shadow: 3px 0 5px 6px rgba(0, 0, 0, 0.2);
+    margin-left:auto;
     width:0;
     &.open{
         width:300px;

@@ -5,7 +5,8 @@
     width:300px;
     z-index: 10;
     background-color: white;
-
+    box-shadow: 3px 0 4px 1px rgba(0, 0, 0, 0.2);
+    
     & p{
         font-weight: 600;
         font-size: 14px;

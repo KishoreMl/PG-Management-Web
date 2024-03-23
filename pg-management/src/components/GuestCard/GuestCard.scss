@@ -2,7 +2,7 @@
 
 .guest-card{
     border-radius: 0.3rem;
-    background-color: rgb(175, 174, 174);
+    background-color: rgb(214, 215, 216);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -33,12 +33,9 @@
     gap: 0.6rem;
 }
 
-.available { 
-    background-color: $blue;
-}
 
 .booked{
-    background-color: blue;
+    background-color: rgb(57, 57, 205);
 }
 
 .paid {
