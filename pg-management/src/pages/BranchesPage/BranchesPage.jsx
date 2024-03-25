@@ -1,10 +1,9 @@
 import React from "react";
-import { BranchTile } from "../BranchTile/BranchTile";
+import { BranchesGridView } from "../../components/BranchesGridView/BranchesGridView";
+import CreateModal from "../../components/CreateModal/CreateModal";
+import { ToolBar } from "../../components/ToolBar/ToolBar";
 import { getBranches } from "../../sdk/pgmanagement";
-import CreateModal from "../CreateModal/CreateModal";
-import { ToolBar } from "../ToolBar/ToolBar";
-import { useHistory } from "react-router";
-import './BranchesPage.scss';
+import './BranchesGridView.scss';
 
 
 export class BranchesPage extends React.Component{
@@ -29,9 +28,7 @@ export class BranchesPage extends React.Component{
             ]
         }
     }
-    // componentDidMount(){
-    //     const branches = getBranches();
-    //  }
+    
     onBranchSelect(branchId){
         console.log(branchId);
         window.open('/rooms','_self');
@@ -56,14 +53,11 @@ export class BranchesPage extends React.Component{
                     showViewButton={false}
                     onCreate={() => this.handleCreateModal(true)}
                 />
-                <div className="branch-container">
-                    {this.state.branches.map((branch) => 
-                        <BranchTile
-                            key={branch.id}
-                            branch={branch}
-                            onBranchSelect={(branchId) => this.onBranchSelect(branchId)}
-                        />
-                    )} 
+                <div className="container">
+                   <BranchesGridView 
+                     branches={this.state.branches} 
+                     onBranchSelect={(branchId) => this.onBranchSelect(branchId)} 
+                   />
                 </div>
             </>
         )

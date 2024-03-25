@@ -1,8 +1,8 @@
 import React from "react";
 import { RightPanel } from "../RightPanel/RightPanel";
 import { ToolBar } from "../ToolBar/ToolBar";
-import { RoomsTable } from "../RoomsTable/RoomsTable";
-import { GridView } from "../GridView/GridView";
+import { RoomsListView } from "../RoomsListView/RoomsListView";
+import { RoomsGridView } from "../RoomsGridView/RoomsGridView";
 import { getRooms } from "../../sdk/pgmanagement";
 import CreateModal from "../CreateModal/CreateModal";
 import ConsentModal from "../ConsentModal/ConsentModal";
@@ -280,11 +280,11 @@ export class RoomsPage extends React.Component{
                     </div> :
                     <div className="container">
                         {this.state.currentView === 'list' ?
-                            <RoomsTable
+                            <RoomsListView
                                 rooms={this.state.roomsToBeDisplayed}
                                 onGuestSelect={(guestId) => this.onGuestSelect(guestId)}
                             /> :
-                            <GridView
+                            <RoomsGridView
                                 rooms={this.state.roomsToBeDisplayed}
                                 onRoomSelect={(roomId) => this.onRoomSelect(roomId)}
                                 onGuestSelect={(guest,e) => this.onGuestSelect(guest,e)} 

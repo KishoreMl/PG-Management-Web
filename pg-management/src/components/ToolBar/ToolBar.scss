@@ -80,6 +80,7 @@ select{
     visibility: hidden;
     position: absolute;
     z-index: 10;
+    box-shadow: 0 0 10px rgb(117, 116, 116);
 }
 
 .show {
@@ -178,9 +179,13 @@ select{
         border-radius: 2rem 0 0 2rem;
         border: none;
         width:80%;
+        &:focus{
+            outline: none;
+            border-bottom: solid 1.5px $primary-color;    
+        }
     }
     svg{
-        background-color: rgb(207, 206, 206);
+        background-color: rgb(236, 234, 234);
         border-radius: 0 2rem 2rem 0;
     }
 }
