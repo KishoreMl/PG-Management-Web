@@ -53,7 +53,7 @@ export class RoomTile extends Component{
     render() {
         return (
             <div
-                className={`room-tile ${this.state.selected ? 'selected' : ''}`}
+                className={`room-tile ${this.state.selected ? 'tile-selected' : ''}`}
                 onClick={() => this.handleRoomSelect()}>
                 <div className="tile-header">
                     <p>{this.props.room.number}</p>

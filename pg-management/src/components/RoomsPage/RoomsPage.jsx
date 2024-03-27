@@ -21,7 +21,7 @@ export class RoomsPage extends React.Component{
                         branchId:"branchId1",
                         roomId:"roomId1",
                         number:"101",
-                        type:"AC",
+                        type:"NON-AC",
                         capacity:5,
                         rent:6500,
                         guests:[
@@ -227,8 +227,21 @@ export class RoomsPage extends React.Component{
             console.log(filters);
             let filteredRooms = [];
             filters.map((filter) => {
-                let currentFilteredRooms = this.state.rooms.filter((room) => room.capacity === filter.value)
-                filteredRooms = [...filteredRooms,...currentFilteredRooms];
+                switch(filter.category)
+                {
+                    case 'Sharing':
+                        let sharingFilteredRooms = this.state.rooms.filter((room) => room.capacity === filter.value)
+                        filteredRooms = [...filteredRooms,...sharingFilteredRooms];
+                        break;
+                    case 'Type':
+                        let typeFilteredRooms = this.state.rooms.filter((room) => room.type === filter.value)
+                        filteredRooms = [...filteredRooms,...typeFilteredRooms];
+                        break;
+                    default:
+                        filteredRooms = this.state.rooms;
+                        break;    
+                }
+                
             })
             this.setState({ roomsToBeDisplayed: filteredRooms })
         }

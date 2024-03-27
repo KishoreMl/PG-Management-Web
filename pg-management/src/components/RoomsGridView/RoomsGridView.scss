@@ -7,3 +7,9 @@
     grid-auto-columns: min-content;
     overflow-y: auto;
 }
+
+@media only screen and (max-width: 545px){
+    .gird-container{
+        padding: 1rem 1rem;
+    }
+}
