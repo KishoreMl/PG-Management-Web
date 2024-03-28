@@ -12,7 +12,7 @@ export class BranchTile extends React.Component{
                  </div>
                 <div className="footer">
                     <div>
-                        <p><b>{this.props.branch.name}</b></p>
+                        <p>{this.props.branch.name}</p>
                         <p>{this.props.branch.location}</p>
                     </div>
                     <IconMore />

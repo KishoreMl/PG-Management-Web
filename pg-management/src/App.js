@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route,Routes } from 'react-router-dom';
 import { RoomsPage } from './components/RoomsPage/RoomsPage';
-import { BranchesGridView } from './components/BranchesGridView/BranchesGridView';
+import { BranchesPage } from './pages/BranchesPage/BranchesPage';
 import { Header } from './components/Header/Header';
 import './App.css';
 function App() {
@@ -10,7 +10,7 @@ function App() {
         <Header />
         <Router>
           <Routes>
-            <Route path='/' exact element={<BranchesGridView />}/>
+            <Route path='/' exact element={<BranchesPage />}/>
             <Route path='/rooms' element={<RoomsPage />}/>
           </Routes>
         </Router>

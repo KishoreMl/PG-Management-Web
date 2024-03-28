@@ -8,6 +8,7 @@ import CreateModal from "../CreateModal/CreateModal";
 import ConsentModal from "../ConsentModal/ConsentModal";
 import NewGuest from "../NewGuestModal/NewGuestModal";
 import IconPlusCircle from "../Icons/IconPlusCircle";
+import { Toast } from "../Toast/Toast";
 import './RoomsPage.scss';
 
 export class RoomsPage extends React.Component{
@@ -260,6 +261,7 @@ export class RoomsPage extends React.Component{
     {
         return (
             <div>
+                <Toast message="Room Created Successfully" type='warning' />
                 {this.state.showCreateRoomModal ? 
                     <CreateModal 
                         title="Create Room"  

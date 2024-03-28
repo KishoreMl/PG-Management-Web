@@ -4,9 +4,13 @@
     width:15rem;
     height:15rem;
     border-radius: 0.7rem;
-    border: solid black 1px;
-    margin-top: 1rem;
+    margin-top: 2rem;
+    box-shadow: 0 0 6px rgb(106, 106, 106);
+    overflow: hidden;
     cursor: pointer;
+    &:hover {
+        box-shadow: 0 0 9px rgb(106, 106, 106);
+    }
 
     p{
         margin: 0;
@@ -22,12 +26,13 @@
     .content{
         display: flex;
         justify-content: center;
+        height:75.5%;
     }
 
     .footer{
         display: flex;
         justify-content: space-between;
-        background-color: $grey;
+        background-color: rgb(206, 206, 206);
         padding: 0.5rem;
     }
 }

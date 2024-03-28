@@ -3,7 +3,6 @@ import { BranchesGridView } from "../../components/BranchesGridView/BranchesGrid
 import CreateModal from "../../components/CreateModal/CreateModal";
 import { ToolBar } from "../../components/ToolBar/ToolBar";
 import { getBranches } from "../../sdk/pgmanagement";
-import './BranchesGridView.scss';
 
 
 export class BranchesPage extends React.Component{

@@ -1,0 +1,41 @@
+@import "../vars.scss"; 
+
+.toast{
+    position: absolute;
+    display: flex;
+    bottom: 2rem;
+    left:3rem;
+    width:30rem;
+    height: 1rem;
+    padding: 1rem;
+    z-index: 3;
+    border: solid 1px black;
+    border-radius: 5px;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 0 6px rgb(106, 106, 106);
+
+    svg{
+        border-radius: 0;
+        &:hover{
+            background: transparent;
+            cursor: unset;
+        }
+    }
+}
+
+.error{
+    background-color: rgb(245, 211, 211);
+    border:solid 1px rgb(155, 6, 6);
+}
+
+.success{
+    background-color: rgb(191, 238, 191);
+    border:solid 1px green;
+}
+
+.warning{
+    background-color: rgb(255, 255, 204);
+    border:solid 1px rgb(207, 207, 21);
+}
+
