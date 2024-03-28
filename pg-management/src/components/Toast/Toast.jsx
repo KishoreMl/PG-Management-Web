@@ -11,12 +11,6 @@ export class Toast extends Component{
             show: false,
         }
     }
-
-    showToast() {
-        setTimeout(() => {
-            this.setState({ show: false });
-        }, 3000);
-    }
     getIcon(type) {
         switch (type) {
             case 'success':

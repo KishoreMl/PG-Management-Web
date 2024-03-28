@@ -2,7 +2,7 @@
 
 .toast{
     position: absolute;
-    display: flex;
+    display: none;
     bottom: 2rem;
     left:3rem;
     width:30rem;
@@ -14,7 +14,7 @@
     align-items: center;
     background-color: white;
     box-shadow: 0 0 6px rgb(106, 106, 106);
-
+    ;
     svg{
         border-radius: 0;
         &:hover{
@@ -24,6 +24,9 @@
     }
 }
 
+.visible{
+    display: flex;
+}
 .error{
     background-color: rgb(245, 211, 211);
     border:solid 1px rgb(155, 6, 6);
