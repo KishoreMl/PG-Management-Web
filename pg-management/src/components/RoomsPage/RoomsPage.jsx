@@ -1,14 +1,13 @@
 import React from "react";
 import { RightPanel } from "../RightPanel/RightPanel";
 import { ToolBar } from "../ToolBar/ToolBar";
-import { RoomsListView } from "../RoomsListView/RoomsListView";
-import { RoomsGridView } from "../RoomsGridView/RoomsGridView";
+import { RoomsTable } from "../RoomsTable/RoomsTable";
+import { GridView } from "../GridView/GridView";
 import { getRooms } from "../../sdk/pgmanagement";
 import CreateModal from "../CreateModal/CreateModal";
 import ConsentModal from "../ConsentModal/ConsentModal";
 import NewGuest from "../NewGuestModal/NewGuestModal";
 import IconPlusCircle from "../Icons/IconPlusCircle";
-import { Toast } from "../Toast/Toast";
 import './RoomsPage.scss';
 
 export class RoomsPage extends React.Component{
@@ -22,7 +21,7 @@ export class RoomsPage extends React.Component{
                         branchId:"branchId1",
                         roomId:"roomId1",
                         number:"101",
-                        type:"NON-AC",
+                        type:"AC",
                         capacity:5,
                         rent:6500,
                         guests:[
@@ -51,7 +50,7 @@ export class RoomsPage extends React.Component{
                         roomId:"roomId3",
                         number:"103",
                         type:"AC",
-                        capacity:2,
+                        capacity:3,
                         rent:6500,
                         guests:[
                             {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
@@ -63,11 +62,11 @@ export class RoomsPage extends React.Component{
                         roomId:"roomId4",
                         number:"104",
                         type:"AC",
-                        capacity:1,
+                        capacity:4,
                         rent:6500,
                         guests:[
                             {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
-                           
+                            {guestId:"guestId2",name:"Akhilesh",rentPaid:false,ebPaid:false}
                         ]
                 },
                     {
@@ -223,33 +222,8 @@ export class RoomsPage extends React.Component{
     }
 
     handleFilters(filters) {
-
-        if (filters.length>0) {
-            console.log(filters);
-            let filteredRooms = [];
-            filters.map((filter) => {
-                switch(filter.category)
-                {
-                    case 'Sharing':
-                        let sharingFilteredRooms = this.state.rooms.filter((room) => room.capacity === filter.value)
-                        filteredRooms = [...filteredRooms,...sharingFilteredRooms];
-                        break;
-                    case 'Type':
-                        let typeFilteredRooms = this.state.rooms.filter((room) => room.type === filter.value)
-                        filteredRooms = [...filteredRooms,...typeFilteredRooms];
-                        break;
-                    default:
-                        filteredRooms = this.state.rooms;
-                        break;    
-                }
-                
-            })
-            this.setState({ roomsToBeDisplayed: filteredRooms })
-        }
-        else {
-            this.setState({roomsToBeDisplayed:this.state.rooms})
-        }
-        
+        let filteredRooms = this.state.rooms.filter((room) => room.capacity === filters.value)
+        this.setState({roomsToBeDisplayed:filteredRooms})
     }
 
     handleSearch(searchText)
@@ -261,7 +235,6 @@ export class RoomsPage extends React.Component{
     {
         return (
             <div>
-                <Toast message="Room Created Successfully" type='warning' />
                 {this.state.showCreateRoomModal ? 
                     <CreateModal 
                         title="Create Room"  
@@ -295,11 +268,11 @@ export class RoomsPage extends React.Component{
                     </div> :
                     <div className="container">
                         {this.state.currentView === 'list' ?
-                            <RoomsListView
+                            <RoomsTable
                                 rooms={this.state.roomsToBeDisplayed}
                                 onGuestSelect={(guestId) => this.onGuestSelect(guestId)}
                             /> :
-                            <RoomsGridView
+                            <GridView
                                 rooms={this.state.roomsToBeDisplayed}
                                 onRoomSelect={(roomId) => this.onRoomSelect(roomId)}
                                 onGuestSelect={(guest,e) => this.onGuestSelect(guest,e)} 

@@ -18,12 +18,11 @@
 table{
     border-collapse: collapse;
 }
-
 .table-container{
     margin-top: 2rem;
-    margin-left:2rem;
-    margin-bottom: 1.5rem;
+    margin-left:4rem;
     margin-right: auto;
+    max-height: 28rem;
     overflow-y: auto;
 
     th,td{

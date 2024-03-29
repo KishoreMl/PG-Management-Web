@@ -1,9 +1,9 @@
 import React from "react";
 import { Avatar } from "../Avatar/Avatar";
 import IconMore from "../Icons/IconMore";
-import './RoomsListView.scss';
+import './RoomsTable.scss';
 
-export class RoomsListView extends React.Component{
+export class RoomsTable extends React.Component{
     getAvailableBeds(difference) {
         let availableBeds = [];
         for (let i = 0; i < difference; i++)

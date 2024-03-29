@@ -17,7 +17,6 @@
     padding: 0.5rem;
     display: flex;
     align-items: center; 
-    justify-content: center;
     z-index:2;
 }
 
@@ -81,7 +80,6 @@ select{
     visibility: hidden;
     position: absolute;
     z-index: 10;
-    box-shadow: 0 0 10px rgb(117, 116, 116);
 }
 
 .show {
@@ -138,38 +136,17 @@ select{
     
     .filter-category-container{
         width:50%;
-        .filter-category{
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            &:hover{
-                background-color: rgb(220, 220, 220);
-            }
-        }
-    
-    }
-    
-    .filter-options-container{
-        width:50%;
-        .filter-option{
-            display: flex;
-            cursor: pointer;
-            padding: 0.2rem 1rem;
-            svg{
-                padding: 0;
-                margin-left: 0.05rem;
-               
-                &:hover{
-                    background-color: transparent;
-                }
-            }
-            &:hover{
-                background-color: rgb(220, 220, 220);
-            }
-        }
     }
 
-    
-    
+    .filter-category{
+        padding: 0.1rem 1rem;
+        cursor: pointer;
+    }
+
+    .filter-option{
+        cursor: pointer;
+        padding: 0.2rem 1rem;
+    }
 
     .selected{
         background-color: rgb(186, 185, 185);
@@ -191,7 +168,7 @@ select{
 }
 
 .search{
-    display: flex ;
+    display: flex;
     border: solid 1px grey;
     border-radius: 2rem ;
     width:18rem;
@@ -201,53 +178,21 @@ select{
         border-radius: 2rem 0 0 2rem;
         border: none;
         width:80%;
-        &:focus{
-            outline: none;
-            border-bottom: solid 1.5px $primary-color;    
-        }
     }
     svg{
-        background-color: rgb(236, 234, 234);
+        background-color: rgb(207, 206, 206);
         border-radius: 0 2rem 2rem 0;
     }
 }
 
-.search.show{
-    display: flex !important;
-}
-
-.search-button{
-    display: none;
-    svg{
-        border-radius: 50%;
-    }
-}
-
-.hide{
-    display:none;
-}
-
-@media only screen and (max-width: 545px){
-    .search-button{
-        display: block;
-    }
-    .search{
-        display: none;
-    }
-    
-}
-
-@media only screen and (max-width: 754px){
-    .tool-bar-left{
-        margin-left: 0.5rem;
-    }
-    .tool-bar-right {
-        margin-right: 0.5rem;
-    }
-}
 
 @media only screen and (min-width: 768px) {
-    
+    .toolbar .tool-bar-right {
+        margin-right: 0.5rem;
+    }
+    .tool-bar-left{
+        margin-left: 1rem;
+    }
     .create-button {
         display: block;
     }

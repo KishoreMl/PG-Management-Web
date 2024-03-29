@@ -1,9 +1,11 @@
 import React from "react";
 import { RoomTile } from "../RoomTile/RoomTile";
-import './RoomsGridView.scss';
+import './GridView.scss';
 
-export class RoomsGridView extends React.Component{
-
+export class GridView extends React.Component{
+    constructor(props){
+        super(props);
+    }
     render()
     {
         return (
@@ -16,7 +18,7 @@ export class RoomsGridView extends React.Component{
                         onGuestSelect={(guest,e) => this.props.onGuestSelect(guest,e)} 
                         onTileOptionSelect={(option) => this.props.onTileOptionSelect(option)}
                     />
-                )} 
+                )}
             </div> 
         )
     }
