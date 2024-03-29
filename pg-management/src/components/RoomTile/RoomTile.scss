@@ -3,11 +3,12 @@
 .room-tile{ 
     position: relative;
     width:14.5rem;
+    height:20rem;
     border-radius: 0.7rem;
     background-color: white;
     margin-top: 2rem;
     cursor: pointer;
-    box-shadow: 0 0 6px rgb(106, 106, 106) ;
+    box-shadow: 0 0 6px rgb(106, 106, 106);
     &:hover {
         box-shadow: 0 0 9px rgb(106, 106, 106);
     }
@@ -75,6 +76,12 @@
     visibility: visible;
 }
 
+.tile-selected{
+    box-shadow:  0 0 6px 4px rgb(62, 143, 236);
+    &:hover{
+        box-shadow:  0 0 6px 4px rgb(62, 143, 236);
+    }
+}
 .list-item{
     padding: 0 1rem 0 0.2rem;   
     display: flex;

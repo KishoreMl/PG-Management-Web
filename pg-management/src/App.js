@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route,Routes } from 'react-router-dom';
 import { RoomsPage } from './components/RoomsPage/RoomsPage';
-import { BranchesPage } from './components/BranchesPage/BranchesPage';
+import { BranchesPage } from './pages/BranchesPage/BranchesPage';
 import { Header } from './components/Header/Header';
 import './App.css';
 function App() {
