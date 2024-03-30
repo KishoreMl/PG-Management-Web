@@ -25,7 +25,6 @@ export class RightPanel extends React.Component{
                     </div>    
                 </div>
                 <div className="panel-content"> 
-
                     <div className="panel-toolbar">
                         <IconEdit size='20' />
                         <IconDelete size='21' />
@@ -73,6 +72,22 @@ export class RightPanel extends React.Component{
                     <div className="panel-text">
                         <div className="panel-sub-text"><b>Work/College</b></div>
                         <div className="panel-sub-text">Company name</div>
+                    </div>
+                    <div className="panel-text">
+                        <div className="panel-sub-text"><b>Address</b></div>
+                        <div className="panel-sub-text">sample address</div>  
+                    </div>
+                    <div className="panel-text">
+                        <div className="panel-sub-text"><b>Address</b></div>
+                        <div className="panel-sub-text">sample address</div>  
+                    </div>
+                    <div className="panel-text">
+                        <div className="panel-sub-text"><b>Address</b></div>
+                        <div className="panel-sub-text">sample address</div>  
+                    </div>
+                    <div className="panel-text">
+                        <div className="panel-sub-text"><b>Address</b></div>
+                        <div className="panel-sub-text">sample address</div>  
                     </div>
                     <div className="panel-text">
                         <div className="panel-sub-text"><b>Address</b></div>

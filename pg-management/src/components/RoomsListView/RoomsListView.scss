@@ -62,7 +62,32 @@ table{
             background-color: rgb(210, 210, 209);
         }
     }
+
+    .dropdown-list{
+        position: absolute;
+        background-color: white;
+        box-shadow: 0 0 10px rgb(117, 116, 116);
+        width: max-content;
+        visibility: hidden;
+        z-index: 10;
+
+        .list-item{
+            padding: 0 1rem 0 0.2rem;   
+            display: flex;
+            align-items: center;
+            font-size: 0.85rem;
+            border-bottom: solid 1px rgb(212, 208, 208);
+            & svg:hover{
+                background: transparent;
+            }
+            &:hover{
+                background-color: rgb(212, 208, 208);
+            }
+        }
+    }
+    
 }
+
 
 .avatar-container{
     display: flex;

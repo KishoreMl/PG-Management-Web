@@ -20,7 +20,7 @@ export class RoomsPage extends React.Component{
             rooms: [
                     {
                         branchId:"branchId1",
-                        roomId:"roomId1",
+                        id:"roomId1",
                         number:"101",
                         type:"NON-AC",
                         capacity:5,
@@ -35,7 +35,7 @@ export class RoomsPage extends React.Component{
                     },
                     {
                         branchId:"branchId1",
-                        roomId:"roomId2",
+                        id:"roomId2",
                         number:"102",
                         type:"AC",
                         capacity:4,
@@ -48,7 +48,7 @@ export class RoomsPage extends React.Component{
                     },
                     {
                         branchId:"branchId1",
-                        roomId:"roomId3",
+                        id:"roomId3",
                         number:"103",
                         type:"AC",
                         capacity:2,
@@ -60,7 +60,7 @@ export class RoomsPage extends React.Component{
                     },
                     {
                         branchId:"branchId1",
-                        roomId:"roomId4",
+                        id:"roomId4",
                         number:"104",
                         type:"AC",
                         capacity:1,
@@ -72,7 +72,7 @@ export class RoomsPage extends React.Component{
                 },
                     {
                         branchId:"branchId1",
-                        roomId:"roomId11",
+                        id:"roomId4",
                         number:"104",
                         type:"AC",
                         capacity:3,
@@ -84,7 +84,7 @@ export class RoomsPage extends React.Component{
                 },
                     {
                         branchId:"branchId1",
-                        roomId:"roomId5",
+                        id:"roomId5",
                         number:"104",
                         type:"AC",
                         capacity:4,
@@ -96,7 +96,7 @@ export class RoomsPage extends React.Component{
                 },
                     {
                         branchId:"branchId1",
-                        roomId:"roomId6",
+                        id:"roomId6",
                         number:"104",
                         type:"AC",
                         capacity:3,
@@ -108,7 +108,7 @@ export class RoomsPage extends React.Component{
                 },
                     {
                         branchId:"branchId1",
-                        roomId:"roomId7",
+                        id:"roomId7",
                         number:"104",
                         type:"AC",
                         capacity:4,
@@ -119,7 +119,7 @@ export class RoomsPage extends React.Component{
                 },
                     {
                         branchId:"branchId1",
-                        roomId:"roomId8",
+                        id:"roomId8",
                         number:"104",
                         type:"AC",
                         capacity:3,
@@ -131,7 +131,7 @@ export class RoomsPage extends React.Component{
                 },
                     {
                         branchId:"branchId1",
-                        roomId:"roomId9",
+                        id:"roomId9",
                         number:"104",
                         type:"AC",
                         capacity:3,
@@ -143,7 +143,7 @@ export class RoomsPage extends React.Component{
                 },
                     {
                         branchId:"branchId1",
-                        roomId:"roomId10",
+                        id:"roomId10",
                         number:"104",
                         type:"AC",
                         capacity:3,
@@ -174,17 +174,40 @@ export class RoomsPage extends React.Component{
     }
     
    async componentDidMount() {
-        this.setState({roomsToBeDisplayed:this.state.rooms})
+        const rooms  = this.state.rooms.map((room) => {
+            return {...room, selected:false}
+        });
+        this.setState({roomsToBeDisplayed:rooms})
     }
 
     setPanelDisplay = (display) => {
+        if(display === false){
+            let rooms = this.state.roomsToBeDisplayed.map((room) => {
+                if(room.selected){
+                    return {...room,selected:false}
+                }
+                else{
+                    return room;
+                }
+            })
+            
+            this.setState({selectedRoom:'',selectedGuest:'',roomsToBeDisplayed:rooms})
+        }
         this.setState({showRightPanel:display})
     }
 
-    onRoomSelect(roomId) {
-        console.log("on room select: "+roomId);
-        let room = this.state.rooms.filter((room) => room.roomId === roomId);
-        this.setState({ showRightPanel: true, selectedRoom: room }) 
+    onRoomSelect(roomId) {  
+        let selectedRoom = null;
+        let rooms = this.state.rooms.map((room) => {
+            if(room.id === roomId){
+                selectedRoom = room;
+                return {...room, selected:true}   
+            }else{
+                return room;
+            }
+        });
+        console.log(rooms);
+        this.setState({ showRightPanel: true, selectedRoom: selectedRoom,roomsToBeDisplayed:rooms }) 
     }
 
     onGuestSelect(guest, e) {

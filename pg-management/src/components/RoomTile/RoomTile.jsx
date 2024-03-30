@@ -37,11 +37,6 @@ export class RoomTile extends Component{
         this.state.showDropdown?this.setState({ showDropdown:false }) :this.setState({ showDropdown: true })
     }
 
-    handleRoomSelect() {
-        this.setState({ selected: this.state.selected ? false : true });
-        this.props.onRoomSelect(this.props.room.roomId)
-    }
-
     getAvailableBeds(difference) {
         let availableBeds = [];
         for (let i = 0; i < difference; i++)
@@ -53,8 +48,8 @@ export class RoomTile extends Component{
     render() {
         return (
             <div
-                className={`room-tile ${this.state.selected ? 'tile-selected' : ''}`}
-                onClick={() => this.handleRoomSelect()}>
+                className={`room-tile ${this.props.room.selected ? 'tile-selected' : ''}`}
+                onClick={() => this.props.onRoomSelect(this.props.room.id)}>
                 <div className="tile-header">
                     <p>{this.props.room.number}</p>
                     {this.props.room.type === 'AC' && <p className="badge">{this.props.room.type}</p>}

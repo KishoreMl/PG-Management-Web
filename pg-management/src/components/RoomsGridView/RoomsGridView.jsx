@@ -11,7 +11,7 @@ export class RoomsGridView extends React.Component{
                 {this.props.rooms.map((room) => 
                     <RoomTile
                         room={room}
-                        key={room.roomId}
+                        key={room.id}
                         onRoomSelect={(roomId) => this.props.onRoomSelect(roomId)}
                         onGuestSelect={(guest,e) => this.props.onGuestSelect(guest,e)} 
                         onTileOptionSelect={(option) => this.props.onTileOptionSelect(option)}

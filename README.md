@@ -1,6 +1,6 @@
 # PG Management Web Application
 
-This is a Web Application for managing PGs
+This is a Web Application for PG/Hostel Management
 
 Framework: React
 

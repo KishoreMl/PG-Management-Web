@@ -4,6 +4,13 @@ import IconMore from "../Icons/IconMore";
 import './RoomsListView.scss';
 
 export class RoomsListView extends React.Component{
+
+    constructor(props){
+        super(props);
+        this.state={
+            showDropdown:false,
+        }
+    }
     getAvailableBeds(difference) {
         let availableBeds = [];
         for (let i = 0; i < difference; i++)
@@ -11,6 +18,10 @@ export class RoomsListView extends React.Component{
             availableBeds.push('Available');
         }
         return availableBeds;
+    }
+
+    handleDropdown(){
+        this.state.showDropdown?this.setState({showDropdown:false}):this.setState({showDropdown:true});
     }
     render()
     {
@@ -52,7 +63,7 @@ export class RoomsListView extends React.Component{
                                 <td>6600</td>
                                 <td>500</td>
                                 <td className="more">
-                                    <IconMore />
+                                    <IconMore onClick={() => this.handleDropdown()}/>
                                 </td>
                             </tr>
                         )}
