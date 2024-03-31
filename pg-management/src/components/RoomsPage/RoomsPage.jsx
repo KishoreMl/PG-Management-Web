@@ -72,22 +72,10 @@ export class RoomsPage extends React.Component{
                 },
                     {
                         branchId:"branchId1",
-                        id:"roomId4",
-                        number:"104",
-                        type:"AC",
-                        capacity:3,
-                        rent:6500,
-                        guests:[
-                            {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
-                            {guestId:"guestId2",name:"Akhilesh",rentPaid:false,ebPaid:false}
-                        ]
-                },
-                    {
-                        branchId:"branchId1",
                         id:"roomId5",
                         number:"104",
                         type:"AC",
-                        capacity:4,
+                        capacity:3,
                         rent:6500,
                         guests:[
                             {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
@@ -99,7 +87,7 @@ export class RoomsPage extends React.Component{
                         id:"roomId6",
                         number:"104",
                         type:"AC",
-                        capacity:3,
+                        capacity:4,
                         rent:6500,
                         guests:[
                             {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
@@ -111,10 +99,11 @@ export class RoomsPage extends React.Component{
                         id:"roomId7",
                         number:"104",
                         type:"AC",
-                        capacity:4,
+                        capacity:3,
                         rent:6500,
                         guests:[
                             {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
+                            {guestId:"guestId2",name:"Akhilesh",rentPaid:false,ebPaid:false}
                         ]
                 },
                     {
@@ -122,11 +111,10 @@ export class RoomsPage extends React.Component{
                         id:"roomId8",
                         number:"104",
                         type:"AC",
-                        capacity:3,
+                        capacity:4,
                         rent:6500,
                         guests:[
                             {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
-                            {guestId:"guestId2",name:"Akhilesh",rentPaid:false,ebPaid:false}
                         ]
                 },
                     {
@@ -144,6 +132,18 @@ export class RoomsPage extends React.Component{
                     {
                         branchId:"branchId1",
                         id:"roomId10",
+                        number:"104",
+                        type:"AC",
+                        capacity:3,
+                        rent:6500,
+                        guests:[
+                            {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
+                            {guestId:"guestId2",name:"Akhilesh",rentPaid:false,ebPaid:false}
+                        ]
+                },
+                    {
+                        branchId:"branchId1",
+                        id:"roomId11",
                         number:"104",
                         type:"AC",
                         capacity:3,
@@ -284,7 +284,7 @@ export class RoomsPage extends React.Component{
     {
         return (
             <div>
-                <Toast message="Room Created Successfully" type='warning' />
+                <Toast message="Room Created Successfully" type='error' />
                 {this.state.showCreateRoomModal ? 
                     <CreateModal 
                         title="Create Room"  

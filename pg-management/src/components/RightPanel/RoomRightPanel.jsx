@@ -2,8 +2,7 @@ import React from "react";
 import IconClose from "../Icons/IconClose";
 import IconEdit from "../Icons/IconEdit";
 import IconDelete from "../Icons/IconDelete";
-import IconCheckCircle from "../Icons/IconCheckCircle";
-import IconCrossCircle from "../Icons/IconCrossCircle";
+import IconPersonAdd from "../Icons/IconPersonAdd";
 import './RightPanel.scss';
 
 export class RoomRightPanel extends React.Component{
@@ -25,48 +24,43 @@ export class RoomRightPanel extends React.Component{
                 </div>
                 <div className="panel-content"> 
                     <div className="panel-toolbar">
-                        <IconEdit size='20' />
-                        <IconDelete size='21' />
+                        <div className="icon-container">
+                            <div className="icon"><IconEdit size={20} /></div>
+                            <div className="tooltip">Edit</div>
+                        </div>
+                        <div className="icon-container">
+                            <div className="icon"><IconPersonAdd size={20} /></div>
+                            <div className="tooltip">Add Guest</div>
+                        </div>
+                        <div className="icon-container">
+                            <div className="icon"><IconDelete size={21} /></div>
+                            <div className="tooltip">Delete Room</div>
+                        </div>
+                        
+                        
+                        
                     </div>
-                    <div className="panel-text">
-                        <div className="panel-sub-text"><b>Name</b></div>
-                        <div className="panel-sub-text">{this.props.guest.name}</div>
-                    </div>
-                    <div className="panel-text">
-                        <div className="panel-sub-text"><b>Room No</b></div>
-                        <div className="panel-sub-text">106</div>
+                    <div className="panel-guestcard-contaiiner">
+                        <div className="panel-guestcard">Guestname</div>
+                        <div className="panel-guestcard">Guestname</div>
+                        <div className="panel-guestcard">Guestname</div>
+                        <div className="panel-guestcard">Guestname</div>
                     </div>
                     <div className="panel-text">
                         <div className="panel-sub-text"><b>Rent</b></div>
                         <div className="panel-sub-text">
                             6500
-                            {this.props.guest.rentPaid ?
-                                <div className="chip success">
-                                <IconCheckCircle size='20' /> Paid
-                                </div> :
-                                <div className="chip danger">
-                                    <IconCrossCircle size="20" color='red'/> Not Paid
-                                </div>
-                            }
                         </div>
                     </div>
                     <div className="panel-text">
                         <div className="panel-sub-text"><b>EB bill</b></div>
                         <div className="panel-sub-text">
                             400
-                            {this.props.guest.rentPaid ?
-                                <div className="chip success">
-                                    <IconCheckCircle size='20' color='rgb(21, 121, 21)' /> Paid
-                                </div> :
-                                <div className="chip danger">
-                                    <IconCrossCircle size="20" color='red'/> Not Paid
-                                </div>
-                            }
                         </div>
                     </div>
                     <div className="panel-text">
-                        <div className="panel-sub-text"><b>Contact</b></div>
-                        <div className="panel-sub-text">1234567890</div>
+                        <div className="panel-sub-text"><b>Type</b></div>
+                        <div className="panel-sub-text">AC</div>
                     </div>
                     <div className="panel-text">
                         <div className="panel-sub-text"><b>Work/College</b></div>
@@ -80,18 +74,7 @@ export class RoomRightPanel extends React.Component{
                         <div className="panel-sub-text"><b>Address</b></div>
                         <div className="panel-sub-text">sample address</div>  
                     </div>
-                    <div className="panel-text">
-                        <div className="panel-sub-text"><b>Address</b></div>
-                        <div className="panel-sub-text">sample address</div>  
-                    </div>
-                    <div className="panel-text">
-                        <div className="panel-sub-text"><b>Address</b></div>
-                        <div className="panel-sub-text">sample address</div>  
-                    </div>
-                    <div className="panel-text">
-                        <div className="panel-sub-text"><b>Address</b></div>
-                        <div className="panel-sub-text">sample address</div>  
-                    </div>
+                   
                 </div>          
             </div>
         )

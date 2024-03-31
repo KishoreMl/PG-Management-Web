@@ -1,4 +1,5 @@
 @import '../vars.scss';
+
 .right-panel{
     height: calc(100vh - 120px);
     margin-left:auto ;
@@ -8,7 +9,6 @@
     background-color: white;
     box-shadow: 3px 0 4px 1px rgba(0, 0, 0, 0.2);
     
-    
     & p{
         font-weight: 600;
         font-size: 14px;
@@ -17,6 +17,7 @@
         line-height: 24px;
         letter-spacing: 0.15px;
     }
+
     svg {
         cursor: pointer;
         padding: 0.4rem;
@@ -26,6 +27,7 @@
             background-color: rgb(224, 221, 221);
         }
     }
+
     .panel-header{
         display: flex;
         align-items: center;
@@ -33,25 +35,31 @@
         top:0;
         padding: 0.5rem 0.8rem;
         z-index:10;
-        background-color: rgb(234, 237, 236);
+        background-color: white;
         box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.2);
-        // border-bottom: solid 1px rgb(180, 180, 180);
         
-        
-
         h3{
             padding: 0;
             margin: 0;
             font-family: $primary-font;
         }
     }
+
     .panel-content{
         padding-bottom: 2rem;
     }
+
     .header-left {
         margin-left:auto;
         & svg{
             border-radius: 2rem;
+        }
+    }
+
+    .panel-guestcard-container{
+        padding-left:2rem;
+        .panel-guestcard{
+            
         }
     }
 }
@@ -61,7 +69,7 @@
     display: flex;
     gap:1rem;
     align-items: center;
-    padding: 0.4rem;
+    padding: 0.7rem 0.7rem;
 
     & button{
         cursor: pointer;
@@ -137,6 +145,7 @@
     }
     
 }
+
 .success{
     background-color:rgb(123, 239, 123);
     color: rgb(21, 121, 21);
@@ -145,4 +154,17 @@
 .danger{
     background-color: rgb(250, 175, 175);
     color: red;
+}
+
+.icon{
+    &:hover .tooltip{
+        visibility: visible;
+    }
+    
+}
+.tooltip{
+    position: absolute;
+    visibility: hidden;
+    background-color: black;
+    color: white;
 }
