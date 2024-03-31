@@ -12,6 +12,10 @@
         box-shadow: 0 0 9px rgb(127, 127, 127);
     }
 
+    &:hover .tooltip{
+        visibility: visible;
+    }
+
      .tooltip{
         visibility: hidden;
         background-color: #333;
@@ -19,16 +23,13 @@
         color: #fff;
         text-align: center;
         border-radius: 5px;
-        padding: 5px;
+        padding: 0.3rem 0.4rem;
         position: absolute;
         z-index: 1;
         bottom: 125%;
         left: 50%;
         transform: translateX(-50%);
-
-        @at-root &:hover {
-            visibility: visible;
-        }
+        font-size: 0.8rem;
     }
 
     & p{
@@ -37,10 +38,12 @@
         font-size: 0.8rem;
     }
 }
+
 .green{
     background-color: rgb(150, 231, 30);
     color: black;
 }
+
 .red{
     background-color: red;
 }

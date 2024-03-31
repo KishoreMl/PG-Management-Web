@@ -1,0 +1,35 @@
+.tooltip-container{
+
+    position: relative;
+    
+    &:hover .tooltip {
+        visibility: visible;
+    }
+
+    .tooltip{
+        position: absolute;
+        top: 110% ; 
+        left: 50%;
+        transform: translateX(-50%);
+        visibility: hidden;
+        width:fit-content;
+        background-color: black;
+        color: white;
+        font-size: 0.7rem;
+        border-radius: 4px;
+        padding: 0.3rem 0.4rem;
+        opacity: 0.8;
+        white-space: nowrap; 
+    }
+
+    &.top{
+        bottom:110%;
+    }
+    
+    &.bottom{
+        top:110%;
+    }
+    
+}
+
+

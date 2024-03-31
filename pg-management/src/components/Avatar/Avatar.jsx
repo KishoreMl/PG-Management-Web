@@ -2,7 +2,14 @@ import React from "react";
 import './Avatar.scss';
     
 export class Avatar extends React.Component{
-    
+
+    constructor(props){
+        super(props);
+        this.state={
+            displayTooltip:this.props.displayTooltip?this.props.displayTooltip:true,
+        }
+    }
+
     convertToInitials(name) {   
         var names = name.split(" ");
         if (names.length === 1) {
@@ -23,7 +30,7 @@ export class Avatar extends React.Component{
                 onClick={this.props.guest ? () => this.props.onGuestSelect(this.props.guest.guestId) : null}
             >
                 <p>{this.convertToInitials(this.props.guest?this.props.guest.name:'Available')}</p> 
-                <span className="tooltip">{this.props.guest?this.props.guest.name:'Available'}</span>
+                {this.state.displayTooltip &&<div className="tooltip">{this.props.guest?this.props.guest.name:'Available'}</div>}
             </div>
         )
     }
