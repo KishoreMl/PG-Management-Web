@@ -1,6 +1,6 @@
 @import "../vars.scss"; 
 
- .overlay {
+.overlay {
      display: none;
      position: fixed;
      top: 0;
@@ -34,6 +34,9 @@ svg {
     }
 }
 
+.modal-container{
+    height: 100%;
+}
 .modal-header{
     width:100%;
     display: flex;
@@ -43,6 +46,7 @@ svg {
 }
 
 .modal-content{
+    padding-left: 0 0.5rem;
     input{
         &:focus{
             outline: none;
@@ -53,6 +57,7 @@ svg {
 .modal-footer{
     display: flex;
     align-items: center;
+   margin-top: auto;
 
     & button{
         border: none;
@@ -102,5 +107,9 @@ select{
 @media only screen and (max-width: 400px) {
     .modal {
         height:100%;
+        width:100%;
+    }
+    .modal-container{
+        padding: 1rem;
     }
 }

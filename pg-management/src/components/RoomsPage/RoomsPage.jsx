@@ -332,6 +332,7 @@ export class RoomsPage extends React.Component{
                         <div className={`rightpanel-container ${this.state.showRightPanel?'open':''}`}>
                             {this.state.showRightPanel && (
                                 <RightPanel
+                                    type='room'
                                     guest={this.state.selectedGuest}
                                     room={this.state.selectedRoom}
                                     setPanelDisplay={(display) => this.setPanelDisplay(display)}
