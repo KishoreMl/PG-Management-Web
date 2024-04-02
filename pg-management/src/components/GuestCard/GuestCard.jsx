@@ -8,7 +8,8 @@ export class GuestCard extends React.Component{
         return (
             <div
                 className={`guest-card ${this.props.guest ? this.props.guest.rentPaid ? 'paid' : 'not-paid' : ''}`}
-                draggable={true}>
+                draggable={true}
+                onClick={this.props.onClick}>
                 <div className='guest-img'>
                     <img src={user} alt=''></img>
                 </div>

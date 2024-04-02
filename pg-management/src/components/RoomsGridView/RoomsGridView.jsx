@@ -13,7 +13,7 @@ export class RoomsGridView extends React.Component{
                         room={room}
                         key={room.id}
                         onRoomSelect={(roomId) => this.props.onRoomSelect(roomId)}
-                        onGuestSelect={(guest,e) => this.props.onGuestSelect(guest,e)} 
+                        onGuestSelect={(guest) => this.props.onGuestSelect(guest)} 
                         onTileOptionSelect={(option) => this.props.onTileOptionSelect(option)}
                     />
                 )} 

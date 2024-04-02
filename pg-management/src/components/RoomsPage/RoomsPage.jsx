@@ -169,8 +169,10 @@ class RoomsPage extends React.Component{
             showNewGuestModal: false,
             selectedGuest: '',
             selectedRoom: '',
-            isLoading: false
+            isLoading: false,
+            rightPanelType: 'room',
         }
+        
     }
     
    async componentDidMount() {
@@ -206,14 +208,11 @@ class RoomsPage extends React.Component{
                 return room;
             }
         });
-        console.log(rooms);
-        this.setState({ showRightPanel: true, selectedRoom: selectedRoom,roomsToBeDisplayed:rooms }) 
+        this.setState({rightPanelType:'room', showRightPanel: true, selectedRoom: selectedRoom,roomsToBeDisplayed:rooms }) 
     }
 
-    onGuestSelect(guest, e) {
-        e.stopPropgation();
-        console.log(guest);
-        this.setState({selectedGuest:guest,showRightPanel: true})
+    onGuestSelect(guest) {
+        this.setState({selectedGuest:guest,rightPanelType:'guest',showRightPanel: true})
     }
     
     onBranchSelect(branchId){
@@ -271,8 +270,7 @@ class RoomsPage extends React.Component{
         }
         else {
             this.setState({roomsToBeDisplayed:this.state.rooms})
-        }
-        
+        }  
     }
 
     handleSearch(searchText){
@@ -336,8 +334,8 @@ class RoomsPage extends React.Component{
                         } 
                         <div className={`rightpanel-container ${this.state.showRightPanel?'open':''}`}>
                             {this.state.showRightPanel && (
-                                <RightPanel
-                                    type='room'
+                                <RightPanel  
+                                    type={this.state.rightPanelType}
                                     guest={this.state.selectedGuest}
                                     room={this.state.selectedRoom}
                                     setPanelDisplay={(display) => this.setPanelDisplay(display)}

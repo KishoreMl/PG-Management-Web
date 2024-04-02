@@ -49,7 +49,8 @@ export class RoomTile extends Component{
         return (
             <div
                 className={`room-tile ${this.props.room.selected ? 'tile-selected' : ''}`}
-                onClick={() => this.props.onRoomSelect(this.props.room.id)}>
+                onClick={() => this.props.onRoomSelect(this.props.room.id)}
+            >
                 <div className="tile-header">
                     <p>{this.props.room.number}</p>
                     {this.props.room.type === 'AC' && <p className="badge">{this.props.room.type}</p>}
@@ -70,7 +71,10 @@ export class RoomTile extends Component{
                         <GuestCard
                             guest={guest}
                             key={guest.guestId}
-                            onClick={(e) => this.props.onGuestSelect(guest,e)} 
+                            onClick={(e) => { 
+                                e.stopPropagation();
+                                this.props.onGuestSelect(guest)
+                            }} 
                         />
                     )} 
                     {this.getAvailableBeds(this.props.room.capacity - this.props.room.guests.length).map((bed) =>
