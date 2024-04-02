@@ -47,6 +47,15 @@
 
     .panel-content{
         padding-bottom: 2rem;
+
+        .panel-guestcard-container{
+            padding-left:1rem;
+            .panel-guestcard{
+                background-color: whitesmoke;
+                padding: 0.4rem 0.4rem;
+                margin-top: 0.3rem;
+            }
+        }
     }
 
     .header-left {
@@ -56,12 +65,7 @@
         }
     }
 
-    .panel-guestcard-container{
-        padding-left:2rem;
-        .panel-guestcard{
-            
-        }
-    }
+   
 }
 
 
@@ -69,7 +73,7 @@
     display: flex;
     gap:1rem;
     align-items: center;
-    padding: 0.7rem 0.7rem;
+    padding: 0.7rem 0.7rem 0.4rem 0.7rem;
 
     & button{
         cursor: pointer;
@@ -154,6 +158,11 @@
 .danger{
     background-color: rgb(250, 175, 175);
     color: red;
+}
+
+#room-no{
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .icon-container{

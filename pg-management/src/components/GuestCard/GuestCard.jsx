@@ -13,7 +13,7 @@ export class GuestCard extends React.Component{
                     <img src={user} alt=''></img>
                 </div>
                 <div className='guest-details'>
-                    <p>{this.props.guest?this.props.guest.name:'Available'}</p>
+                    {this.props.guest?this.props.guest.name:'Available'}
                 </div>   
             </div>
         )

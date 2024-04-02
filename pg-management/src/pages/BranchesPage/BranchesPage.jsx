@@ -29,7 +29,6 @@ export class BranchesPage extends React.Component{
     }
     
     onBranchSelect(branchId){
-        console.log(branchId);
         window.open('/rooms','_self');
     }
     handleCreateModal(display){

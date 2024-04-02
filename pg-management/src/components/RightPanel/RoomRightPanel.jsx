@@ -36,11 +36,12 @@ export class RoomRightPanel extends React.Component{
                             <div className="icon"><IconDelete size={21} /></div>
                             <div className="tooltip">Delete Room</div>
                         </div>
-                        
-                        
-                        
                     </div>
-                    <div className="panel-guestcard-contaiiner">
+                    <div className="panel-text" id="room-no">
+                        <div className="panel-sub-text"><b>Room No</b></div>
+                        <div className="panel-sub-text">106</div>  
+                    </div>
+                    <div className="panel-guestcard-container">
                         <div className="panel-guestcard">Guestname</div>
                         <div className="panel-guestcard">Guestname</div>
                         <div className="panel-guestcard">Guestname</div>
@@ -61,18 +62,6 @@ export class RoomRightPanel extends React.Component{
                     <div className="panel-text">
                         <div className="panel-sub-text"><b>Type</b></div>
                         <div className="panel-sub-text">AC</div>
-                    </div>
-                    <div className="panel-text">
-                        <div className="panel-sub-text"><b>Work/College</b></div>
-                        <div className="panel-sub-text">Company name</div>
-                    </div>
-                    <div className="panel-text">
-                        <div className="panel-sub-text"><b>Address</b></div>
-                        <div className="panel-sub-text">sample address</div>  
-                    </div>
-                    <div className="panel-text">
-                        <div className="panel-sub-text"><b>Address</b></div>
-                        <div className="panel-sub-text">sample address</div>  
                     </div>
                    
                 </div>          

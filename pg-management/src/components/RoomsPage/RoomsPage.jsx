@@ -11,7 +11,7 @@ import IconPlusCircle from "../Icons/IconPlusCircle";
 import { Toast } from "../Toast/Toast";
 import './RoomsPage.scss';
 
-export class RoomsPage extends React.Component{
+class RoomsPage extends React.Component{
 
     constructor(props)
     {
@@ -27,7 +27,7 @@ export class RoomsPage extends React.Component{
                         rent:6500,
                         guests:[
                             {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
-                            {guestId:"guestId2",name:"Akhilesh",rentPaid:true,ebPaid:false},
+                            {guestId:"guestId2",name:"Akhilesh Raghupathi ragav",rentPaid:true,ebPaid:false},
                             {guestId:"guestId3",name:"Ashwin",rentPaid:true,ebPaid:false},
                             {guestId:"guestId4",name:"Akhilesh",rentPaid:true,ebPaid:false},
                             {guestId:"guestId5",name:"Siva",rentPaid:false,ebPaid:false}
@@ -275,9 +275,12 @@ export class RoomsPage extends React.Component{
         
     }
 
-    handleSearch(searchText)
-    {
+    handleSearch(searchText){
         console.log(searchText);
+    }
+
+    handleBackButtonClick(){
+        window.open('/','_self');
     }
 
     render()
@@ -304,6 +307,7 @@ export class RoomsPage extends React.Component{
                     dropdownListItems={this.state.branches}
                     showDropdown={true}
                     showViewButton={true}
+                    showBackButton={true}
                     enableSearch={true}
                     currentView={this.state.currentView}
                     createButtonText="Create Room"
@@ -311,6 +315,7 @@ export class RoomsPage extends React.Component{
                     onCreate={() => this.onCreateRoom(true)}
                     onFilterSelected={(filters) => this.handleFilters(filters)}
                     onSearch={(searchText)=>this.handleSearch(searchText)}
+                    onBackButtonClick={() =>this.handleBackButtonClick()}
                 />
                 {this.state.isLoading ? 
                     <div className="spinner">
@@ -348,3 +353,5 @@ export class RoomsPage extends React.Component{
         )
     }
 }
+
+export default RoomsPage;

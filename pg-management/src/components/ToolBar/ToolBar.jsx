@@ -5,6 +5,7 @@ import IconCheck from "../Icons/IconCheck";
 import IconCaretDown from "../Icons/IconCaretDown";
 import IconFilter from "../Icons/IconFilter";
 import IconSearch from "../Icons/IconSearch";
+import IconArrowback from "../Icons/IconArrowback";
 import { Tooltip } from "../Tooltip/Tooltip";
 import './ToolBar.scss';
 
@@ -133,7 +134,8 @@ export class ToolBar extends React.Component{
     render() {
         return (
             <div className="tool-bar">
-                <div className={`tool-bar-left ${this.state.displayIcons?'':'hide'}` }>       
+                <div className={`tool-bar-left ${this.state.displayIcons?'':'hide'}` }>   
+                    {this.props.showBackButton && <IconArrowback onClick={() => this.props.onBackButtonClick()}/>}    
                     {this.props.showDropdown?
                         <div
                             className="dropdown-container" 
@@ -204,8 +206,7 @@ export class ToolBar extends React.Component{
                                         {option.name}
                                         {option.selected && <IconCheck size={20} color="#3171e0" />}
                                     </div>
-                                )}
-                                
+                                )}   
                             </div>
                        </div>
                     </div>

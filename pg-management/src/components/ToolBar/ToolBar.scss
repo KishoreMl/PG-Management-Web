@@ -19,63 +19,79 @@
     align-items: center; 
     justify-content: center;
     z-index:2;
+
+    .tool-bar-left{
+        position: relative;
+        display: flex;
+        margin-right: auto;
+        margin-left: 1.5rem;
+        align-items: center;
+    
+        select{
+            cursor: pointer;
+            font-family: $primary-font;
+            font-size: 1rem;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+        
+        option{
+            cursor: pointer;
+        }
+
+        svg{
+            border-radius: 50%;
+            &:hover{
+                background-color: rgb(227, 227, 228);
+            }
+        }
+
+        .dropdown-container{
+            svg{
+                &:hover{
+                    background-color: transparent;
+                }
+            }
+        }
+    
+        .dropdown-button{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: $primary-font;
+            padding: 0 1rem;
+            cursor: pointer;
+        
+            &:hover{
+                background-color: rgb(230, 230, 230);
+            }
+        }
+    
+        .listitem{
+            padding: 0.5rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+            width: 9rem;
+            border-bottom: solid 1px rgb(212, 208, 208);
+            cursor: pointer;
+            & svg {
+                padding: 0;
+            }
+            &:hover{
+                background-color: rgb(213, 211, 211);
+            }
+        }
+    
+    }
 }
 
 select{
     font-family: $primary-font;
 }
 
-.tool-bar-left{
-    position: relative;
-    margin-right: auto;
-    margin-left: 4rem;
 
-    select{
-        cursor: pointer;
-        font-family: $primary-font;
-        font-size: 1rem;
-        padding: 0.5rem;
-        border-radius: 5px;
-    }
-    
-    option{
-        cursor: pointer;
-    }
-
-    .dropdown-button{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: $primary-font;
-        padding: 0 1rem;
-        cursor: pointer;
-    
-        &:hover{
-            background-color: rgb(183, 184, 185);
-        }
-    }
-
-    .listitem{
-        padding: 0.5rem 1.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background-color: white;
-        width: 9rem;
-        border-bottom: solid 1px rgb(212, 208, 208);
-        cursor: pointer;
-        & svg {
-            padding: 0;
-        }
-        &:hover{
-            background-color: rgb(213, 211, 211);
-        }
-    }
-
-    svg:hover{
-        background: transparent;
-    }
-}
 
 .branches-dropdown-list {
     visibility: hidden;
