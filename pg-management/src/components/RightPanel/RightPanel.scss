@@ -48,12 +48,94 @@
     .panel-content{
         padding-bottom: 2rem;
 
+        .panel-toolbar{
+            display: flex;
+            gap:1rem;
+            align-items: center;
+            padding: 0.7rem 0.7rem 0.4rem 0.7rem;
+        
+            & button{
+                cursor: pointer;
+                background-color:$red;
+                color: white;
+                border-radius: 5px;
+                border:none;
+                padding: 0.4rem 0.5rem 0.4rem 0.5rem;
+            }
+            & svg {
+                cursor: pointer;
+                padding: 0.4rem;
+                border-radius: 5px;
+            }
+            & svg:hover{
+                background-color: rgb(224, 221, 221);
+            }
+
+            .icon-container{
+                position: relative;
+                
+                .icon:hover ~ .tooltip{
+                     visibility: visible;
+                 }
+            
+                .tooltip{
+                    position: absolute;
+                    top: 110%; 
+                    left: 50%;
+                    transform: translateX(-50%);
+                    visibility: hidden;
+                    width:fit-content;
+                    background-color: black;
+                    color: white;
+                    font-size: 0.7rem;
+                    border-radius: 4px;
+                    padding: 0.3rem 0.4rem;
+                    opacity: 0.8;
+                    white-space: nowrap; 
+                }
+            }
+        
+        }
+
+        .panel-text{
+            display: flex;  
+            margin-top: 1rem;
+            padding-left: 1rem;
+            font-family: $primary-font;
+            font-size: 0.85rem;
+        
+            .panel-sub-text{
+                display: flex;
+                align-items: center;
+                padding-left:0.5rem;
+                width:70%;
+                &:first-child{
+                    width:36%;
+                }
+            }
+        }        
+
         .panel-guestcard-container{
             padding-left:1rem;
+            max-height:10rem;
+            overflow-y: auto;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
             .panel-guestcard{
                 background-color: whitesmoke;
                 padding: 0.4rem 0.4rem;
                 margin-top: 0.3rem;
+                
+                .guestcard-text{
+                    width:50%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
             }
         }
     }
@@ -64,69 +146,10 @@
             border-radius: 2rem;
         }
     }
-
-   
-}
-
-
-.panel-toolbar{
-    display: flex;
-    gap:1rem;
-    align-items: center;
-    padding: 0.7rem 0.7rem 0.4rem 0.7rem;
-
-    & button{
-        cursor: pointer;
-        background-color:$red;
-        color: white;
-        border-radius: 5px;
-        border:none;
-        padding: 0.4rem 0.5rem 0.4rem 0.5rem;
-    }
-    & svg {
-        cursor: pointer;
-        padding: 0.4rem;
-        border-radius: 5px;
-    }
-    & svg:hover{
-        background-color: rgb(224, 221, 221);
-    }
-
-}
-
-.panel-img {
-    height:7.5rem;
-    width:7.5rem;
-    margin-right: auto;
-    margin-left: auto;
-    & img{
-        width:100%;
-        height:100%;
-    }
 }
 
 .show{
     visibility: visible;
-}
-
-
-
-.panel-text{
-    display: flex;  
-    margin-top: 1rem;
-    padding-left: 1rem;
-    font-family: $primary-font;
-    font-size: 0.85rem;
-}
-
-.panel-sub-text{
-    display: flex;
-    align-items: center;
-    padding-left:0.5rem;
-    width:70%;
-    &:first-child{
-        width:36%;
-    }
 }
 
 .chip{
@@ -135,7 +158,7 @@
     display: flex;
     align-items: center;
     color: white;
-    padding: 0.3rem 0.7rem 0.3rem 0.3rem;
+    padding: 0.1rem 0.7rem 0.1rem 0.2rem;
     font-size: 0.7rem;
     font-family: $primary-font;
     margin-left: 1.5rem;
@@ -156,8 +179,9 @@
 }
 
 .danger{
-    background-color: rgb(250, 175, 175);
-    color: red;
+    background-color: rgb(250, 174, 174);
+    color: rgb(247, 38, 38);
+    border: solid 1px rgb(247, 38, 38);
 }
 
 #room-no{
@@ -165,26 +189,4 @@
     margin-bottom: 1rem;
 }
 
-.icon-container{
-    position: relative;
-    
-    .icon:hover ~ .tooltip{
-         visibility: visible;
-     }
 
-    .tooltip{
-        position: absolute;
-        top: 110%; 
-        left: 50%;
-        transform: translateX(-50%);
-        visibility: hidden;
-        width:fit-content;
-        background-color: black;
-        color: white;
-        font-size: 0.7rem;
-        border-radius: 4px;
-        padding: 0.3rem 0.4rem;
-        opacity: 0.8;
-        white-space: nowrap; 
-    }
-}

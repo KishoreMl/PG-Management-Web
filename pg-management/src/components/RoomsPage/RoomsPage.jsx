@@ -3,7 +3,6 @@ import { RightPanel } from "../RightPanel/RightPanel";
 import { ToolBar } from "../ToolBar/ToolBar";
 import { RoomsListView } from "../RoomsListView/RoomsListView";
 import { RoomsGridView } from "../RoomsGridView/RoomsGridView";
-import { getRooms } from "../../sdk/pgmanagement";
 import CreateModal from "../CreateModal/CreateModal";
 import ConsentModal from "../ConsentModal/ConsentModal";
 import NewGuest from "../NewGuestModal/NewGuestModal";
@@ -31,6 +30,11 @@ class RoomsPage extends React.Component{
                             {guestId:"guestId3",name:"Ashwin",rentPaid:true,ebPaid:false},
                             {guestId:"guestId4",name:"Akhilesh",rentPaid:true,ebPaid:false},
                             {guestId:"guestId5",name:"Siva",rentPaid:false,ebPaid:false}
+                        ],
+                        fields:[
+                            {name:"Fieldname",value:"Value"},
+                            {name:"Fieldname",value:"Value"},
+                            {name:"Fieldname",value:"Value"},
                         ]
                     },
                     {
@@ -44,6 +48,11 @@ class RoomsPage extends React.Component{
                             {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
                             {guestId:"guestId2",name:"Akhilesh",rentPaid:true,ebPaid:false},
                             {guestId:"guestId3",name:"Siva",rentPaid:false,ebPaid:false}
+                        ],
+                        fields:[
+                            {name:"Fieldname",value:"Value"},
+                            {name:"Fieldname",value:"Value"},
+                            {name:"Fieldname",value:"Value"},
                         ]
                     },
                     {
@@ -56,6 +65,11 @@ class RoomsPage extends React.Component{
                         guests:[
                             {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
                             {guestId:"guestId2",name:"Akhilesh",rentPaid:false,ebPaid:false}
+                        ],
+                        fields:[
+                            {name:"Fieldname",value:"Value"},
+                            {name:"Fieldname",value:"Value"},
+                            {name:"Fieldname",value:"Value"},
                         ]
                     },
                     {
@@ -68,6 +82,11 @@ class RoomsPage extends React.Component{
                         guests:[
                             {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
                            
+                        ],
+                        fields:[
+                            {name:"Fieldname",value:"Value"},
+                            {name:"Fieldname",value:"Value"},
+                            {name:"Fieldname",value:"Value"},
                         ]
                 },
                     {
@@ -80,6 +99,11 @@ class RoomsPage extends React.Component{
                         guests:[
                             {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
                             {guestId:"guestId2",name:"Akhilesh",rentPaid:false,ebPaid:false}
+                        ],
+                        fields:[
+                            {name:"Fieldname",value:"Value"},
+                            {name:"Fieldname",value:"Value"},
+                            {name:"Fieldname",value:"Value"},
                         ]
                 },
                     {
@@ -92,6 +116,11 @@ class RoomsPage extends React.Component{
                         guests:[
                             {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
                             {guestId:"guestId2",name:"Akhilesh",rentPaid:false,ebPaid:false}
+                        ],
+                        fields:[
+                            {name:"Fieldname",value:"Value"},
+                            {name:"Fieldname",value:"Value"},
+                            {name:"Fieldname",value:"Value"},
                         ]
                 },
                     {
@@ -104,6 +133,11 @@ class RoomsPage extends React.Component{
                         guests:[
                             {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
                             {guestId:"guestId2",name:"Akhilesh",rentPaid:false,ebPaid:false}
+                        ],
+                        fields:[
+                            {name:"Fieldname",value:"Value"},
+                            {name:"Fieldname",value:"Value"},
+                            {name:"Fieldname",value:"Value"},
                         ]
                 },
                     {
@@ -115,6 +149,11 @@ class RoomsPage extends React.Component{
                         rent:6500,
                         guests:[
                             {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
+                        ],
+                        fields:[
+                            {name:"Fieldname",value:"Value"},
+                            {name:"Fieldname",value:"Value"},
+                            {name:"Fieldname",value:"Value"},
                         ]
                 },
                     {
@@ -127,6 +166,11 @@ class RoomsPage extends React.Component{
                         guests:[
                             {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
                             {guestId:"guestId2",name:"Akhilesh",rentPaid:false,ebPaid:false}
+                        ],
+                        fields:[
+                            {name:"Fieldname",value:"Value"},
+                            {name:"Fieldname",value:"Value"},
+                            {name:"Fieldname",value:"Value"},
                         ]
                 },
                     {
@@ -139,6 +183,11 @@ class RoomsPage extends React.Component{
                         guests:[
                             {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
                             {guestId:"guestId2",name:"Akhilesh",rentPaid:false,ebPaid:false}
+                        ],
+                        fields:[
+                            {name:"Fieldname",value:"Value"},
+                            {name:"Fieldname",value:"Value"},
+                            {name:"Fieldname",value:"Value"},
                         ]
                 },
                     {
@@ -151,6 +200,11 @@ class RoomsPage extends React.Component{
                         guests:[
                             {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
                             {guestId:"guestId2",name:"Akhilesh",rentPaid:false,ebPaid:false}
+                        ],
+                        fields:[
+                            {name:"Fieldname",value:"Value"},
+                            {name:"Fieldname",value:"Value"},
+                            {name:"Fieldname",value:"Value"},
                         ]
                     }
 
@@ -191,8 +245,7 @@ class RoomsPage extends React.Component{
                 else{
                     return room;
                 }
-            })
-            
+            })  
             this.setState({selectedRoom:'',selectedGuest:'',roomsToBeDisplayed:rooms})
         }
         this.setState({showRightPanel:display})

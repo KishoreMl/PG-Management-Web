@@ -1,9 +1,4 @@
 import React from "react";
-import IconClose from "../Icons/IconClose";
-import IconEdit from "../Icons/IconEdit";
-import IconDelete from "../Icons/IconDelete";
-import IconCheckCircle from "../Icons/IconCheckCircle";
-import IconCrossCircle from "../Icons/IconCrossCircle";
 import { GuestRightPanel } from "./GuestRightPanel";
 import { RoomRightPanel } from "./RoomRightPanel";
 

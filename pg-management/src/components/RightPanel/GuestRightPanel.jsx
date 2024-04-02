@@ -42,14 +42,21 @@ export class GuestRightPanel extends React.Component{
                             6500
                             {this.props.guest.rentPaid ?
                                 <div className="chip success">
-                                <IconCheckCircle size='20' /> Paid
+                                <IconCheckCircle size='20' color='rgb(21, 121, 21)'/> Paid
                                 </div> :
                                 <div className="chip danger">
-                                    <IconCrossCircle size="20" color='red'/> Not Paid
+                                    <IconCrossCircle size="20" color='rgb(247, 38, 38)'/> Not Paid
                                 </div>
                             }
                         </div>
                     </div>
+                    {this.props.guest.dues && 
+                    this.props.guest.dues.map((due) => 
+                        <div className="panel-text" key={due.id}>
+                            <div className="panel-sub-text"><b>Dues</b></div>
+                            <div className="panel-sub-text">{due.amount}</div>
+                        </div>
+                    )}
                     <div className="panel-text">
                         <div className="panel-sub-text"><b>EB bill</b></div>
                         <div className="panel-sub-text">
@@ -76,22 +83,12 @@ export class GuestRightPanel extends React.Component{
                         <div className="panel-sub-text"><b>Address</b></div>
                         <div className="panel-sub-text">sample address</div>  
                     </div>
-                    <div className="panel-text">
-                        <div className="panel-sub-text"><b>Address</b></div>
-                        <div className="panel-sub-text">sample address</div>  
-                    </div>
-                    <div className="panel-text">
-                        <div className="panel-sub-text"><b>Address</b></div>
-                        <div className="panel-sub-text">sample address</div>  
-                    </div>
-                    <div className="panel-text">
-                        <div className="panel-sub-text"><b>Address</b></div>
-                        <div className="panel-sub-text">sample address</div>  
-                    </div>
-                    <div className="panel-text">
-                        <div className="panel-sub-text"><b>Address</b></div>
-                        <div className="panel-sub-text">sample address</div>  
-                    </div>
+                    {this.props.guest.fields && this.props.guest.fields.map((field) =>    
+                        <div className="panel-text" key={field.id}>
+                            <div className="panel-sub-text"><b>{field.name}</b></div>
+                            <div className="panel-sub-text">{field.value}</div>
+                        </div>
+                    )}
                 </div>          
             </div>
         )

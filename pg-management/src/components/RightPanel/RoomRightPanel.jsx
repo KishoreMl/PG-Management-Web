@@ -39,30 +39,47 @@ export class RoomRightPanel extends React.Component{
                     </div>
                     <div className="panel-text" id="room-no">
                         <div className="panel-sub-text"><b>Room No</b></div>
-                        <div className="panel-sub-text">106</div>  
+                        <div className="panel-sub-text">{this.props.room.number}</div>  
+                    </div>
+                    <div className="panel-text">
+                        <div className="panel-sub-text"><b>Sharing</b></div>
+                        <div className="panel-sub-text">{this.props.room.capacity}</div>
+                    </div>
+                    <div className="panel-text">
+                        <div className="panel-sub-text"><b>Available</b></div>
+                        <div className="panel-sub-text">{this.props.room.capacity - this.props.room.guests.length}</div>
                     </div>
                     <div className="panel-guestcard-container">
-                        <div className="panel-guestcard">Guestname</div>
-                        <div className="panel-guestcard">Guestname</div>
-                        <div className="panel-guestcard">Guestname</div>
-                        <div className="panel-guestcard">Guestname</div>
+                        {this.props.room.guests.map((guest) =>
+                            <div className="panel-guestcard" key={guest.id}>
+                                <div className="guestcard-text">
+                                    {guest.name}
+                                </div>
+                            </div>
+                        )}
                     </div>
                     <div className="panel-text">
                         <div className="panel-sub-text"><b>Rent</b></div>
                         <div className="panel-sub-text">
-                            6500
+                            {this.props.room.rent}
                         </div>
                     </div>
                     <div className="panel-text">
                         <div className="panel-sub-text"><b>EB bill</b></div>
                         <div className="panel-sub-text">
-                            400
+                            {this.props.room.ebBill}
                         </div>
                     </div>
                     <div className="panel-text">
                         <div className="panel-sub-text"><b>Type</b></div>
-                        <div className="panel-sub-text">AC</div>
+                        <div className="panel-sub-text">{this.props.room.type}</div>
                     </div>
+                    {this.props.room.fields && this.props.room.fields.map((field) =>    
+                        <div className="panel-text" key={field.id}>
+                            <div className="panel-sub-text"><b>{field.name}</b></div>
+                            <div className="panel-sub-text">{field.value}</div>
+                        </div>
+                    )}
                    
                 </div>          
             </div>
