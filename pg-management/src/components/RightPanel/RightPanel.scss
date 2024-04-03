@@ -116,7 +116,9 @@
         }        
 
         .panel-guestcard-container{
-            padding-left:1rem;
+            background-color: white;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+            padding:0.5rem 1rem;
             max-height:10rem;
             overflow-y: auto;
             margin-top: 0.5rem;
@@ -126,9 +128,10 @@
             }
 
             .panel-guestcard{
-                background-color: whitesmoke;
+                background-color: rgb(231, 231, 231);
                 padding: 0.4rem 0.4rem;
                 margin-top: 0.3rem;
+                border-radius: 8px;
                 
                 .guestcard-text{
                     width:50%;
