@@ -45,6 +45,21 @@ export class RoomTile extends Component{
         }
         return availableBeds;
     }
+
+    getDropdownIcons(option){
+        switch(option){
+            case 'Add Guest':
+                return <IconPersonAdd size='19' />;
+            case 'Remove Guest':
+                return <IconPersonRemove size='19' />;
+            case 'Edit Room':
+                return <IconEdit size='19' />;
+            case 'Delete Room':
+                return <IconDelete size='19' />;
+            default:                
+                break;    
+        }
+    }
     render() {
         return (
             <div
@@ -54,12 +69,16 @@ export class RoomTile extends Component{
                 <div className="tile-header">
                     <p>{this.props.room.number}</p>
                     {this.props.room.type === 'AC' && <p className="badge">{this.props.room.type}</p>}
-                    <div className="tile-header-left" ref={this.dropdownRef}>
-                        <IconMore  onClick={() => this.handleShowDropdown()}  />
+                    <div className="tile-header-right" ref={this.dropdownRef}>
+                        <IconMore  onClick={(e) => {
+                                e.stopPropagation(); 
+                                this.handleShowDropdown();
+                            }}  
+                        />
                         <div className={`dropdown-list ${this.state.showDropdown ? 'show' : ''}`}>
                             {this.state.dropdownList.map((listitem) => 
                                 <div className="list-item" onClick={(e) => this.props.onTileOptionSelect(e, 'Add Guest')}>
-                                    <IconPersonAdd size='19' />
+                                    {this.getDropdownIcons(listitem)}
                                     {listitem}
                                 </div>
                             )}
@@ -80,7 +99,6 @@ export class RoomTile extends Component{
                     {this.getAvailableBeds(this.props.room.capacity - this.props.room.guests.length).map((bed) =>
                          <GuestCard guest={null} />
                     )}
-                    
                 </div>
             </div>  
         );

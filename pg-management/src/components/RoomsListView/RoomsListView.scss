@@ -63,6 +63,12 @@ table{
         }
     }
 
+    .avatar-container{
+        display: flex;
+        gap: 0.4rem;
+    }
+    
+
     .dropdown-list{
         position: absolute;
         background-color: white;
@@ -89,7 +95,3 @@ table{
 }
 
 
-.avatar-container{
-    display: flex;
-    gap: 0.4rem;
-}

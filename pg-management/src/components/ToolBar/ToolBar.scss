@@ -52,195 +52,190 @@
                     background-color: transparent;
                 }
             }
-        }
-    
-        .dropdown-button{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: $primary-font;
-            padding: 0 1rem;
-            cursor: pointer;
-        
-            &:hover{
-                background-color: rgb(230, 230, 230);
+
+            .dropdown-button{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: $primary-font;
+                padding: 0 1rem;
+                cursor: pointer;
+            
+                &:hover{
+                    background-color: rgb(230, 230, 230);
+                }
             }
-        }
-    
-        .listitem{
-            padding: 0.5rem 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: white;
-            width: 9rem;
-            border-bottom: solid 1px rgb(212, 208, 208);
-            cursor: pointer;
-            & svg {
-                padding: 0;
+
+            .branches-dropdown-list {
+                visibility: hidden;
+                position: absolute;
+                z-index: 10;
+                box-shadow: 0 0 10px rgb(117, 116, 116);
             }
-            &:hover{
-                background-color: rgb(213, 211, 211);
+            
+            .show {
+                visibility: visible;
             }
-        }
-    
+
+            .listitem{
+                padding: 0.5rem 1.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background-color: white;
+                width: 9rem;
+                border-bottom: solid 1px rgb(212, 208, 208);
+                cursor: pointer;
+                & svg {
+                    padding: 0;
+                }
+                &:hover{
+                    background-color: rgb(213, 211, 211);
+                }
+            }
+        }   
     }
+
+    .search{
+        display: flex ;
+        border: solid 1px grey;
+        border-radius: 2rem ;
+        width:18rem;
+        input{
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem 0 0 2rem;
+            border: none;
+            width:80%;
+            &:focus{
+                outline: none;
+                border-bottom: solid 1.5px $primary-color;    
+            }
+        }
+        svg{
+            background-color: rgb(236, 234, 234);
+            border-radius: 0 2rem 2rem 0;
+        }
+    }
+    
+    .search.show{
+        display: flex !important;
+    }
+    
+    .search-button{
+        display: none;
+        svg{
+            border-radius: 50%;
+        }
+    }
+    
+    .hide{
+        display:none;
+    }
+
+    .tool-bar-right{
+        margin-left: auto;
+        margin-right: 3rem;
+        position: relative;
+        display: flex;
+        gap:1rem;
+        align-items: center;
+    
+        & button{
+            border: none;
+            border-radius: 5px;
+            background-color: $primary-color;
+            color: white;
+            cursor: pointer;
+            padding: 0.7rem;
+            box-shadow:  0 3px 1px -1px rgba(0, 0, 0, 0.2);
+            &:hover{
+                background-color: $primary-hover-color;
+            }
+        }
+    
+        & svg {
+            padding: 0.5rem;
+            border-radius: 5px;
+            &:hover {
+                cursor: pointer;
+                background-color: rgb(198, 197, 197);
+            }
+        }
+    
+        .filter-button-container{
+            position: relative;
+        }
+    
+        .filter-dropdown{
+            visibility: hidden;
+            position: absolute;
+            display: flex;
+            box-shadow: 0 0 5px rgb(106, 106, 106);
+            border-radius: 5px;
+            z-index:4;
+            background-color: white;
+            top:3rem;
+            right:-2rem;
+            width:15rem;
+        }
+        
+        .filter-category-container{
+            width:50%;
+            .filter-category{
+                padding: 0.5rem 1rem;
+                cursor: pointer;
+                &:hover{
+                    background-color: rgb(220, 220, 220);
+                }
+            }
+        
+        }
+        
+        .filter-options-container{
+            width:50%;
+            .filter-option{
+                display: flex;
+                cursor: pointer;
+                padding: 0.2rem 1rem;
+                svg{
+                    padding: 0;
+                    margin-left: 0.05rem;
+                   
+                    &:hover{
+                        background-color: transparent;
+                    }
+                }
+
+                &:hover{
+                    background-color: rgb(220, 220, 220);
+                }
+            }
+        }
+    
+        .selected{
+            background-color: rgb(186, 185, 185);
+        }
+    
+        .show{
+            visibility: visible;
+        }
+    
+        .dot{
+            background-color: $primary-color;
+            position: absolute;
+            width:0.4rem;
+            height:0.4rem;
+            top:0.1rem;
+            right:0.1rem;
+            border-radius: 50%;
+        }
+    }
+    
 }
 
 select{
     font-family: $primary-font;
-}
-
-
-
-.branches-dropdown-list {
-    visibility: hidden;
-    position: absolute;
-    z-index: 10;
-    box-shadow: 0 0 10px rgb(117, 116, 116);
-}
-
-.show {
-    visibility: visible;
-}
-
-
-.tool-bar-right{
-    margin-left: auto;
-    margin-right: 3rem;
-    position: relative;
-    display: flex;
-    gap:1rem;
-    align-items: center;
-
-    & button{
-        border: none;
-        border-radius: 5px;
-        background-color: $primary-color;
-        color: white;
-        cursor: pointer;
-        padding: 0.7rem;
-        box-shadow:  0 3px 1px -1px rgba(0, 0, 0, 0.2);
-        &:hover{
-            background-color: $primary-hover-color;
-        }
-    }
-
-    & svg {
-        padding: 0.5rem;
-        border-radius: 5px;
-        &:hover {
-            cursor: pointer;
-            background-color: rgb(198, 197, 197);
-        }
-    }
-
-    .filter-button-container{
-        position: relative;
-    }
-
-    .filter-dropdown{
-        visibility: hidden;
-        position: absolute;
-        display: flex;
-        box-shadow: 0 0 5px rgb(106, 106, 106);
-        border-radius: 5px;
-        z-index:4;
-        background-color: white;
-        top:3rem;
-        right:-2rem;
-        width:15rem;
-    }
-    
-    .filter-category-container{
-        width:50%;
-        .filter-category{
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            &:hover{
-                background-color: rgb(220, 220, 220);
-            }
-        }
-    
-    }
-    
-    .filter-options-container{
-        width:50%;
-        .filter-option{
-            display: flex;
-            cursor: pointer;
-            padding: 0.2rem 1rem;
-            svg{
-                padding: 0;
-                margin-left: 0.05rem;
-               
-                &:hover{
-                    background-color: transparent;
-                }
-            }
-            &:hover{
-                background-color: rgb(220, 220, 220);
-            }
-        }
-    }
-
-    
-    
-
-    .selected{
-        background-color: rgb(186, 185, 185);
-    }
-
-    .show{
-        visibility: visible;
-    }
-
-    .dot{
-        background-color: $primary-color;
-        position: absolute;
-        width:0.4rem;
-        height:0.4rem;
-        top:0.1rem;
-        right:0.1rem;
-        border-radius: 50%;
-    }
-}
-
-.search{
-    display: flex ;
-    border: solid 1px grey;
-    border-radius: 2rem ;
-    width:18rem;
-    input{
-        background: white;
-        padding: 0.5rem 1rem;
-        border-radius: 2rem 0 0 2rem;
-        border: none;
-        width:80%;
-        &:focus{
-            outline: none;
-            border-bottom: solid 1.5px $primary-color;    
-        }
-    }
-    svg{
-        background-color: rgb(236, 234, 234);
-        border-radius: 0 2rem 2rem 0;
-    }
-}
-
-.search.show{
-    display: flex !important;
-}
-
-.search-button{
-    display: none;
-    svg{
-        border-radius: 50%;
-    }
-}
-
-.hide{
-    display:none;
 }
 
 @media only screen and (max-width: 545px){
@@ -254,6 +249,7 @@ select{
 }
 
 @media only screen and (max-width: 754px){
+
     .tool-bar-left{
         margin-left: 0.5rem;
     }

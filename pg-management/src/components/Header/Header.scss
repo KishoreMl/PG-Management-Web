@@ -9,12 +9,14 @@
     background-color:$primary-color;
     color: white;
     padding: 1rem 1rem 1rem 1rem;
+
     & h1{
         margin: 0;
         font-family:$primary-font;
         margin-left: 0.5rem;
         font-size: 1.7rem;
     }
+
     & svg{
         border-radius: 0;
         padding: 5px;
@@ -22,52 +24,54 @@
             background: transparent;
          }
     } 
-}
 
-.header-dropdown-list{
-    position: absolute;
-    right:3rem;
-    background-color: white;
-    box-shadow: 0 0 10px rgb(117, 116, 116);
-    width: max-content;
-    visibility: hidden;
-    z-index: 10;
-
-    .list-item{
-        padding: 0.3rem 2rem 0.3rem 0.2rem;
-        cursor: pointer;
-        color: black;
-        display: flex;
-        align-items:center;
-        justify-content: space-around;
-        font-size: 0.85rem;
-        border-bottom: solid 1px rgb(212, 208, 208);
+    .header-right{
+        margin-left: auto;
     
-        & svg:hover {
-            background: transparent;
+        svg{
+            &:hover{
+                background-color: rgb(91, 149, 215);
+                border-radius: 5px;
+            }
         }
-    
-        &:hover {
-            background-color: rgb(212, 208, 208);
+
+        .header-dropdown-list{
+            position: absolute;
+            right:3rem;
+            background-color: white;
+            box-shadow: 0 0 10px rgb(117, 116, 116);
+            width: max-content;
+            visibility: hidden;
+            z-index: 10;
+        
+            .list-item{
+                padding: 0.3rem 2rem 0.3rem 0.2rem;
+                cursor: pointer;
+                color: black;
+                display: flex;
+                align-items:center;
+                justify-content: space-around;
+                font-size: 0.85rem;
+                border-bottom: solid 1px rgb(212, 208, 208);
+            
+                & svg:hover {
+                    background: transparent;
+                }
+            
+                &:hover {
+                    background-color: rgb(212, 208, 208);
+                }
+            }
+            
         }
     }
-    
 }
 
 .show {
     visibility: visible;
 }
 
-.header-right{
-    margin-left: auto;
 
-    svg{
-        &:hover{
-            background-color: rgb(91, 149, 215);
-            border-radius: 5px;
-        }
-    }
-}
 
 @media only screen and (max-width: 380px) {
     h1{
