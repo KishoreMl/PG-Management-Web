@@ -52,15 +52,6 @@ export class RoomRightPanel extends React.Component{
                     <div className="panel-text">
                         <div className="panel-sub-text"><b>Guests</b></div>
                     </div>
-                    <div className="panel-guestcard-container">
-                        {this.props.room.guests.map((guest) =>
-                            <div className="panel-guestcard" key={guest.id}>
-                                <div className="guestcard-text">
-                                    {guest.name}
-                                </div>
-                            </div>
-                        )}
-                    </div>
                     <div className="panel-text">
                         <div className="panel-sub-text"><b>Rent</b></div>
                         <div className="panel-sub-text">

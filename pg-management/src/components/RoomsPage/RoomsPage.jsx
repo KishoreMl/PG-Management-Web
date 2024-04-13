@@ -338,7 +338,7 @@ class RoomsPage extends React.Component{
     {
         return (
             <div>
-                <Toast message="Room Created Successfully" type='error' />
+                <Toast message="Room Created Successfully" type='warning' />
                 {this.state.showCreateRoomModal ? 
                     <CreateModal 
                         title="Create Room"  

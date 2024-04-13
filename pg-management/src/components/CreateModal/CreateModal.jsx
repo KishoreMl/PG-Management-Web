@@ -11,6 +11,11 @@ class CreateModal extends React.Component{
             roomNo: '',
             roomType: '',
             capacity:'',
+            fields:[
+                {name:'address',type:'text'},
+                {name:'city',type:'text '},
+                {name:'address',type:'text'},
+            ]
         }
     }
 
