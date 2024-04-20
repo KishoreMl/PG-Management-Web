@@ -1,12 +1,22 @@
 @import '../vars.scss';
 
+
+.main-container{
+    display: flex;
+    height: calc(100vh - 185px);
+
+    .middle-panel{
+        width:100%;
+    }
+}
 .container{
     display: flex;
     flex-flow:  row nowrap;
     width:100%;
-    height: calc(100vh - 185px);
+    height: 100%;
     background-color: white;
 }
+
 .filter-bar{
     width:100%;
     display: flex;
@@ -15,6 +25,7 @@
     margin: 0;
     background-color: white;
     padding-top: 2rem;
+    padding-bottom: 1rem;
    
     .filters-container{
         display: flex;
@@ -22,32 +33,70 @@
         width:100%;
 
         .filter-dropdown{
-            display: flex;
-            align-items: center;
-            justify-content:center;  
-            cursor: pointer;
-            border:solid 1.5px black;
-            border-radius: 3px;
-            padding: 0.2rem 0.5rem;
-            margin-left: 1rem;
-    
-            &:hover{
-                background-color: rgb(232, 232, 232);
+            position: relative;
+            .filter-dot{
+                position: absolute;
+                right: 0.1rem;
+                top: 0.1rem;
+                border-radius: 50%;
+                width:0.4rem;
+                height:0.4rem;
+                
+                background-color: $primary-color;
             }
-    
-            svg{
-                padding: 0;
-                &:hover{
-                    background: transparent;
+            .filter-button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                border: solid 1.3px black;
+                border-radius: 3px;
+                padding: 0.2rem 0.5rem;
+                margin-left: 1rem;
+        
+                &:hover {
+                    background-color: rgb(225, 225, 225);
+        
+                }
+
+                svg {
+                    padding: 0;
+        
+                    &:hover {
+                        background: transparent;
+                    }
                 }
             }
+            .filter-dropdown-list{
+                visibility: hidden;
+                position: absolute;
+                z-index: 10;
+                box-shadow: 0 0 10px rgb(117, 116, 116);
+
+                .show {
+                    visibility: visible;
+                }
+
+                .filter-listitem{
+                    padding: 0.3rem 1.5rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    background-color: white;
+                    width: 4.5rem;
+                    border-bottom: solid 1.5px rgb(212, 208, 208);
+                    cursor: pointer;
+
+                    &:hover{
+                        background-color: rgb(229, 230, 230);
+                    }
+                }
+            } 
         }
     }
 
     
 }
-
-
 
 .rightpanel-container{
     transition: 0.5s all ease-in-out;

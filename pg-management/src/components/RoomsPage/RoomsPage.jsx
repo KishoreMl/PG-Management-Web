@@ -369,30 +369,62 @@ class RoomsPage extends React.Component{
                     onSearch={(searchText)=>this.handleSearch(searchText)}
                     onBackButtonClick={() =>this.handleBackButtonClick()}
                 />
-                <div className="filter-bar">
-                    <div className="filters-container">
-                        <div className="filter-dropdown">Sharing <IconCaretDown  size='19'/></div>
-                        <div className="filter-dropdown">Type <IconCaretDown  size='19'/></div>
-                        <div className="filter-dropdown">Rent <IconCaretDown  size='19'/></div>
-                    </div>    
-                </div>
+                
                 {this.state.isLoading ? 
                     <div className="spinner">
                         <span class="loader"></span>
                     </div> :
-                    <div className="container">
-                        {this.state.currentView === 'list' ?
-                            <RoomsListView
-                                rooms={this.state.roomsToBeDisplayed}
-                                onGuestSelect={(guestId) => this.onGuestSelect(guestId)}
-                            /> :
-                            <RoomsGridView
-                                rooms={this.state.roomsToBeDisplayed}
-                                onRoomSelect={(roomId) => this.onRoomSelect(roomId)}
-                                onGuestSelect={(guest,e) => this.onGuestSelect(guest,e)} 
-                                onTileOptionSelect={(e,option) => this.onTileOptionSelect(e,option)}
-                            />
-                        } 
+                    <div className="main-container">
+                        <div className="middle-panel">
+                            <div className="filter-bar">
+                                <div className="filters-container">
+
+                                    <div className="filter-dropdown">
+                                        <div className="filter-dot"> </div>
+                                        <div className="filter-button">Sharing <IconCaretDown size='19' /></div>
+                                        <div className="filter-dropdown-list">
+                                            <div className="filter-listitem"> 1 Sharing </div>
+                                            <div className="filter-listitem"> 2 Sharing </div>
+                                            <div className="filter-listitem"> 3 Sharing </div>
+                                            <div className="filter-listitem"> 4 Sharing </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="filter-dropdown">
+                                        <div className="filter-button">Rent <IconCaretDown size='19' /></div>
+                                        <div className="filter-dropdown-list">
+                                            
+                                        </div>
+                                    </div>
+
+                                    <div className="filter-dropdown">
+                                        <div className="filter-button">Types<IconCaretDown size='19' /></div>
+                                        <div className="filter-dropdown-list">
+                                            
+                                        </div>
+                                    </div>
+                                    
+
+                                </div>    
+                            </div>
+                            <div className="container">
+                                {this.state.currentView === 'list' ?
+                                    <RoomsListView
+                                        rooms={this.state.roomsToBeDisplayed}
+                                        onGuestSelect={(guestId) => this.onGuestSelect(guestId)}
+                                    /> :
+                                    <RoomsGridView
+                                        rooms={this.state.roomsToBeDisplayed}
+                                        onRoomSelect={(roomId) => this.onRoomSelect(roomId)}
+                                        onGuestSelect={(guest,e) => this.onGuestSelect(guest,e)} 
+                                        onTileOptionSelect={(e,option) => this.onTileOptionSelect(e,option)}
+                                    />
+                                }   
+                                <button className="add-button" onClick={()=> this.onCreateRoom(true)}>
+                                    <IconPlusCircle color="white"/>
+                                </button>
+                            </div>
+                        </div>  
                         <div className={`rightpanel-container ${this.state.showRightPanel?'open':''}`}>
                             {this.state.showRightPanel && (
                                 <RightPanel  
@@ -402,11 +434,8 @@ class RoomsPage extends React.Component{
                                     setPanelDisplay={(display) => this.setPanelDisplay(display)}
                                 />
                             )}
-                        </div>  
-                    <button className="add-button" onClick={()=> this.onCreateRoom(true)}>
-                        <IconPlusCircle color="white"/>
-                    </button>
-                </div>
+                        </div>
+                    </div>    
                 }       
             </div>    
         )

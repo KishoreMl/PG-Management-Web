@@ -1,6 +1,7 @@
 .tooltip-container{
 
     position: relative;
+    z-index: 17;
     
     &:hover .tooltip {
         visibility: visible;
@@ -10,6 +11,7 @@
         position: absolute;
         top: 110% ; 
         left: 50%;
+        
         transform: translateX(-50%);
         visibility: hidden;
         width:fit-content;
