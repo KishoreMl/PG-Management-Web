@@ -4,9 +4,50 @@
     display: flex;
     flex-flow:  row nowrap;
     width:100%;
-    height: calc(100vh - 120px);
+    height: calc(100vh - 185px);
     background-color: white;
 }
+.filter-bar{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin: 0;
+    background-color: white;
+    padding-top: 2rem;
+   
+    .filters-container{
+        display: flex;
+        padding-left: 4rem;
+        width:100%;
+
+        .filter-dropdown{
+            display: flex;
+            align-items: center;
+            justify-content:center;  
+            cursor: pointer;
+            border:solid 1.5px black;
+            border-radius: 3px;
+            padding: 0.2rem 0.5rem;
+            margin-left: 1rem;
+    
+            &:hover{
+                background-color: rgb(232, 232, 232);
+            }
+    
+            svg{
+                padding: 0;
+                &:hover{
+                    background: transparent;
+                }
+            }
+        }
+    }
+
+    
+}
+
+
 
 .rightpanel-container{
     transition: 0.5s all ease-in-out;

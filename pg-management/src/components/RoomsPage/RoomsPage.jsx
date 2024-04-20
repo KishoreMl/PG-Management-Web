@@ -7,6 +7,7 @@ import CreateModal from "../CreateModal/CreateModal";
 import ConsentModal from "../ConsentModal/ConsentModal";
 import NewGuest from "../NewGuestModal/NewGuestModal";
 import IconPlusCircle from "../Icons/IconPlusCircle";
+import IconCaretDown from "../Icons/IconCaretDown";
 import { Toast } from "../Toast/Toast";
 import './RoomsPage.scss';
 
@@ -368,6 +369,13 @@ class RoomsPage extends React.Component{
                     onSearch={(searchText)=>this.handleSearch(searchText)}
                     onBackButtonClick={() =>this.handleBackButtonClick()}
                 />
+                <div className="filter-bar">
+                    <div className="filters-container">
+                        <div className="filter-dropdown">Sharing <IconCaretDown  size='19'/></div>
+                        <div className="filter-dropdown">Type <IconCaretDown  size='19'/></div>
+                        <div className="filter-dropdown">Rent <IconCaretDown  size='19'/></div>
+                    </div>    
+                </div>
                 {this.state.isLoading ? 
                     <div className="spinner">
                         <span class="loader"></span>

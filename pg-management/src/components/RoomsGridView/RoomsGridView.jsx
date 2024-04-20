@@ -1,5 +1,6 @@
 import React from "react";
 import { RoomTile } from "../RoomTile/RoomTile";
+import IconCaretDown from "../Icons/IconCaretDown";
 import './RoomsGridView.scss';
 
 export class RoomsGridView extends React.Component{
@@ -7,7 +8,7 @@ export class RoomsGridView extends React.Component{
     render()
     {
         return (
-            <div className="grid-container">
+            <div className="grid-container">  
                 {this.props.rooms.map((room) => 
                     <RoomTile
                         room={room}
