@@ -4,7 +4,6 @@ import CreateModal from "../../components/CreateModal/CreateModal";
 import { ToolBar } from "../../components/ToolBar/ToolBar";
 import { getBranches } from "../../sdk/pgmanagement";
 
-
 export class BranchesPage extends React.Component{
 
     constructor(props) {

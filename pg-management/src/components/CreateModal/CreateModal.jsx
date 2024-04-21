@@ -1,5 +1,9 @@
 import React from "react"
 import IconClose from "../Icons/IconClose";
+import RadioButtons from "../FormInputs/RadioButton";
+import TextInput from "../FormInputs/TextInput";
+import Dropdown from "../FormInputs/Dropdown";
+import CheckBox from "../FormInputs/CheckBox";
 import './CreateModal.scss';
 
 class CreateModal extends React.Component{
@@ -12,10 +16,11 @@ class CreateModal extends React.Component{
             roomType: '',
             capacity:'',
             fields:[
-                {name:'address',type:'text'},
-                {name:'city',type:'text '},
-                {name:'address',type:'text'},
-            ]
+                { name: 'address',type: 'text',},
+                { name: 'Food Type', type: 'radio', options: ['Veg', 'Non-Veg'] },
+                { name: 'Amenities', type: 'checkbox', options: ['AC', 'Heater', 'washing Machine'] },
+                { name: 'Dropdown', type: 'dropdown', options:['option1','option2','option3','option4']}
+            ],
         }
     }
 
@@ -40,6 +45,20 @@ class CreateModal extends React.Component{
         }
         console.log(Room);
         this.props.onCloseModal();
+    }
+    getInputType(field) {
+        switch (field.type) {
+            case 'text':
+                return <TextInput field={field} />;
+            case 'radio':
+                return <RadioButtons field={field} />;
+            case 'checkbox':
+                return <CheckBox field={field} />;
+            case 'dropdown':
+                return <Dropdown field={field} />;
+            default:
+                return <div></div>
+        }
     }
 
     render()
@@ -79,6 +98,9 @@ class CreateModal extends React.Component{
                                     value={this.state.capacity}
                                     onChange={(e) => this.handleCapacityChange(e)}>
                                 </input><br />
+                                {this.state.fields.map((field) =>
+                                    this.getInputType(field)
+                                )}
                             </form>    
                         </div>  
                         <div className="modal-footer">
