@@ -1,6 +1,6 @@
 import React from "react";
 import { BranchesGridView } from "../../components/BranchesGridView/BranchesGridView";
-import CreateModal from "../../components/CreateModal/CreateModal";
+import Modal from "../../components/Modal/Modal";
 import { ToolBar } from "../../components/ToolBar/ToolBar";
 import { getBranches } from "../../sdk/pgmanagement";
 
@@ -39,7 +39,7 @@ export class BranchesPage extends React.Component{
         return (
             <>
                 {this.state.showCreateModal ? 
-                    <CreateModal 
+                    <Modal 
                         title="Create Branch" 
                         onCloseModal={() => this.handleCreateModal(false)} 
                     /> 
