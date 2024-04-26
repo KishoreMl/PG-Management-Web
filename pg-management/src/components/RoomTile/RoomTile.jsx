@@ -77,7 +77,10 @@ export class RoomTile extends Component{
                         />
                         <div className={`dropdown-list ${this.state.showDropdown ? 'show' : ''}`}>
                             {this.state.dropdownList.map((listitem) => 
-                                <div className="list-item" onClick={(e) => this.props.onTileOptionSelect(e, 'Add Guest')}>
+                                <div className="list-item" onClick={(e) => {
+                                    e.stopPropagation(); 
+                                    this.props.onTileOptionSelect(listitem)}}
+                                >
                                     {this.getDropdownIcons(listitem)}
                                     {listitem}
                                 </div>

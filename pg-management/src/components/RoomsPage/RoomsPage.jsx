@@ -3,9 +3,11 @@ import { RightPanel } from "../RightPanel/RightPanel";
 import { ToolBar } from "../ToolBar/ToolBar";
 import { RoomsListView } from "../RoomsListView/RoomsListView";
 import { RoomsGridView } from "../RoomsGridView/RoomsGridView";
-import CreateModal from "../CreateModal/CreateModal";
-import ConsentModal from "../ConsentModal/ConsentModal";
-import NewGuest from "../NewGuestModal/NewGuestModal";
+import RadioButtons from "../FormInputs/RadioButton";
+import TextInput from "../FormInputs/TextInput";
+import Dropdown from "../FormInputs/Dropdown";
+import CheckBox from "../FormInputs/CheckBox";
+import Modal from "../Modal/Modal";
 import IconPlusCircle from "../Icons/IconPlusCircle";
 import IconCaretDown from "../Icons/IconCaretDown";
 import { Toast } from "../Toast/Toast";
@@ -226,6 +228,12 @@ class RoomsPage extends React.Component{
             selectedRoom: '',
             isLoading: false,
             rightPanelType: 'room',
+            fields:[
+                { name: 'address',type: 'text',},
+                { name: 'Food Type', type: 'radio', options: ['Veg', 'Non-Veg'] },
+                { name: 'Amenities', type: 'checkbox', options: ['AC', 'Heater', 'washing Machine'] },
+                { name: 'Dropdown', type: 'dropdown', options:['option1','option2','option3','option4']}
+            ],
         }
         
     }
@@ -277,21 +285,27 @@ class RoomsPage extends React.Component{
         this.setState({showCreateRoomModal:display})
     }
 
+    onModalClose(display){
+        this.setState({showConsentModal:display})
+    }
+
     onViewChange(view) {
         this.setState({ currentView: view })
     }
     
-    onTileOptionSelect(event, option) {
-        event.stopPropgation();
+    onTileOptionSelect(option) {
         switch (option) {
             case 'Add Guest':
                 this.setState({ showNewGuestModal: true });
                 break;
             case 'Remove Guest':
-                console.log('Remove Guest');
+                this.setState({showConsentModal:true})
                 break;
             case 'Edit Room':
                 console.log('Edit Room');
+                break;
+            case 'Delete Room':
+                this.setState({showConsentModal:true})
                 break;
             default:
                 break;
@@ -335,25 +349,73 @@ class RoomsPage extends React.Component{
         window.open('/','_self');
     }
 
+    getInputType(field) {
+        switch (field.type) {
+            case 'text':
+                return <TextInput field={field} />;
+            case 'radio':
+                return <RadioButtons field={field} />;
+            case 'checkbox':
+                return <CheckBox field={field} />;
+            case 'dropdown':
+                return <Dropdown field={field} />;
+            default:
+                return <div></div>
+        }
+    }
+
     render()
     {
         return (
             <div>
                 <Toast message="Room Created Successfully" type='warning' />
                 {this.state.showCreateRoomModal ? 
-                    <CreateModal 
+                    <Modal 
                         title="Create Room"  
                         onCloseModal={() => this.onCreateRoom(false)} 
-                    />
+                    >
+                        <form id='create-room' onSubmit={(e) => this.handleFormSubmit(e)}>
+                                <label htmlFor="room-no">Room no</label><br />
+                                <input
+                                    className="textbox"
+                                    type="text"
+                                    id="room-no"
+                                    value={this.state.roomNo}
+                                >
+                                </input> <br />
+                                <label htmlFor="room-type">Type</label><br />
+                                <select
+                                    id="room-type"
+                                    value={this.state.roomType}
+                                >
+                                    <option>Non-AC</option>
+                                    <option>AC</option>
+                                </select><br />
+                                <label htmlFor="room-capacity">Sharing</label><br />
+                                <input
+                                    className="textbox"
+                                    type="text"
+                                    id="room-capacity"
+                                    value={this.state.capacity}
+                                >
+                                </input><br />
+                                {this.state.fields.map((field) =>
+                                    this.getInputType(field)
+                                )}
+                            </form>
+                    </Modal>
                 : null}
                 {this.state.showConsentModal ?
-                    <ConsentModal
+                    <Modal
                         title="Delete Room"
                         modalMessage="Are you sure you want to Delete this Room?"
-                    />
+                        onCloseModal={() => this.onModalClose(false)}
+                    >
+                        <p>Are you sure want to delete this</p>
+                    </Modal>
                 :null}
                 {this.state.showNewGuestModal ? 
-                    <NewGuest onCloseModal={() => this.onCreateRoom(false)} /> 
+                    <Modal onCloseModal={() => this.onCreateRoom(false)} /> 
                 : null}
                 <ToolBar
                     dropdownListItems={this.state.branches}
@@ -378,7 +440,6 @@ class RoomsPage extends React.Component{
                         <div className="middle-panel">
                             <div className="filter-bar">
                                 <div className="filters-container">
-
                                     <div className="filter-dropdown">
                                         <div className="filter-dot"> </div>
                                         <div className="filter-button">Sharing <IconCaretDown size='19' /></div>
@@ -417,7 +478,7 @@ class RoomsPage extends React.Component{
                                         rooms={this.state.roomsToBeDisplayed}
                                         onRoomSelect={(roomId) => this.onRoomSelect(roomId)}
                                         onGuestSelect={(guest,e) => this.onGuestSelect(guest,e)} 
-                                        onTileOptionSelect={(e,option) => this.onTileOptionSelect(e,option)}
+                                        onTileOptionSelect={(option) => this.onTileOptionSelect(option)}
                                     />
                                 }   
                                 <button className="add-button" onClick={()=> this.onCreateRoom(true)}>

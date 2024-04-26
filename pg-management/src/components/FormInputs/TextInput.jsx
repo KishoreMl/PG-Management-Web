@@ -6,9 +6,9 @@ class TextInput extends React.Component{
         return (
             <div>
                 <label htmlFor="room-capacity">{this.props.field.name}</label><br />
-                <input type='text'></input>
+                <input type='text' className="textbox"></input>
             </div>  
-        )
+        ) 
     }
 }
 
