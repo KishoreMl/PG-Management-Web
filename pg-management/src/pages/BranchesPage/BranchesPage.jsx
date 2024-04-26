@@ -1,6 +1,6 @@
 import React from "react";
 import { BranchesGridView } from "../../components/BranchesGridView/BranchesGridView";
-import Modal from "../../components/Modal/Modal";
+import Modal from "../../components/UIComponents/Modal/Modal";
 import { ToolBar } from "../../components/ToolBar/ToolBar";
 import { getBranches } from "../../sdk/pgmanagement";
 

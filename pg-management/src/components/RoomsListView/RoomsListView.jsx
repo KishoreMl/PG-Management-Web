@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar } from "../Avatar/Avatar";
+import { Avatar } from "../UIComponents/Avatar/Avatar";
 import IconMore from "../Icons/IconMore";
 import './RoomsListView.scss';
 

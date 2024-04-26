@@ -6,7 +6,7 @@ import IconCaretDown from "../Icons/IconCaretDown";
 import IconFilter from "../Icons/IconFilter";
 import IconSearch from "../Icons/IconSearch";
 import IconArrowback from "../Icons/IconArrowback";
-import { Tooltip } from "../Tooltip/Tooltip";
+import { ToolTip } from "../UIComponents/ToolTip/ToolTip";
 import './ToolBar.scss';
 
 export class ToolBar extends React.Component{
@@ -165,9 +165,9 @@ export class ToolBar extends React.Component{
                         <IconSearch size={20}/>
                     </div>
                     <div className="filter-button-container" ref={this.filterRef}>
-                        <Tooltip text="Filter" >
+                        <ToolTip text="Filter" >
                             <IconFilter size={20} onClick={() => this.handleFilterButtonClick()} />
-                        </Tooltip>
+                        </ToolTip>
                         {this.state.selectedFilters.length>0 && <div className="dot"></div>}
                         <div className={`filter-dropdown ${this.state.showFilterOptions?'show':''}`}>
                             <div className="filter-category-container">
@@ -212,12 +212,12 @@ export class ToolBar extends React.Component{
                     </div>
                     {this.props.showViewButton?
                         (this.state.currentView === "list" ? 
-                            <Tooltip text="Grid View" position='top'>
+                            <ToolTip text="Grid View" position='top'>
                                 <IconGrid size={20} onClick={() => this.handleView('grid')} />  
-                            </Tooltip>:
-                            <Tooltip text="List View">
+                            </ToolTip>:
+                            <ToolTip text="List View">
                                 <IconList size={20} onClick={() => this.handleView('list')} />      
-                            </Tooltip>
+                            </ToolTip>
                         )
                         :null
                     }

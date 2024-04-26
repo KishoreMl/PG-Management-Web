@@ -3,11 +3,11 @@ import { RightPanel } from "../RightPanel/RightPanel";
 import { ToolBar } from "../ToolBar/ToolBar";
 import { RoomsListView } from "../RoomsListView/RoomsListView";
 import { RoomsGridView } from "../RoomsGridView/RoomsGridView";
-import RadioButtons from "../FormInputs/RadioButton";
-import TextInput from "../FormInputs/TextInput";
-import Dropdown from "../FormInputs/Dropdown";
-import CheckBox from "../FormInputs/CheckBox";
-import Modal from "../Modal/Modal";
+import RadioButtons from "../UIComponents/FormInputs/RadioButton";
+import TextInput from "../UIComponents/FormInputs/TextInput";
+import Dropdown from "../UIComponents/FormInputs/Dropdown";
+import CheckBox from "../UIComponents/FormInputs/CheckBox";
+import Modal from "../UIComponents/Modal/Modal";
 import IconPlusCircle from "../Icons/IconPlusCircle";
 import IconCaretDown from "../Icons/IconCaretDown";
 import { Toast } from "../Toast/Toast";
@@ -313,7 +313,6 @@ class RoomsPage extends React.Component{
     }
 
     handleFilters(filters) {
-
         if (filters.length>0) {
             console.log(filters);
             let filteredRooms = [];

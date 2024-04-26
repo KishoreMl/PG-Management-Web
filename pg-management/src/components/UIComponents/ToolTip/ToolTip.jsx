@@ -1,6 +1,6 @@
 import React from "react";
-import './Tooltip.scss';
-export class Tooltip extends React.Component{
+import './ToolTip.scss';
+export class ToolTip extends React.Component{
     render()
     {
         return (
