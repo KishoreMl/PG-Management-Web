@@ -6,8 +6,9 @@ import { RoomsGridView } from "../RoomsGridView/RoomsGridView";
 import RadioButtons from "../UIComponents/FormInputs/RadioButton";
 import TextInput from "../UIComponents/FormInputs/TextInput";
 import Dropdown from "../UIComponents/FormInputs/Dropdown";
-import CustomDropdwon from "../UIComponents/CustomDropdown/CustomDropdown";
+import CustomDropdown from "../UIComponents/FormInputs/CustomDropdown/CustomDropdown";
 import CheckBox from "../UIComponents/FormInputs/CheckBox";
+import NumberInput from "../UIComponents/FormInputs/NumberInput";
 import Modal from "../UIComponents/Modal/Modal";
 import IconPlusCircle from "../UIComponents/Icons/IconPlusCircle";
 import IconCaretDown from "../UIComponents/Icons/IconCaretDown";
@@ -233,7 +234,8 @@ class RoomsPage extends React.Component{
                 { name: 'address',type: 'text',},
                 { name: 'Food Type', type: 'radio', options: ['Veg', 'Non-Veg'] },
                 { name: 'Amenities', type: 'checkbox', options: ['AC', 'Heater', 'washing Machine'] },
-                { name: 'Dropdown', type: 'dropdown', options:['option1','option2','option3','option4']}
+                { name: 'Dropdown', type: 'dropdown', options: ['option1', 'option2', 'option3', 'option4'] },
+                { name: 'Sharing', type:'number'},
             ],
         }
         
@@ -359,6 +361,8 @@ class RoomsPage extends React.Component{
                 return <CheckBox field={field} />;
             case 'dropdown':
                 return <Dropdown field={field} />;
+            case 'number':
+                return <NumberInput field={field} />;
             default:
                 return <div></div>
         }
@@ -382,27 +386,12 @@ class RoomsPage extends React.Component{
                                     id="room-no"
                                     value={this.state.roomNo}
                                 >
-                                </input> <br />
-                                    
-                                    <CustomDropdwon listitems={['Non-AC', 'AC']} label='Type'></CustomDropdwon>
-                                    
-                                    {/* 
-                                        <label htmlFor="room-type">Type</label><br />
-                                        <select
-                                        id="room-type"
-                                        value={this.state.roomType}
-                                    >
-                                        <option>Non-AC</option>
-                                        <option>AC</option>
-                                    </select><br /> */}
-                                <label htmlFor="room-capacity">Sharing</label><br />
-                                <input
-                                    className="textbox"
-                                    type="text"
-                                    id="room-capacity"
-                                    value={this.state.capacity}
-                                >
-                                </input><br />
+                                </input> <br />    
+                            <CustomDropdown
+                                listitems={['Non-AC', 'AC']}
+                                label='Type'
+                                onOptionChange={(option) => console.log(option)}
+                            />
                                 {this.state.fields.map((field) =>
                                     this.getInputType(field)
                                 )}

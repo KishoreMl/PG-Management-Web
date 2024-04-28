@@ -1,9 +1,9 @@
 import React from "react";
-import IconCaretDown from "../Icons/IconCaretDown";
-import IconCheck from "../Icons/IconCheck";
+import IconCaretDown from "../../Icons/IconCaretDown";
+import IconCheck from "../../Icons/IconCheck";
 import "./CustomDropdown.scss";
 
-class Dropdown extends React.Component{
+class CustomDropdown extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
@@ -31,7 +31,8 @@ class Dropdown extends React.Component{
     }
 
     onOptionSelect(option) {
-        this.setState({selectedOption:option, showDropdown:false})
+        this.setState({ selectedOption: option, showDropdown: false })
+        this.props.onOptionChange(option);
     }
     
     render() {
@@ -55,4 +56,4 @@ class Dropdown extends React.Component{
     }
 }
 
-export default Dropdown;
+export default CustomDropdown;
