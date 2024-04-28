@@ -1,9 +1,9 @@
 import React from "react";
-import IconClose from "../Icons/IconClose";
-import IconEdit from "../Icons/IconEdit";
-import IconDelete from "../Icons/IconDelete";
-import IconCheckCircle from "../Icons/IconCheckCircle";
-import IconCrossCircle from "../Icons/IconCrossCircle";
+import IconClose from "../UIComponents/Icons/IconClose";
+import IconEdit from "../UIComponents/Icons/IconEdit";
+import IconDelete from "../UIComponents/Icons/IconDelete";
+import IconCheckCircle from "../UIComponents/Icons/IconCheckCircle";
+import IconCrossCircle from "../UIComponents/Icons/IconCrossCircle";
 import './RightPanel.scss';
 
 export class GuestRightPanel extends React.Component{

@@ -1,6 +1,6 @@
 import React from "react";
 import { Avatar } from "../UIComponents/Avatar/Avatar";
-import IconMore from "../Icons/IconMore";
+import IconMore from "../UIComponents/Icons/IconMore";
 import './RoomsListView.scss';
 
 export class RoomsListView extends React.Component{

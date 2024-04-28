@@ -1,5 +1,5 @@
 import React from "react"
-import IconClose from "../../Icons/IconClose";
+import IconClose from "../Icons/IconClose";
 import './Modal.scss';
 
 class Modal extends React.Component{

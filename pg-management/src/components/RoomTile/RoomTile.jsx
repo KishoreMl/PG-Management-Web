@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { GuestCard } from "../GuestCard/GuestCard";
-import IconPersonAdd from "../Icons/IconPersonAdd";
-import IconPersonRemove from "../Icons/IconPersonRemove";
-import IconDelete from "../Icons/IconDelete";
-import IconEdit from "../Icons/IconEdit";
-import IconMore from "../Icons/IconMore";
+import IconPersonAdd from "../UIComponents/Icons/IconPersonAdd";
+import IconPersonRemove from "../UIComponents/Icons/IconPersonRemove";
+import IconDelete from "../UIComponents/Icons/IconDelete";
+import IconEdit from "../UIComponents/Icons/IconEdit";
+import IconMore from "../UIComponents/Icons/IconMore";
 
 import './RoomTile.scss';
 

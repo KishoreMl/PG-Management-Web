@@ -1,8 +1,8 @@
 import React from "react";
-import IconClose from "../Icons/IconClose";
-import IconEdit from "../Icons/IconEdit";
-import IconDelete from "../Icons/IconDelete";
-import IconPersonAdd from "../Icons/IconPersonAdd";
+import IconClose from "../UIComponents/Icons/IconClose";
+import IconEdit from "../UIComponents/Icons/IconEdit";
+import IconDelete from "../UIComponents/Icons/IconDelete";
+import IconPersonAdd from "../UIComponents/Icons/IconPersonAdd";
 import './RightPanel.scss';
 
 export class RoomRightPanel extends React.Component{

@@ -6,10 +6,11 @@ import { RoomsGridView } from "../RoomsGridView/RoomsGridView";
 import RadioButtons from "../UIComponents/FormInputs/RadioButton";
 import TextInput from "../UIComponents/FormInputs/TextInput";
 import Dropdown from "../UIComponents/FormInputs/Dropdown";
+import CustomDropdwon from "../UIComponents/CustomDropdown/CustomDropdown";
 import CheckBox from "../UIComponents/FormInputs/CheckBox";
 import Modal from "../UIComponents/Modal/Modal";
-import IconPlusCircle from "../Icons/IconPlusCircle";
-import IconCaretDown from "../Icons/IconCaretDown";
+import IconPlusCircle from "../UIComponents/Icons/IconPlusCircle";
+import IconCaretDown from "../UIComponents/Icons/IconCaretDown";
 import { Toast } from "../Toast/Toast";
 import './RoomsPage.scss';
 
@@ -382,14 +383,15 @@ class RoomsPage extends React.Component{
                                     value={this.state.roomNo}
                                 >
                                 </input> <br />
-                                <label htmlFor="room-type">Type</label><br />
-                                <select
-                                    id="room-type"
-                                    value={this.state.roomType}
-                                >
-                                    <option>Non-AC</option>
-                                    <option>AC</option>
-                                </select><br />
+                                    <label htmlFor="room-type">Type</label><br />
+                                    <CustomDropdwon listitems={['Non-AC','AC']}></CustomDropdwon>
+                                    {/* <select
+                                        id="room-type"
+                                        value={this.state.roomType}
+                                    >
+                                        <option>Non-AC</option>
+                                        <option>AC</option>
+                                    </select><br /> */}
                                 <label htmlFor="room-capacity">Sharing</label><br />
                                 <input
                                     className="textbox"
@@ -464,7 +466,6 @@ class RoomsPage extends React.Component{
                                         </div>
                                     </div>
                                     
-
                                 </div>    
                             </div>
                             <div className="container">

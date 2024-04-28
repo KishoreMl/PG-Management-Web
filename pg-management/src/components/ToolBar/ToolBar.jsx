@@ -1,11 +1,11 @@
 import React from "react";
-import IconGrid from "../Icons/IconGrid";
-import IconList from "../Icons/IconList";
-import IconCheck from "../Icons/IconCheck";
-import IconCaretDown from "../Icons/IconCaretDown";
-import IconFilter from "../Icons/IconFilter";
-import IconSearch from "../Icons/IconSearch";
-import IconArrowback from "../Icons/IconArrowback";
+import IconGrid from "../UIComponents/Icons/IconGrid";
+import IconList from "../UIComponents/Icons/IconList";
+import IconCheck from "../UIComponents/Icons/IconCheck";
+import IconCaretDown from "../UIComponents/Icons/IconCaretDown";
+import IconFilter from "../UIComponents/Icons/IconFilter";
+import IconSearch from "../UIComponents/Icons/IconSearch";
+import IconArrowback from "../UIComponents/Icons/IconArrowback";
 import { ToolTip } from "../UIComponents/ToolTip/ToolTip";
 import './ToolBar.scss';
 
@@ -147,7 +147,8 @@ export class ToolBar extends React.Component{
                             <div className={`branches-dropdown-list ${this.state.showDropdown?'show':''}`}>
                                 {this.props.dropdownListItems?.map((item) =>
                                     <div className="listitem" key={item.id} onClick={() => this.onBranchSelect(item.name)}>
-                                       {item.name}   {this.state.selectedBranch === item.name? <IconCheck />:null}
+                                        {item.name}
+                                        {this.state.selectedBranch === item.name ? <IconCheck /> : null}
                                     </div>
                                 )}
                             </div>

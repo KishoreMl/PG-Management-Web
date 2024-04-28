@@ -1,10 +1,10 @@
 import React from "react";
-import IconLogo from "../Icons/IconLogo";
-import IconApps from "../Icons/IconApps";
-import IconSettings from "../Icons/IconSettings";
-import IconTicket from "../Icons/IconTicket";
-import IconPerson from "../Icons/IconPerson";
-import IconBookings from "../Icons/IconBooking";
+import IconLogo from "../UIComponents/Icons/IconLogo";
+import IconApps from "../UIComponents/Icons/IconApps";
+import IconSettings from "../UIComponents/Icons/IconSettings";
+import IconTicket from "../UIComponents/Icons/IconTicket";
+import IconPerson from "../UIComponents/Icons/IconPerson";
+import IconBookings from "../UIComponents/Icons/IconBooking";
 import './Header.scss';
 
 export class Header extends React.Component{

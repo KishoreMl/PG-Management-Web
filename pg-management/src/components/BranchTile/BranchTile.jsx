@@ -1,6 +1,6 @@
 import React from "react";
-import IconMore from "../Icons/IconMore";
-import IconLogo from "../Icons/IconLogo";
+import IconMore from "../UIComponents/Icons/IconMore";
+import IconLogo from "../UIComponents/Icons/IconLogo";
 import './BranchTile.scss';
 
 export class BranchTile extends React.Component{

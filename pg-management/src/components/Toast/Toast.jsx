@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import IconInfo from "../Icons/IconInfo";
-import IconCheckCircle from "../Icons/IconCheckCircle";
-import IconAlert from "../Icons/IconAlert";
+import IconInfo from "../UIComponents/Icons/IconInfo";
+import IconCheckCircle from "../UIComponents/Icons/IconCheckCircle";
+import IconAlert from "../UIComponents/Icons/IconAlert";
 
 import './Toast.scss';
 export class Toast extends Component{

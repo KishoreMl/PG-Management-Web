@@ -1,6 +1,5 @@
 import React from "react";
 import { RoomTile } from "../RoomTile/RoomTile";
-import IconCaretDown from "../Icons/IconCaretDown";
 import './RoomsGridView.scss';
 
 export class RoomsGridView extends React.Component{

@@ -1,0 +1,52 @@
+@import '../../vars.scss';
+
+.dropdown-container {
+    svg {
+        &:hover {
+            background-color: transparent;
+        }
+    }
+
+    .dropdown-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: $primary-font;
+        padding: 0 1rem;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgb(230, 230, 230);
+        }
+    }
+
+    .branches-dropdown-list {
+        visibility: hidden;
+        position: absolute;
+        z-index: 10;
+        box-shadow: 0 0 10px rgb(117, 116, 116);
+    }
+
+    .show {
+        visibility: visible;
+    }
+
+    .listitem {
+        padding: 0.5rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: white;
+        width: 9rem;
+        border-bottom: solid 1px rgb(212, 208, 208);
+        cursor: pointer;
+
+        & svg {
+            padding: 0;
+        }
+
+        &:hover {
+            background-color: rgb(213, 211, 211);
+        }
+    }
+}
