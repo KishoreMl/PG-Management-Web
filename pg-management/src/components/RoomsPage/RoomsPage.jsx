@@ -383,9 +383,12 @@ class RoomsPage extends React.Component{
                                     value={this.state.roomNo}
                                 >
                                 </input> <br />
-                                    <label htmlFor="room-type">Type</label><br />
-                                    <CustomDropdwon listitems={['Non-AC','AC']}></CustomDropdwon>
-                                    {/* <select
+                                    
+                                    <CustomDropdwon listitems={['Non-AC', 'AC']} label='Type'></CustomDropdwon>
+                                    
+                                    {/* 
+                                        <label htmlFor="room-type">Type</label><br />
+                                        <select
                                         id="room-type"
                                         value={this.state.roomType}
                                     >

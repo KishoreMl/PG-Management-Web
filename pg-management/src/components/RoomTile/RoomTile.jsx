@@ -79,6 +79,7 @@ export class RoomTile extends Component{
                             {this.state.dropdownList.map((listitem) => 
                                 <div className="list-item" onClick={(e) => {
                                     e.stopPropagation(); 
+                                    this.handleShowDropdown();
                                     this.props.onTileOptionSelect(listitem)}}
                                 >
                                     {this.getDropdownIcons(listitem)}

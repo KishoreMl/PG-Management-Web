@@ -8,7 +8,7 @@ class Dropdown extends React.Component{
         super(props);
         this.state = {
             selectedOption: this.props.listitems[0],
-             showDropdown: false,
+            showDropdown: false,
         }
         this.dropdownRef = React.createRef();
     }
@@ -29,17 +29,22 @@ class Dropdown extends React.Component{
     handleToggleDropdown() {
         this.state.showDropdown ? this.setState({ showDropdown: false }) : this.setState({ showDropdown: true });
     }
+
+    onOptionSelect(option) {
+        this.setState({selectedOption:option, showDropdown:false})
+    }
     
     render() {
         return (
             <div className="dropdown-container" ref={this.dropdownRef}>
-                <div className="dropdown-button">
+                {this.props.label && <p>{this.props.label}</p>}
+                <div className="dropdown-button" onClick={() => this.handleToggleDropdown()}>
                     {this.state.selectedOption}
                     <IconCaretDown />
                 </div>
-                <div className="dropdown-list">
+                <div className={`dropdown-list ${this.state.showDropdown?'show':''}`}>
                     {this.props.listitems?.map((listitem) =>
-                        <div className="listitem" key={listitem} onClick={() => console.log(listitem)}>
+                        <div className="listitem" key={listitem} onClick={() => this.onOptionSelect(listitem)}>
                             {listitem}
                             {this.state.selectedOption === listitem ? <IconCheck /> : null}
                         </div>
