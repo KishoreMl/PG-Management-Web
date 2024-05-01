@@ -1,6 +1,6 @@
 import React from "react";
-import IconCaretDown from "../../Icons/IconCaretDown";
-import IconCheck from "../../Icons/IconCheck";
+import IconCaretDown from "../Icons/IconCaretDown";
+import IconCheck from "../Icons/IconCheck";
 import "./CustomDropdown.scss";
 
 class CustomDropdown extends React.Component{

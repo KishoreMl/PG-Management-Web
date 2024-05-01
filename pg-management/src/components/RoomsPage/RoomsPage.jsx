@@ -3,17 +3,14 @@ import { RightPanel } from "../RightPanel/RightPanel";
 import { ToolBar } from "../ToolBar/ToolBar";
 import { RoomsListView } from "../RoomsListView/RoomsListView";
 import { RoomsGridView } from "../RoomsGridView/RoomsGridView";
-import RadioButtons from "../UIComponents/FormInputs/RadioButton";
-import TextInput from "../UIComponents/FormInputs/TextInput";
-import Dropdown from "../UIComponents/FormInputs/Dropdown";
-import CustomDropdown from "../UIComponents/FormInputs/CustomDropdown/CustomDropdown";
-import CheckBox from "../UIComponents/FormInputs/CheckBox";
-import NumberInput from "../UIComponents/FormInputs/NumberInput";
+import CustomDropdown from "../UIComponents/CustomDropdown/CustomDropdown";
 import Modal from "../UIComponents/Modal/Modal";
 import IconPlusCircle from "../UIComponents/Icons/IconPlusCircle";
 import IconCaretDown from "../UIComponents/Icons/IconCaretDown";
+import { getInputType } from "../UIComponents/FormInputs/form.helper";
 import { Toast } from "../Toast/Toast";
 import './RoomsPage.scss';
+import IconCheck from "../UIComponents/Icons/IconCheck";
 
 class RoomsPage extends React.Component{
 
@@ -237,7 +234,37 @@ class RoomsPage extends React.Component{
                 { name: 'Dropdown', type: 'dropdown', options: ['option1', 'option2', 'option3', 'option4'] },
                 { name: 'Sharing', type:'number'},
             ],
+            filterDropdown:-1,
+            filters: [
+                {
+                    name: "Sharing",
+                    options: [
+                        {option:"1 Sharing", value:1, selected:false},
+                        {option:"2 Sharing", value:2, selected:false},
+                        {option:"3 Sharing", value:3, selected:false},
+                        {option:"4 Sharing", value:4, selected:false},
+                        {option:"5 Sharing", value:5, selected:false},
+                    ]
+                },
+                {
+                    name: "Type",
+                    options: [
+                        {option:"AC", value:"AC",selected:false},
+                        {option:"NON-AC", value:"NON-AC",selected:false}
+                    ]
+                },
+                {
+                    name: "Rent",
+                    options: [
+                        {option:"5000", value:5000,selected:false},
+                        {option:"6000", value:6000,selected:false},
+                        {option:"7000", value:7000,selected:false},
+                        {option:"8000", value:8000,selected:false},
+                    ]
+                }
+            ],
         }
+        this.dropdownRef = React.createRef();
         
     }
     
@@ -245,7 +272,18 @@ class RoomsPage extends React.Component{
         const rooms  = this.state.rooms.map((room) => {
             return {...room, selected:false}
         });
-        this.setState({roomsToBeDisplayed:rooms})
+       this.setState({ roomsToBeDisplayed: rooms })
+       document.addEventListener('click', this.handleClickOutside);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('click', this.handleClickOutside);
+    }
+
+    handleClickOutside = (event) => {
+        if (this.dropdownRef.current && !this.dropdownRef.current.contains(event.target)) {
+            this.setState({ filterDropdown: -1});
+        }
     }
 
     setPanelDisplay = (display) => {
@@ -351,21 +389,47 @@ class RoomsPage extends React.Component{
         window.open('/','_self');
     }
 
-    getInputType(field) {
-        switch (field.type) {
-            case 'text':
-                return <TextInput field={field} />;
-            case 'radio':
-                return <RadioButtons field={field} />;
-            case 'checkbox':
-                return <CheckBox field={field} />;
-            case 'dropdown':
-                return <Dropdown field={field} />;
-            case 'number':
-                return <NumberInput field={field} />;
-            default:
-                return <div></div>
-        }
+    onFilerSelect(index) {
+        this.setState(prevState => ({
+            filterDropdown: prevState.filterDropdownn === index ? null : index
+        }));
+    }
+
+    onFilterOptionSelect(filterIndex,optionIndex) {
+        const updatedFilters = [...this.state.filters]; 
+        updatedFilters[filterIndex].options.forEach((option, index) => {
+            if (index === optionIndex)
+            {
+                 option.selected = option.selected?false:true; 
+            }
+           
+        });
+        this.setState({ filters: updatedFilters });
+    }
+
+    getCreateRoomModal() {
+        return (
+            <Modal title="Create Room"  onCloseModal={() => this.onCreateRoom(false)} >
+                <form id='create-room' onSubmit={(e) => this.handleFormSubmit(e)}>
+                        <label htmlFor="room-no">Room no</label><br />
+                        <input
+                            className="textbox"
+                            type="text"
+                            id="room-no"
+                            value={this.state.roomNo}
+                        />
+                        <br />    
+                    <CustomDropdown
+                        listitems={['Non-AC', 'AC']}
+                        label='Type'
+                        onOptionChange={(option) => console.log(option)}
+                    />
+                        {this.state.fields.map((field) =>
+                            getInputType(field)
+                        )}
+                </form>
+            </Modal>
+        )
     }
 
     render()
@@ -374,29 +438,7 @@ class RoomsPage extends React.Component{
             <div>
                 <Toast message="Room Created Successfully" type='warning' />
                 {this.state.showCreateRoomModal ? 
-                    <Modal 
-                        title="Create Room"  
-                        onCloseModal={() => this.onCreateRoom(false)} 
-                    >
-                        <form id='create-room' onSubmit={(e) => this.handleFormSubmit(e)}>
-                                <label htmlFor="room-no">Room no</label><br />
-                                <input
-                                    className="textbox"
-                                    type="text"
-                                    id="room-no"
-                                    value={this.state.roomNo}
-                                >
-                                </input> <br />    
-                            <CustomDropdown
-                                listitems={['Non-AC', 'AC']}
-                                label='Type'
-                                onOptionChange={(option) => console.log(option)}
-                            />
-                                {this.state.fields.map((field) =>
-                                    this.getInputType(field)
-                                )}
-                            </form>
-                    </Modal>
+                    this.getCreateRoomModal()
                 : null}
                 {this.state.showConsentModal ?
                     <Modal
@@ -432,32 +474,22 @@ class RoomsPage extends React.Component{
                     <div className="main-container">
                         <div className="middle-panel">
                             <div className="filter-bar">
-                                <div className="filters-container">
-                                    <div className="filter-dropdown">
-                                        <div className="filter-dot"> </div>
-                                        <div className="filter-button">Sharing <IconCaretDown size='19' /></div>
-                                        <div className="filter-dropdown-list">
-                                            <div className="filter-listitem"> 1 Sharing </div>
-                                            <div className="filter-listitem"> 2 Sharing </div>
-                                            <div className="filter-listitem"> 3 Sharing </div>
-                                            <div className="filter-listitem"> 4 Sharing </div>
+                                <div className="filters-container" ref={this.dropdownRef}>
+                                    {this.state.filters.map((filter,filterIndex) => 
+                                        <div className="filter-dropdown" key={filterIndex}>
+                                            <div className="filter-button" onClick={() => this.onFilerSelect(filterIndex)}>
+                                                {filter.name} <IconCaretDown size='19' />  
+                                            </div>
+                                            <div className={`filter-dropdown-list ${this.state.filterDropdown === filterIndex ? 'show':''}`}>
+                                                {filter.options.map((option,optionIndex) =>
+                                                    <div className="filter-listitem" onClick={() => this.onFilterOptionSelect(filterIndex, optionIndex)}>
+                                                        {option.selected?<IconCheck size="19" color="blue" />:<svg></svg>}
+                                                        {option.option} 
+                                                    </div>
+                                                )}
+                                            </div>
                                         </div>
-                                    </div>
-
-                                    <div className="filter-dropdown">
-                                        <div className="filter-button">Rent <IconCaretDown size='19' /></div>
-                                        <div className="filter-dropdown-list">
-                                            
-                                        </div>
-                                    </div>
-
-                                    <div className="filter-dropdown">
-                                        <div className="filter-button">Types<IconCaretDown size='19' /></div>
-                                        <div className="filter-dropdown-list">
-                                            
-                                        </div>
-                                    </div>
-                                    
+                                    )}     
                                 </div>    
                             </div>
                             <div className="container">
