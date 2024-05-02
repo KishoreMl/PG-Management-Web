@@ -34,9 +34,11 @@
 
         .filter-dropdown{
             position: relative;
+
             .show {
                 visibility: visible !important;
             }
+
             svg {
                 padding: 0;
                 height: 19px;
@@ -44,7 +46,8 @@
                 &:hover {
                     background: transparent;
                 }
-            }    
+            } 
+
             .filter-dot{
                 position: absolute;
                 right: 0.1rem;
@@ -55,6 +58,7 @@
                 
                 background-color: $primary-color;
             }
+
             .filter-button {
                 display: flex;
                 align-items: center;
@@ -69,6 +73,7 @@
                     background-color: rgb(225, 225, 225);
                 }
             }
+
             .filter-dropdown-list{
                 visibility: hidden;
                 position: absolute;
@@ -76,7 +81,7 @@
                 box-shadow: 0 0 10px rgb(117, 116, 116);
 
                 .filter-listitem{
-                    padding: 0.3rem 1rem;
+                    padding: 0.5rem 1rem;
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
@@ -84,6 +89,9 @@
                     width: max-content;
                     border-bottom: solid 1.5px rgb(212, 208, 208);
                     cursor: pointer;
+                    svg{
+                        margin-right: 0.5rem;
+                    }
 
                     &:hover{
                         background-color: rgb(229, 230, 230);

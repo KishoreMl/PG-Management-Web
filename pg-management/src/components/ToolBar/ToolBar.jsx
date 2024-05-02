@@ -3,7 +3,6 @@ import IconGrid from "../UIComponents/Icons/IconGrid";
 import IconList from "../UIComponents/Icons/IconList";
 import IconCheck from "../UIComponents/Icons/IconCheck";
 import IconCaretDown from "../UIComponents/Icons/IconCaretDown";
-import IconFilter from "../UIComponents/Icons/IconFilter";
 import IconSearch from "../UIComponents/Icons/IconSearch";
 import IconArrowback from "../UIComponents/Icons/IconArrowback";
 import { ToolTip } from "../UIComponents/ToolTip/ToolTip";
@@ -21,28 +20,6 @@ export class ToolBar extends React.Component{
             isFilterApplied:true,
             displayIcons:true,
             selectedBranch: this.props.dropdownListItems ? this.props.dropdownListItems[0].name : '',
-            selectedFilters: [],
-            selectedFilter:'Sharing',
-            filters:['Sharing','Type','Rent'],
-            filterOptions:{
-                sharingFilters:[
-                    {name:"1 Sharing", value:1, selected:false},
-                    {name:"2 Sharing", value:2, selected:false},
-                    {name:"3 Sharing", value:3, selected:false},
-                    {name:"4 Sharing", value:4, selected:false},
-                    {name:"5 Sharing", value:5, selected:false},
-                ],
-                roomTypeFilters:[
-                    {name:"AC", value:"AC",selected:false},
-                    {name:"NON-AC", value:"NON-AC",selected:false}
-                ],
-                rentFilters:[
-                    {name:"5000", value:5000,selected:false},
-                    {name:"6000", value:6000,selected:false},
-                    {name:"7000", value:7000,selected:false},
-                    {name:"8000", value:8000,selected:false},
-                ]
-            }
         }
         this.dropdownRef = React.createRef();
         this.filterRef = React.createRef();
@@ -76,50 +53,6 @@ export class ToolBar extends React.Component{
 
     handleFilterButtonClick() {
         this.state.showFilterOptions ? this.setState({ showFilterOptions: false }) : this.setState({ showFilterOptions: true });
-    }
-
-    onFilterSelect(filter){
-        this.setState({selectedFilter:filter})
-    }
-
-    onFilterOptionSelect(currentFilter) {
-        switch(currentFilter.category){
-            case "Sharing":
-                    let sharefilters = this.state.filterOptions.sharingFilters.map((filter) => {
-                        if(filter.value === currentFilter.value){
-                            filter.selected = !filter.selected;
-                        }
-                        return filter;
-                    });
-                    this.setState({ filterOptions: {sharingFilters: sharefilters} });
-                    break;
-            case "Type":  
-                let typefilters = this.state.filterOptions.roomTypeFilters.map((filter) => {
-                    if(filter.value === currentFilter.value){
-                        filter.selected = !filter.selected;
-                    }
-                    return filter;
-                });
-                this.setState({ filterOptions: {roomTypeFilters: typefilters} });
-                break;
-            default:
-                break;
-        }
-        const index = this.state.selectedFilters.findIndex((filter) => filter.value === currentFilter.value);
-        if (index !== -1)
-        {  
-            const updatedFilters = this.state.selectedFilters.filter((filter) => currentFilter.value !== filter.value);
-            this.setState({ selectedFilters: updatedFilters }, () => {
-                this.props.onFilterSelected(this.state.selectedFilters); 
-            });
-        }
-        else {
-            const updatedFilters = [...this.state.selectedFilters, currentFilter];
-            this.setState({ selectedFilters: updatedFilters }, () => {
-                this.props.onFilterSelected(this.state.selectedFilters); 
-            });  
-        }
-               
     }
 
     onBranchSelect(branch) {
@@ -164,52 +97,6 @@ export class ToolBar extends React.Component{
                 <div className={`tool-bar-right ${this.state.displayIcons?'':'hide'}`}>
                     <div className="search-button" onClick={()=> this.handleSearchIconClick()}>
                         <IconSearch size={20}/>
-                    </div>
-                    <div className="filter-button-container" ref={this.filterRef}>
-                        <ToolTip text="Filter" >
-                            <IconFilter size={20} onClick={() => this.handleFilterButtonClick()} />
-                        </ToolTip>
-                        {this.state.selectedFilters.length>0 && <div className="dot"></div>}
-                        <div className={`filter-dropdown ${this.state.showFilterOptions?'show':''}`}>
-                            <div className="filter-category-container">
-                                {this.state.filters.map((filter) =>
-                                    <div 
-                                        className={`filter-category ${this.state.selectedFilter===filter?'selected':''}`}
-                                        onClick={()=> this.onFilterSelect(filter)}>
-                                        {filter}
-                                    </div>
-                                )}
-                            </div>
-                            <div className="filter-options-container"> 
-                                {this.state.selectedFilter==="Sharing" && 
-                                    this.state.filterOptions.sharingFilters.map((option) =>
-                                    <div 
-                                        className="filter-option"
-                                        onClick={() => this.onFilterOptionSelect({category:"Sharing", value:option.value})} >
-                                        {option.name}
-                                        {option.selected && <IconCheck size={20} color="#3171e0" />}
-                                    </div>
-                                )}
-                                {this.state.selectedFilter === "Type" && 
-                                    this.state.filterOptions.roomTypeFilters.map((option) =>
-                                    <div 
-                                        className="filter-option"
-                                        onClick={() => this.onFilterOptionSelect({category:"Type", value:option.value})} >
-                                        {option.name}
-                                        {option.selected && <IconCheck size={20} color="#3171e0" />}
-                                    </div>
-                                )}
-                                {this.state.selectedFilter === "Rent" && 
-                                    this.state.filterOptions.rentFilters.map((option) =>
-                                    <div 
-                                        className="filter-option"
-                                        onClick={() => this.onFilterOptionSelect({category:"Rent", value:option.value})} >
-                                        {option.name}
-                                        {option.selected && <IconCheck size={20} color="#3171e0" />}
-                                    </div>
-                                )}   
-                            </div>
-                       </div>
                     </div>
                     {this.props.showViewButton?
                         (this.state.currentView === "list" ? 

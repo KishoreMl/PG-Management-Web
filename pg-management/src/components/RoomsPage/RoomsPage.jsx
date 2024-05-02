@@ -7,6 +7,8 @@ import CustomDropdown from "../UIComponents/CustomDropdown/CustomDropdown";
 import Modal from "../UIComponents/Modal/Modal";
 import IconPlusCircle from "../UIComponents/Icons/IconPlusCircle";
 import IconCaretDown from "../UIComponents/Icons/IconCaretDown";
+import IconCheckBoxChecked from "../UIComponents/Icons/IconCheckBoxChecked";
+import IconCheckBoxUnchecked from "../UIComponents/Icons/IconCheckBoxUnchecked";
 import { getInputType } from "../UIComponents/FormInputs/form.helper";
 import { Toast } from "../Toast/Toast";
 import './RoomsPage.scss';
@@ -371,13 +373,12 @@ class RoomsPage extends React.Component{
                     default:
                         filteredRooms = this.state.rooms;
                         break;    
-                }
-                
+                } 
             })
             this.setState({ roomsToBeDisplayed: filteredRooms })
         }
         else {
-            this.setState({roomsToBeDisplayed:this.state.rooms})
+            this.setState({ roomsToBeDisplayed: this.state.rooms })
         }  
     }
 
@@ -398,13 +399,13 @@ class RoomsPage extends React.Component{
     onFilterOptionSelect(filterIndex,optionIndex) {
         const updatedFilters = [...this.state.filters]; 
         updatedFilters[filterIndex].options.forEach((option, index) => {
-            if (index === optionIndex)
-            {
-                 option.selected = option.selected?false:true; 
+            if (index === optionIndex){
+                option.selected = option.selected? false: true; 
             }
-           
         });
         this.setState({ filters: updatedFilters });
+        this.handleFilters({category:updatedFilters[filterIndex].name,value:updatedFilters[filterIndex].options[optionIndex].value});
+
     }
 
     getCreateRoomModal() {
@@ -483,7 +484,7 @@ class RoomsPage extends React.Component{
                                             <div className={`filter-dropdown-list ${this.state.filterDropdown === filterIndex ? 'show':''}`}>
                                                 {filter.options.map((option,optionIndex) =>
                                                     <div className="filter-listitem" onClick={() => this.onFilterOptionSelect(filterIndex, optionIndex)}>
-                                                        {option.selected?<IconCheck size="19" color="blue" />:<svg></svg>}
+                                                        {option.selected?<IconCheckBoxChecked size='20'/>:<IconCheckBoxUnchecked size='20'/>}
                                                         {option.option} 
                                                     </div>
                                                 )}
