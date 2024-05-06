@@ -22,7 +22,6 @@ export class ToolBar extends React.Component{
             selectedBranch: this.props.dropdownListItems ? this.props.dropdownListItems[0].name : '',
         }
         this.dropdownRef = React.createRef();
-        this.filterRef = React.createRef();
         this.searchRef = React.createRef();
     }
 
@@ -36,9 +35,6 @@ export class ToolBar extends React.Component{
     handleClickOutside = (event) => {
         if (this.dropdownRef.current && !this.dropdownRef.current.contains(event.target)) {
             this.setState({ showDropdown: false});
-        }
-        if(this.filterRef.current && !this.filterRef.current.contains(event.target)){
-            this.setState({ showFilterOptions: false});
         }
     }
 

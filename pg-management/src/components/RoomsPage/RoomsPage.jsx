@@ -12,7 +12,6 @@ import IconCheckBoxUnchecked from "../UIComponents/Icons/IconCheckBoxUnchecked";
 import { getInputType } from "../UIComponents/FormInputs/form.helper";
 import { Toast } from "../Toast/Toast";
 import './RoomsPage.scss';
-import IconCheck from "../UIComponents/Icons/IconCheck";
 
 class RoomsPage extends React.Component{
 
@@ -403,9 +402,9 @@ class RoomsPage extends React.Component{
                 option.selected = option.selected? false: true; 
             }
         });
+        console.log(updatedFilters[filterIndex].options[optionIndex].value);
+        this.handleFilters([{category:updatedFilters[filterIndex].name,value:updatedFilters[filterIndex].options[optionIndex].value}]);
         this.setState({ filters: updatedFilters });
-        this.handleFilters({category:updatedFilters[filterIndex].name,value:updatedFilters[filterIndex].options[optionIndex].value});
-
     }
 
     getCreateRoomModal() {
