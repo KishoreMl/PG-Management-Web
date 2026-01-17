@@ -2,14 +2,6 @@
 
 This is a Web Application for PG/Hostel Management
 
-Framework: React
-
-Language: JavaScript
-
-# Pre-requisites
-
-Install Visual Studio Code (IDE) and node.js
-
 # Getting Started 
 
 1. Clone the Repository
@@ -38,3 +30,10 @@ Install Visual Studio Code (IDE) and node.js
     ```bash
     npm run build
     ```
+    
+# Tasks
+    - Convert jsx components to tsx components
+    - Fix filter bugs
+    - Create settings page
+    - fix Create Modal
+

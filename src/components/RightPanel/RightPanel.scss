@@ -1,0 +1,195 @@
+@import '../vars.scss';
+
+.right-panel{
+    height: calc(100vh - 120px);
+    margin-left:auto ;
+    width:300px;
+    z-index: 7;
+    overflow-y: auto;
+    background-color: white;
+    box-shadow: 3px 0 4px 1px rgba(0, 0, 0, 0.2);
+    
+    & p{
+        font-weight: 600;
+        font-size: 14px;
+        font-family:$primary-font;
+        padding-left: 2.5rem;
+        line-height: 24px;
+        letter-spacing: 0.15px;
+    }
+
+    svg {
+        cursor: pointer;
+        padding: 0.4rem;
+        border-radius: 5px;
+
+        &:hover{
+            background-color: rgb(224, 221, 221);
+        }
+    }
+
+    .panel-header{
+        display: flex;
+        align-items: center;
+        position: sticky;
+        top:0;
+        padding: 0.5rem 0.8rem;
+        z-index:2;
+        background-color: white;
+        box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.2);
+        
+        h3{
+            padding: 0;
+            margin: 0;
+            font-family: $primary-font;
+        }
+    }
+
+    .panel-content{
+        padding-bottom: 2rem;
+
+        .panel-toolbar{
+            display: flex;
+            gap:1rem;
+            align-items: center;
+            padding: 0.7rem 0.7rem 0.4rem 0.7rem;
+        
+            & button{
+                cursor: pointer;
+                background-color:$red;
+                color: white;
+                border-radius: 5px;
+                border:none;
+                padding: 0.4rem 0.5rem 0.4rem 0.5rem;
+            }
+            & svg {
+                cursor: pointer;
+                padding: 0.4rem;
+                border-radius: 5px;
+            }
+            & svg:hover{
+                background-color: rgb(224, 221, 221);
+            }
+
+            .icon-container{
+                position: relative;
+                
+                .icon:hover ~ .tooltip{
+                     visibility: visible;
+                 }
+            
+                .tooltip{
+                    position: absolute;
+                    top: 110%; 
+                    left: 50%;
+                    transform: translateX(-50%);
+                    visibility: hidden;
+                    width:fit-content;
+                    background-color: black;
+                    color: white;
+                    font-size: 0.7rem;
+                    border-radius: 4px;
+                    padding: 0.3rem 0.4rem;
+                    opacity: 0.8;
+                    white-space: nowrap; 
+                }
+            }
+        
+        }
+
+        .panel-text{
+            display: flex;  
+            margin-top: 1rem;
+            padding-left: 1rem;
+            font-family: $primary-font;
+            font-size: 0.85rem;
+        
+            .panel-sub-text{
+                display: flex;
+                align-items: center;
+                padding-left:0.5rem;
+                width:70%;
+                &:first-child{
+                    width:36%;
+                }
+            }
+        }        
+
+        .panel-guestcard-container{
+            background-color: white;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+            padding:0.5rem 1rem;
+            max-height:10rem;
+            overflow-y: auto;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            .panel-guestcard{
+                background-color: rgb(231, 231, 231);
+                padding: 0.4rem 0.4rem;
+                margin-top: 0.3rem;
+                border-radius: 8px;
+                
+                .guestcard-text{
+                    width:50%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+    }
+
+    .header-left {
+        margin-left:auto;
+        & svg{
+            border-radius: 2rem;
+        }
+    }
+}
+
+.show{
+    visibility: visible;
+}
+
+.chip{
+    background-color: $red;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 0.1rem 0.7rem 0.1rem 0.2rem;
+    font-size: 0.7rem;
+    font-family: $primary-font;
+    margin-left: 1.5rem;
+    font-size: 0.8rem;
+    & svg{
+        padding: 0;
+        margin-right: 0.4rem;
+        &:hover {
+            background: transparent;
+        }
+    }
+    
+}
+
+.success{
+    background-color:rgb(123, 239, 123);
+    color: rgb(21, 121, 21);
+}
+
+.danger{
+    background-color: rgb(250, 174, 174);
+    color: rgb(247, 38, 38);
+    border: solid 1px rgb(247, 38, 38);
+}
+
+#room-no{
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+
