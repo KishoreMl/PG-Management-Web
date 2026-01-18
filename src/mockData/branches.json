@@ -1,0 +1,14 @@
+{
+    "branches": [
+        {
+            "id": "branchId1",
+            "name": "Branch 1",
+            "location": "Location 1"
+        },
+        {
+            "id": "branchId2",
+            "name": "Branch 2",
+            "location": "Location 2"
+        }
+    ]
+}

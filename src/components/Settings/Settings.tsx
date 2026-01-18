@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LicensePage = () =>{
+const Settings = () =>{
     return (
         <div>
             {/* To be implemented */}
@@ -8,4 +8,4 @@ const LicensePage = () =>{
     )
 }
 
-export default LicensePage;
+export default Settings;

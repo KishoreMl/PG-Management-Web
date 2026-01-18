@@ -11,6 +11,11 @@ import IconCheckBoxChecked from "../UIComponents/Icons/IconCheckBoxChecked";
 import IconCheckBoxUnchecked from "../UIComponents/Icons/IconCheckBoxUnchecked";
 import FormInput, { getInputType } from "../UIComponents/FormInputs/FormInput";
 import { Toast } from "../Toast/Toast";
+
+// mock data
+import branches from '../../mockData/branches.json';
+import rooms from '../../mockData/rooms.json';
+
 import './RoomsPage.scss';
 
 class RoomsPage extends React.Component{
@@ -19,204 +24,6 @@ class RoomsPage extends React.Component{
     {
         super(props);
         this.state = {
-            rooms: [
-                    {
-                        branchId:"branchId1",
-                        id:"roomId1",
-                        number:"101",
-                        type:"NON-AC",
-                        capacity:5,
-                        rent:6500,
-                        guests:[
-                            {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
-                            {guestId:"guestId2",name:"Akhilesh Raghupathi ragav",rentPaid:true,ebPaid:false},
-                            {guestId:"guestId3",name:"Ashwin",rentPaid:true,ebPaid:false},
-                            {guestId:"guestId4",name:"Akhilesh",rentPaid:true,ebPaid:false},
-                            {guestId:"guestId5",name:"Siva",rentPaid:false,ebPaid:false}
-                        ],
-                        fields:[
-                            {name:"Fieldname",value:"Value"},
-                            {name:"Fieldname",value:"Value"},
-                            {name:"Fieldname",value:"Value"},
-                        ]
-                    },
-                    {
-                        branchId:"branchId1",
-                        id:"roomId2",
-                        number:"102",
-                        type:"AC",
-                        capacity:4,
-                        rent:6500,
-                        guests:[
-                            {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
-                            {guestId:"guestId2",name:"Akhilesh",rentPaid:true,ebPaid:false},
-                            {guestId:"guestId3",name:"Siva",rentPaid:false,ebPaid:false}
-                        ],
-                        fields:[
-                            {name:"Fieldname",value:"Value"},
-                            {name:"Fieldname",value:"Value"},
-                            {name:"Fieldname",value:"Value"},
-                        ]
-                    },
-                    {
-                        branchId:"branchId1",
-                        id:"roomId3",
-                        number:"103",
-                        type:"AC",
-                        capacity:2,
-                        rent:6500,
-                        guests:[
-                            {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
-                            {guestId:"guestId2",name:"Akhilesh",rentPaid:false,ebPaid:false}
-                        ],
-                        fields:[
-                            {name:"Fieldname",value:"Value"},
-                            {name:"Fieldname",value:"Value"},
-                            {name:"Fieldname",value:"Value"},
-                        ]
-                    },
-                    {
-                        branchId:"branchId1",
-                        id:"roomId4",
-                        number:"104",
-                        type:"AC",
-                        capacity:1,
-                        rent:6500,
-                        guests:[
-                            {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
-                           
-                        ],
-                        fields:[
-                            {name:"Fieldname",value:"Value"},
-                            {name:"Fieldname",value:"Value"},
-                            {name:"Fieldname",value:"Value"},
-                        ]
-                },
-                    {
-                        branchId:"branchId1",
-                        id:"roomId5",
-                        number:"104",
-                        type:"AC",
-                        capacity:3,
-                        rent:6500,
-                        guests:[
-                            {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
-                            {guestId:"guestId2",name:"Akhilesh",rentPaid:false,ebPaid:false}
-                        ],
-                        fields:[
-                            {name:"Fieldname",value:"Value"},
-                            {name:"Fieldname",value:"Value"},
-                            {name:"Fieldname",value:"Value"},
-                        ]
-                },
-                    {
-                        branchId:"branchId1",
-                        id:"roomId6",
-                        number:"104",
-                        type:"AC",
-                        capacity:4,
-                        rent:6500,
-                        guests:[
-                            {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
-                            {guestId:"guestId2",name:"Akhilesh",rentPaid:false,ebPaid:false}
-                        ],
-                        fields:[
-                            {name:"Fieldname",value:"Value"},
-                            {name:"Fieldname",value:"Value"},
-                            {name:"Fieldname",value:"Value"},
-                        ]
-                },
-                    {
-                        branchId:"branchId1",
-                        id:"roomId7",
-                        number:"104",
-                        type:"AC",
-                        capacity:3,
-                        rent:6500,
-                        guests:[
-                            {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
-                            {guestId:"guestId2",name:"Akhilesh",rentPaid:false,ebPaid:false}
-                        ],
-                        fields:[
-                            {name:"Fieldname",value:"Value"},
-                            {name:"Fieldname",value:"Value"},
-                            {name:"Fieldname",value:"Value"},
-                        ]
-                },
-                    {
-                        branchId:"branchId1",
-                        id:"roomId8",
-                        number:"104",
-                        type:"AC",
-                        capacity:4,
-                        rent:6500,
-                        guests:[
-                            {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
-                        ],
-                        fields:[
-                            {name:"Fieldname",value:"Value"},
-                            {name:"Fieldname",value:"Value"},
-                            {name:"Fieldname",value:"Value"},
-                        ]
-                },
-                    {
-                        branchId:"branchId1",
-                        id:"roomId9",
-                        number:"104",
-                        type:"AC",
-                        capacity:3,
-                        rent:6500,
-                        guests:[
-                            {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
-                            {guestId:"guestId2",name:"Akhilesh",rentPaid:false,ebPaid:false}
-                        ],
-                        fields:[
-                            {name:"Fieldname",value:"Value"},
-                            {name:"Fieldname",value:"Value"},
-                            {name:"Fieldname",value:"Value"},
-                        ]
-                },
-                    {
-                        branchId:"branchId1",
-                        id:"roomId10",
-                        number:"104",
-                        type:"AC",
-                        capacity:3,
-                        rent:6500,
-                        guests:[
-                            {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
-                            {guestId:"guestId2",name:"Akhilesh",rentPaid:false,ebPaid:false}
-                        ],
-                        fields:[
-                            {name:"Fieldname",value:"Value"},
-                            {name:"Fieldname",value:"Value"},
-                            {name:"Fieldname",value:"Value"},
-                        ]
-                },
-                    {
-                        branchId:"branchId1",
-                        id:"roomId11",
-                        number:"104",
-                        type:"AC",
-                        capacity:3,
-                        rent:6500,
-                        guests:[
-                            {guestId:"guestId1",name:"Ashwin",rentPaid:true,ebPaid:false},
-                            {guestId:"guestId2",name:"Akhilesh",rentPaid:false,ebPaid:false}
-                        ],
-                        fields:[
-                            {name:"Fieldname",value:"Value"},
-                            {name:"Fieldname",value:"Value"},
-                            {name:"Fieldname",value:"Value"},
-                        ]
-                    }
-
-            ],
-            branches: [{ name: 'Branch 1', id: 'branchId1' },
-                       { name: 'Branch 2', id: 'branchId2' },
-                       { name: 'Branch 3', id: 'branchId3' },
-                       { name: 'Branch 4', id: 'branchId4' },
-            ],
             roomsToBeDisplayed: [],
             currentBranchId:'',
             currentView:'grid',
@@ -236,37 +43,6 @@ class RoomsPage extends React.Component{
                 { name: 'Sharing', type:'number'},
             ],
             filterDropdown:-1,
-            filters: [
-                {
-                    label: "Sharing",
-                    value: "capacity",
-                    options: [
-                        {name:"1 Sharing", value:1, selected:false},
-                        {name:"2 Sharing", value:2, selected:false},
-                        {name:"3 Sharing", value:3, selected:false},
-                        {name:"4 Sharing", value:4, selected:false},
-                        {name:"5 Sharing", value:5, selected:false},
-                    ]
-                },
-                {
-                    label: "Type",
-                    value: "type",
-                    options: [
-                        {name:"AC", value:"AC",selected:false},
-                        {name:"NON-AC", value:"NON-AC",selected:false}
-                    ]
-                },
-                {
-                    label: "Rent",
-                    value: "rent",
-                    options: [
-                        {name:"5000", value:5000,selected:false},
-                        {name:"6000", value:6000,selected:false},
-                        {name:"7000", value:7000,selected:false},
-                        {name:"8000", value:8000,selected:false},
-                    ]
-                }
-            ],
             selectedFilters:[
                 {sharing:[]},
                 {type:[]},
@@ -275,12 +51,45 @@ class RoomsPage extends React.Component{
         }
         this.dropdownRef = React.createRef();  
     }
+
+
+    filter  =  [
+            {
+                label: "Sharing",
+                value: "capacity",
+                options: [
+                    {name:"1 Sharing", value:1, selected:false},
+                    {name:"2 Sharing", value:2, selected:false},
+                    {name:"3 Sharing", value:3, selected:false},
+                    {name:"4 Sharing", value:4, selected:false},
+                    {name:"5 Sharing", value:5, selected:false},
+                ]
+            },
+            {
+                label: "Type",
+                value: "type",
+                options: [
+                    {name:"AC", value:"AC",selected:false},
+                    {name:"NON-AC", value:"NON-AC",selected:false}
+                ]
+            },
+            {
+                label: "Rent",
+                value: "rent",
+                options: [
+                    {name:"5000", value:5000,selected:false},
+                    {name:"6000", value:6000,selected:false},
+                    {name:"7000", value:7000,selected:false},
+                    {name:"8000", value:8000,selected:false},
+                ]
+            }
+        ]
     
    async componentDidMount() {
-        const rooms  = this.state.rooms.map((room) => {
+        const roomsToBeDisplayed  = rooms.rooms.map((room) => {
             return {...room, selected:false}
         });
-       this.setState({ roomsToBeDisplayed: rooms })
+       this.setState({ roomsToBeDisplayed: roomsToBeDisplayed })
        document.addEventListener('click', this.handleClickOutside);
     }
 
@@ -492,7 +301,7 @@ class RoomsPage extends React.Component{
                     <Modal onCloseModal={() => this.onCreateRoom(false)} /> 
                 : null}
                 <ToolBar
-                    dropdownListItems={this.state.branches}
+                    dropdownListItems={branches.branches}
                     showDropdown={true}
                     showViewButton={true}
                     showBackButton={true}

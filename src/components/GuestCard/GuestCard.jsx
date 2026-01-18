@@ -3,7 +3,6 @@ import './GuestCard.scss';
 import user from '../../static/guest.png';
 
 export class GuestCard extends React.Component{
-    
     render(){
         return (
             <div

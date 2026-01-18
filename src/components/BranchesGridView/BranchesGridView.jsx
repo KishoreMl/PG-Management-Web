@@ -1,8 +1,6 @@
 import React from "react";
 import { BranchTile } from "../BranchTile/BranchTile";
-import { getBranches } from "../../sdk/pgmanagement";
 import './BranchesGridView.scss';
-
 
 export class BranchesGridView extends React.Component{
     render()
