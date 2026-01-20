@@ -10,7 +10,7 @@ import IconCaretDown from "../UIComponents/Icons/IconCaretDown";
 import IconCheckBoxChecked from "../UIComponents/Icons/IconCheckBoxChecked";
 import IconCheckBoxUnchecked from "../UIComponents/Icons/IconCheckBoxUnchecked";
 import FormInput, { getInputType } from "../UIComponents/FormInputs/FormInput";
-import { Toast } from "../Toast/Toast";
+import { Toast } from "../UIComponents/Toast/Toast";
 
 // mock data
 import branches from '../../mockData/branches.json';
@@ -25,6 +25,7 @@ class RoomsPage extends React.Component{
         super(props);
         this.state = {
             roomsToBeDisplayed: [],
+            rooms: [],
             currentBranchId:'',
             currentView:'grid',
             showRightPanel: false,
@@ -42,6 +43,37 @@ class RoomsPage extends React.Component{
                 { name: 'Dropdown', type: 'dropdown', options: ['option1', 'option2', 'option3', 'option4'] },
                 { name: 'Sharing', type:'number'},
             ],
+            filters: [
+                {
+                    label: "Sharing",
+                    value: "capacity",
+                    options: [
+                        {name:"1 Sharing", value:1, selected:false},
+                        {name:"2 Sharing", value:2, selected:false},
+                        {name:"3 Sharing", value:3, selected:false},
+                        {name:"4 Sharing", value:4, selected:false},
+                        {name:"5 Sharing", value:5, selected:false},
+                    ]
+                },
+                {
+                    label: "Type",
+                    value: "type",
+                    options: [
+                        {name:"AC", value:"AC",selected:false},
+                        {name:"NON-AC", value:"NON-AC",selected:false}
+                    ]
+                },
+                {
+                    label: "Rent",
+                    value: "rent",
+                    options: [
+                        {name:"5000", value:5000,selected:false},
+                        {name:"6000", value:6000,selected:false},
+                        {name:"7000", value:7000,selected:false},
+                        {name:"8000", value:8000,selected:false},
+                    ]
+                }
+            ],
             filterDropdown:-1,
             selectedFilters:[
                 {sharing:[]},
@@ -52,44 +84,14 @@ class RoomsPage extends React.Component{
         this.dropdownRef = React.createRef();  
     }
 
-
-    filter  =  [
-            {
-                label: "Sharing",
-                value: "capacity",
-                options: [
-                    {name:"1 Sharing", value:1, selected:false},
-                    {name:"2 Sharing", value:2, selected:false},
-                    {name:"3 Sharing", value:3, selected:false},
-                    {name:"4 Sharing", value:4, selected:false},
-                    {name:"5 Sharing", value:5, selected:false},
-                ]
-            },
-            {
-                label: "Type",
-                value: "type",
-                options: [
-                    {name:"AC", value:"AC",selected:false},
-                    {name:"NON-AC", value:"NON-AC",selected:false}
-                ]
-            },
-            {
-                label: "Rent",
-                value: "rent",
-                options: [
-                    {name:"5000", value:5000,selected:false},
-                    {name:"6000", value:6000,selected:false},
-                    {name:"7000", value:7000,selected:false},
-                    {name:"8000", value:8000,selected:false},
-                ]
-            }
-        ]
-    
    async componentDidMount() {
         const roomsToBeDisplayed  = rooms.rooms.map((room) => {
             return {...room, selected:false}
         });
-       this.setState({ roomsToBeDisplayed: roomsToBeDisplayed })
+       this.setState({ 
+           roomsToBeDisplayed: roomsToBeDisplayed,
+           rooms: rooms.rooms
+       })
        document.addEventListener('click', this.handleClickOutside);
     }
 
@@ -120,7 +122,7 @@ class RoomsPage extends React.Component{
 
     onRoomSelect(roomId) {  
         let selectedRoom = null;
-        let rooms = this.state.rooms.map((room) => {
+        let updatedRooms = this.state.roomsToBeDisplayed.map((room) => {
             if(room.id === roomId){
                 selectedRoom = room;
                 return {...room, selected:true}   
@@ -128,7 +130,7 @@ class RoomsPage extends React.Component{
                 return room;
             }
         });
-        this.setState({rightPanelType:'room', showRightPanel: true, selectedRoom: selectedRoom,roomsToBeDisplayed:rooms }) 
+        this.setState({rightPanelType:'room', showRightPanel: true, selectedRoom: selectedRoom,roomsToBeDisplayed:updatedRooms }) 
     }
 
     onGuestSelect(guest) {
@@ -172,7 +174,7 @@ class RoomsPage extends React.Component{
     handleFilters(filters) {
         if (filters.length>0) {
             let filteredRooms = [];
-            filters.map((filter) => {
+            filters.forEach((filter) => {
                 switch(filter.category)
                 {
                     case 'Sharing':
@@ -205,7 +207,7 @@ class RoomsPage extends React.Component{
 
     onFilerSelect(index) {
         this.setState(prevState => ({
-            filterDropdown: prevState.filterDropdownn === index ? null : index
+            filterDropdown: prevState.filterDropdown === index ? -1 : index
         }));
     }
 
@@ -224,7 +226,7 @@ class RoomsPage extends React.Component{
             console.log('tempMajorRooms ',tempMajorRooms);
             let roomsData = filteredRooms.length>0?filteredRooms:this.state.rooms;
             console.log('roomsData: ', roomsData);
-            filter.options.map((filterOption) =>{
+            filter.options.forEach((filterOption) =>{
                 let tempRooms = roomsData.filter((room) => room[filter.value]===filterOption.value && filterOption.selected);
                 tempMajorRooms = [...tempMajorRooms, ...tempRooms];
                 console.log('filter value: ', filterOption.value);

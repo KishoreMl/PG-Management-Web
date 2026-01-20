@@ -1,6 +1,6 @@
 import React from 'react';
 import './GuestCard.scss';
-import user from '../../static/guest.png';
+// import user from '../../static/guest.png';
 
 export class GuestCard extends React.Component{
     render(){
@@ -10,7 +10,7 @@ export class GuestCard extends React.Component{
                 draggable={true}
                 onClick={this.props.onClick}>
                 <div className='guest-img'>
-                    <img src={user} alt=''></img>
+                    <img src="" alt=''></img>
                 </div>
                 <div className='guest-details'>
                     {this.props.guest?this.props.guest.name:'Available'}
