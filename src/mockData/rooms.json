@@ -1,0 +1,272 @@
+{
+    "rooms": [
+        {
+            "branchId": "branchId1",
+            "id": "roomId1",
+            "number": "101",
+            "type": "NON-AC",
+            "capacity": 5,
+            "rent": 6500,
+            "guests": [
+                {
+                    "guestId": "guestId1",
+                    "name": "Ashwin",
+                    "rentPaid": true,
+                    "ebPaid": false
+                },
+                {
+                    "guestId": "guestId4",
+                    "name": "Akhilesh",
+                    "rentPaid": true,
+                    "ebPaid": false
+                },
+                {
+                    "guestId": "guestId5",
+                    "name": "Siva",
+                    "rentPaid": false,
+                    "ebPaid": false
+                }
+            ],
+            "fields": [
+                {
+                    "name": "Fieldname",
+                    "value": "Value"
+                }
+            ]
+        },
+        {
+            "branchId": "branchId2",
+            "id": "roomId2",
+            "number": "102",
+            "type": "AC",
+            "capacity": 4,
+            "rent": 6500,
+            "guests": [
+                {
+                    "guestId": "guestId1",
+                    "name": "Ashwin",
+                    "rentPaid": true,
+                    "ebPaid": false
+                },
+                {
+                    "guestId": "guestId2",
+                    "name": "Akhilesh",
+                    "rentPaid": true,
+                    "ebPaid": false
+                },
+                {
+                    "guestId": "guestId3",
+                    "name": "Siva",
+                    "rentPaid": false,
+                    "ebPaid": false
+                }
+            ],
+            "fields": [
+                {
+                    "name": "Fieldname",
+                    "value": "Value"
+                }
+            ]
+        },
+        {
+            "branchId": "branchId3",
+            "id": "roomId3",
+            "number": "103",
+            "type": "AC",
+            "capacity": 2,
+            "rent": 6500,
+            "guests": [
+                {
+                    "guestId": "guestId1",
+                    "name": "Ashwin",
+                    "rentPaid": true,
+                    "ebPaid": false
+                },
+                {
+                    "guestId": "guestId2",
+                    "name": "Akhilesh",
+                    "rentPaid": false,
+                    "ebPaid": false
+                }
+            ],
+            "fields": [
+                {
+                    "name": "Fieldname",
+                    "value": "Value"
+                }
+            ]
+        },
+        {
+            "branchId": "branchId4",
+            "id": "roomId4",
+            "number": "104",
+            "type": "AC",
+            "capacity": 1,
+            "rent": 6500,
+            "guests": [
+                {
+                    "guestId": "guestId1",
+                    "name": "Ashwin",
+                    "rentPaid": true,
+                    "ebPaid": false
+                }
+            ],
+            "fields": [
+                {
+                    "name": "Fieldname",
+                    "value": "Value"
+                }
+            ]
+        },
+        {
+            "branchId": "branchId5",
+            "id": "roomId5",
+            "number": "105",
+            "type": "AC",
+            "capacity": 3,
+            "rent": 6500,
+            "guests": [
+                {
+                    "guestId": "guestId1",
+                    "name": "Ashwin",
+                    "rentPaid": true,
+                    "ebPaid": false
+                },
+                {
+                    "guestId": "guestId2",
+                    "name": "Akhilesh",
+                    "rentPaid": false,
+                    "ebPaid": false
+                }
+            ],
+            "fields": [
+                {
+                    "name": "Fieldname",
+                    "value": "Value"
+                }
+            ]
+        },
+        {   
+            "branchId": "branchId6",
+            "id": "roomId6",
+            "number": "106",
+            "type": "AC",
+            "capacity": 4,
+            "rent": 6500,
+            "guests": [
+                {
+                    "guestId": "guestId1",
+                    "name": "Ashwin",
+                    "rentPaid": true,
+                    "ebPaid": false
+                },
+                {
+                    "guestId": "guestId2",
+                    "name": "Akhilesh",
+                    "rentPaid": false,
+                    "ebPaid": false
+                }
+            ],
+            "fields": [
+                {
+                    "name": "Fieldname",
+                    "value": "Value"
+                }
+            ]
+        },
+        {
+            "branchId": "branchId7",
+            "id": "roomId7",
+            "number": "107",
+            "type": "AC",
+            "capacity": 3,
+            "rent": 6500,
+            "guests": [
+                {
+                    "guestId": "guestId1",
+                    "name": "Ashwin",
+                    "rentPaid": true,
+                    "ebPaid": false
+                },
+                {
+                    "guestId": "guestId2",
+                    "name": "Akhilesh",
+                    "rentPaid": false,
+                    "ebPaid": false
+                }
+            ],
+            "fields": [
+                {
+                    "name": "Fieldname",
+                    "value": "Value"
+                }
+            ]
+        },
+        {
+            "branchId": "branchId8",
+            "id": "roomId8",
+            "number": "108",
+            "type": "AC",
+            "capacity": 3,
+            "rent": 6500,
+            "guests": [
+                {
+                    "guestId": "guestId1",
+                    "name": "Ashwin",
+                    "rentPaid": true,
+                    "ebPaid": false
+                }
+            ],
+            "fields": [
+                {
+                    "name": "Fieldname",
+                    "value": "Value"
+                }
+            ]
+        },
+        {
+            "branchId": "branchId9",
+            "id": "roomId9",
+            "number": "109",
+            "type": "AC",
+            "capacity": 3,
+            "rent": 6500,
+            "guests": [
+                {
+                    "guestId": "guestId1",
+                    "name": "Ashwin",
+                    "rentPaid": true,
+                    "ebPaid": false
+                }
+            ],
+            "fields": [
+                {
+                    "name": "Fieldname",
+                    "value": "Value"
+                }
+            ]
+        },
+        {
+            "branchId": "branchId10",
+            "id": "roomId10",
+            "number": "110",
+            "type": "AC",
+            "capacity": 3,
+            "rent": 6500,
+            "guests": [
+                {
+                    "guestId": "guestId1",
+                    "name": "Ashwin",
+                    "rentPaid": true,
+                    "ebPaid": false
+                }
+            ],
+            "fields": [
+                {
+                    "name": "Fieldname",
+                    "value": "Value"
+                }
+            ]
+        }
+    ]
+}

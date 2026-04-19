@@ -1,0 +1,4 @@
+license usecases
+Files storage for Guest proofs
+Whatsapp Message triggering
+Payment System
