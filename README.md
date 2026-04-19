@@ -174,6 +174,129 @@ API calls are centralized in `src/sdk/pgmanagement.js` using **Axios**.
 - Covers CRUD operations for **branches**, **rooms**, and **guests**
 - Several functions are currently **stubs** — implementation pending backend readiness
 
+> **Known issue — async/await bug:** `getBranches`, `getGuest`, `getRoom`, and `getRooms` use `.then()` without `await`, so they always return `undefined`. Each needs to be rewritten as `const response = await axios.get(...)`.
+
+> **Known issue — URL collision:** `getRoom(roomId)` and `getRooms(branchId)` call the same endpoint pattern (`GET /rooms/:id`). The backend must distinguish between a room ID and a branch ID, or the paths should be made distinct (e.g. `/rooms/by-branch/:branchId`).
+
+---
+
+### Branch Functions
+
+| Function | Method | Endpoint | Status | Parameters |
+|---|---|---|---|---|
+| `createBranch(pg)` | POST | `/branches` | Stub | `pg: { branchName, location, address, pincode, gender, type, isFoodAvailable }` |
+| `getBranches(ownerId)` | GET | `/branches/:ownerId` | Async bug | `ownerId: string` |
+| `updateBranch(pgId)` | PATCH | `/branches/:pgId` | Stub | `pgId: string` |
+| `deletepgBranch(pgId)` | DELETE | `/branches/:pgId` | Stub | `pgId: string` |
+
+**Branch object shape** (from API Design):
+
+```json
+{
+  "branchId": "string",
+  "branchName": "string",
+  "location": "string",
+  "address": "string",
+  "pincode": "string",
+  "gender": "MENS | WOMENS | BOTH",
+  "type": "AC | NON-AC | BOTH",
+  "isFoodAvailable": true
+}
+```
+
+---
+
+### Room Functions
+
+| Function | Method | Endpoint | Status | Parameters |
+|---|---|---|---|---|
+| `createRoom(room)` | POST | `/rooms` | Stub | `room: { branchId, roomNumber, type, capacity, rent, perDayRent }` |
+| `getRoom(roomId)` | GET | `/rooms/:roomId` | Async bug | `roomId: string` |
+| `getRooms(branchId)` | GET | `/rooms/:branchId` | Async bug | `branchId: string` |
+| `updateRoom(roomId)` | PATCH | `/rooms/:roomId` | Stub | `roomId: string` |
+| `deleteRoom(roomId)` | DELETE | `/rooms/:roomId` | Stub | `roomId: string` |
+
+**Room object shape** (from API Design):
+
+```json
+{
+  "roomId": "string",
+  "branchId": "string",
+  "roomNumber": "string",
+  "type": "AC | NON-AC",
+  "capacity": 3,
+  "rent": 5000,
+  "perDayRent": 200,
+  "ebReading": 120,
+  "guests": [
+    { "guestId": "string", "name": "string", "rentPaid": true, "ebPaid": false }
+  ]
+}
+```
+
+---
+
+### Guest Functions
+
+| Function | Method | Endpoint | Status | Parameters |
+|---|---|---|---|---|
+| `createGuest(guest)` | POST | `/guest` | Stub | `guest: { name, type, roomNumber, phoneNo, address, doj, advance }` |
+| `getGuest(guestId)` | GET | `/guest/:guestId` | Async bug | `guestId: string` |
+| `updateGuest(guestId)` | PATCH | `/guest/:guestId` | Stub | `guestId: string` |
+| `deleteGuest(guestId)` | DELETE | `/guest/:guestId` | Stub | `guestId: string` |
+
+**Guest object shape** (from API Design):
+
+```json
+{
+  "guestId": "string",
+  "type": "string",
+  "name": "string",
+  "roomNumber": "string",
+  "rentPaid": true,
+  "ebPaid": false,
+  "doj": "2024-01-15",
+  "dov": "2024-07-15",
+  "phoneNo": "string",
+  "address": "string",
+  "advance": 5000,
+  "advancePaid": true,
+  "advanceReturned": false,
+  "dues": [
+    { "month": "2024-03", "isRent": false, "isEb": true }
+  ]
+}
+```
+
+---
+
+### Future Scope — Ticket APIs (not yet implemented)
+
+| Function | Method | Endpoint | Description |
+|---|---|---|---|
+| `createTicket(ticket)` | POST | `/tickets` | Log a maintenance issue for a room |
+| `getTickets(branchId)` | GET | `/tickets/:branchId` | List all tickets for a branch |
+| `updateTicket(ticketId)` | PATCH | `/tickets/:ticketId` | Update status or add comments |
+| `deleteTicket(ticketId)` | DELETE | `/tickets/:ticketId` | Remove a ticket |
+
+**Ticket object shape:**
+
+```json
+{
+  "ticketId": "string",
+  "branchId": "string",
+  "roomId": "string",
+  "roomNumber": "string",
+  "issue": "string",
+  "status": "string",
+  "comments": "string",
+  "cAt": "2024-01-15T10:00:00Z",
+  "cBy": "string",
+  "mAt": "2024-01-20T14:00:00Z",
+  "mBy": "string"
+}
+```
+
 ---
 
 ## Roadmap
